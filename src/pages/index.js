@@ -1,13 +1,16 @@
-import * as React from "react"
+import React from "react";
+import Layout from "../components/Layout.jsx";
 
-const IndexPage = () => {
+function Home() {
   return (
-    <main>
-      
-    </main>
-  )
+    <div>
+      <Layout>
+      {/* page content */}
+      </Layout>
+    </div>
+  );
 }
 
-export default IndexPage
+export default Home;
 
-export const Head = () => <title>Home Page</title>
+export const Head = () => <title>The Eye Test</title>;
