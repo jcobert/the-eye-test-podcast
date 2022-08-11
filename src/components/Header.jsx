@@ -11,9 +11,11 @@ const navigation = [
   { name: "Contact", to: "/contact", current: false },
 ];
 
-const activeLinkStyle = "text-slate-50 hover:text-slate-100 bg-slate-400 hover:bg-slate-500";
+const activeLinkStyle =
+  "text-theme-primary hover:text-theme-secondary bg-white hover:bg-white";
 
-const activeLinkStyleMobile = "text-slate-50 hover:text-slate-100 bg-slate-400 hover:bg-slate-500";
+const activeLinkStyleMobile =
+  "text-slate-50 hover:text-slate-100 bg-slate-400 hover:bg-slate-500";
 
 function debounce(func, wait, immediate) {
   var timeout;
@@ -74,7 +76,7 @@ function Header() {
                 } transition-all`}
               >
                 <div className="absolute inset-y-0 right-0 flex items-center sm:hidden">
-                  {/* Mobile menu button*/}                 
+                  {/* Mobile menu button*/}
                   <Disclosure.Button
                     onClick={handleHamburger}
                     className={`inline-flex items-center justify-center p-2 rounded-md text-theme-primary hover:text-white hover:bg-theme-primary focus:outline-none
@@ -93,7 +95,9 @@ function Header() {
                   <div className="flex-shrink-0 flex items-center">
                     <Link key={"logoHome"} to={"/"}>
                       <div
-                        className="h-16 w-24 bg-center bg-contain bg-no-repeat"
+                        className={`h-16 w-24 bg-center bg-contain bg-no-repeat ${
+                          visible ? "" : "h-7"
+                        }`}
                         style={{ backgroundImage: "url('images/logo.png')" }}
                       ></div>
                     </Link>
@@ -104,7 +108,7 @@ function Header() {
                         <Link
                           key={item.name}
                           to={item.to}
-                          className={`text-xl transition-all px-3 py-2 rounded-md text-slate-700 hover:bg-theme-primary hover:text-white ${
+                          className={`text-xl transition-all px-3 py-2 rounded-md text-theme-primary hover:bg-theme-primary hover:text-white ${
                             visible ? "" : "text-lg py-0"
                           }`}
                           activeClassName={activeLinkStyle}
