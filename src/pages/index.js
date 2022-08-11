@@ -5,7 +5,7 @@ function Home() {
   return (
     <div>
       <Layout>
-      {/* page content */}
+        {/* page content */}
       </Layout>
     </div>
   );
