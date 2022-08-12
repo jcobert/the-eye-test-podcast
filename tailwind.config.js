@@ -11,6 +11,10 @@ module.exports = {
         "theme-secondary": "#3f9ddb",
         "theme-tertiary": "#ffc258",
       },
+      fontFamily: {
+        'jost': ["Jost", "Helvetica", "Arial", "sans-serif"],
+        'optician': ["OpticianSans", "Helvetica", "Arial", "sans-serif"],
+      },
     },
   },
   plugins: [],

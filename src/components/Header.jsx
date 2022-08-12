@@ -12,7 +12,7 @@ const navigation = [
 ];
 
 const activeLinkStyle =
-  "text-theme-primary hover:text-theme-secondary bg-white hover:bg-white";
+  "text-theme-primary font-black bg-slate-200 hover:bg-white";
 
 const activeLinkStyleMobile =
   "text-slate-50 hover:text-slate-100 bg-slate-400 hover:bg-slate-500";
@@ -61,7 +61,7 @@ function Header() {
   }
 
   return (
-    <div>
+    <div className="font-optician">
       <Disclosure
         as="nav"
         className={`bg-gray-100 fixed w-full z-50 top-0 shadow-md mb-16`}
@@ -108,7 +108,7 @@ function Header() {
                         <Link
                           key={item.name}
                           to={item.to}
-                          className={`text-xl transition-all px-3 py-2 rounded-md text-theme-primary hover:bg-theme-primary hover:text-white ${
+                          className={`text-lg transition-all px-3 py-2 rounded-md text-theme-primary hover:bg-theme-primary hover:text-white ${
                             visible ? "" : "text-lg py-0"
                           }`}
                           activeClassName={activeLinkStyle}
