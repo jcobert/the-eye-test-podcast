@@ -98,7 +98,7 @@ function Header() {
                         className={`h-16 w-24 bg-center bg-contain bg-no-repeat ${
                           visible ? "" : "h-7"
                         }`}
-                        style={{ backgroundImage: "url('images/logo.png')" }}
+                        style={{ backgroundImage: "url('images/the-eye-test-logo.png')" }}
                       ></div>
                     </Link>
                   </div>
@@ -137,7 +137,7 @@ function Header() {
                       key={item.name}
                       to={item.to}
                       className={
-                        "text-md leading-8 text-slate-700 hover:bg-theme-primary hover:text-white block px-3 py-2 rounded-md font-medium text-right"
+                        "text-xl leading-8 text-theme-primary hover:bg-theme-primary hover:text-white block px-3 py-2 rounded-md font-medium text-right"
                       }
                       activeClassName={activeLinkStyleMobile}
                       aria-current={item.current ? "page" : undefined}
