@@ -16,11 +16,12 @@ function Episodes() {
         title={"Episodes"}
         subtitle={"Listen to episodes of The Eye Test Podcast right here."}
       />
-      <div className="w-10/12 mx-auto">
+      {/* Spotify embed */}
+      {/* <div className="w-10/12 mx-auto">
         {spotifyEpisodes.map((ep) => (
           <SpotifyPlayer uri={ep.uri} height={"200"} width={"400"} title={ep.title} />
         ))}
-      </div>
+      </div> */}
     </div>
   );
 }
