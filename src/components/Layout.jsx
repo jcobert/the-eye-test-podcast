@@ -1,11 +1,10 @@
 import React from "react";
 import Header from "./Header";
 import Footer from "./Footer";
-import SpotifyPlayer from "./SpotifyPlayer";
+import GlobalPlayer from "./GlobalPlayer";
 
 function Layout({ children }) {
   const [atBottom, setAtBottom] = React.useState(false);
-  // let atBottom = false;
 
   const handleScroll = () => {
     const bottom =
@@ -39,13 +38,14 @@ function Layout({ children }) {
         >
           {children}
         </div>
-        <div
-          className={`absolute w-full lg:w-9/12 lg:left-[12.5%] top-full -translate-y-full ${
+        {/* Global player controls */}
+        {/* <div
+          className={`absolute bg-slate-200 h-20 w-full lg:w-8/12 lg:left-[17%] top-full -translate-y-full ${
             atBottom ? "" : ""
           }`}
         >
-          <SpotifyPlayer />
-        </div>
+          <GlobalPlayer />
+        </div> */}
       </div>
       <Footer />
     </div>
