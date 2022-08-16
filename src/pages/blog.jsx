@@ -9,7 +9,7 @@ function Blog({ data }) {
     <div>
       <Heading
         title={"Blog"}
-        subtitle={"Hot takes and  from The Eye Test contributors."}
+        subtitle={"Hot takes and expert knowledge from The Eye Test contributors."}
       />
       <div className="w-full flex flex-col gap-y-16 mb-24">
         {posts.map(({ node, index }) => {

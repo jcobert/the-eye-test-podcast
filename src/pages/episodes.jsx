@@ -14,7 +14,7 @@ function Episodes() {
     <div>
       <Heading
         title={"Episodes"}
-        subtitle={"Listen to episodes of The Eye Test Podcast right here."}
+        subtitle={"Listen to The Eye Test Podcast right here."}
       />
       {/* Spotify embed */}
       {/* <div className="w-10/12 mx-auto">

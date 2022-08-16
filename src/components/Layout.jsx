@@ -29,7 +29,7 @@ function Layout({ children }) {
   }, []);
 
   return (
-    <div className="flex-grow font-jost">
+    <div className="flex-grow font-jost bg-slate-100">
       <Header />
       <div className="min-h-screen flex flex-col">
         <div
