@@ -22,7 +22,7 @@ function Blog({ data }) {
 
 export const query = graphql`
   query {
-    allContentfulBlogPost(sort: {fields: publishDate, order: DESC}) {
+    allContentfulBlogPost(sort: { fields: publishDate, order: DESC }) {
       edges {
         node {
           title
@@ -31,9 +31,14 @@ export const query = graphql`
           }
           author {
             name
+            title
           }
           heroImage {
             url
+            gatsbyImage(
+              layout: FULL_WIDTH
+              placeholder: BLURRED
+            )
           }
           slug
           publishDate(formatString: "MMMM Do, YYYY")

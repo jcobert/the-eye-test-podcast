@@ -2,6 +2,7 @@ import React from "react";
 import { renderRichText } from "gatsby-source-contentful/rich-text";
 import { INLINES, BLOCKS, MARKS } from "@contentful/rich-text-types";
 import { Link } from "gatsby";
+import { Img } from "gatsby-plugin-image";
 import { ChevronRightIcon } from "@heroicons/react/solid";
 
 function PostPreview(props) {
@@ -35,15 +36,18 @@ function PostPreview(props) {
             {/* Preview Image */}
             <div
               className="h-36 bg-cover border shadow-sm w-full mx-auto lg:flex-initial"
-              style={{ backgroundImage: `url(${props.post.img})` }}
+              style={{ backgroundImage: `url(${props.post.heroImage.url})` }}
             ></div>
             {/* Title */}
-            <div className="py-4 text-center font-semibold text-2xl md:text-2xl text-theme-primary">
+            <div className="py-4 text-center font-semibold text-3xl md:text-3xl text-theme-primary">
               <h4>{props.post.title}</h4>
             </div>
             {/* Author */}
-            <div>
-              <p>{props.post.author.name}</p>
+            <div className="-mt-8 text-center">
+              <p className="text-slate-700">By {props.post.author.name}</p>
+              <p className="text-slate-500 text-sm">
+                {props.post.author.title}
+              </p>
             </div>
             {/* Description */}
             <p className="text-md sm:text-lg">
