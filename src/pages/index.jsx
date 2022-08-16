@@ -8,7 +8,7 @@ function Home() {
     <div>
       <Heading 
           title={"The Eye Test"}
-          subtitle={"The official home of all things Eye Test"}
+          subtitle={"The official home of all things The Eye Test."}
         />
       <div></div>
     </div>
