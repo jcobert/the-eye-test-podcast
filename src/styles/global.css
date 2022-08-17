@@ -1,5 +1,6 @@
 @tailwind base;
 @tailwind components;
+@tailwind utilities;
 
 @font-face {
   font-family: 'Jost';
@@ -15,5 +16,3 @@
   font-family: 'OpticianSans';
   src: local('OpticianSans'), url(/fonts/Optiker-K.woff) format('woff');
 }
-
-@tailwind utilities;

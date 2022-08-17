@@ -2,7 +2,7 @@ const path = require('path')
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions
-  const blogPost = path.resolve('./src/templates/BlogPost.jsx')
+  const blogPost = path.resolve('./src/components/templates/BlogPost.jsx')
   const result = await graphql(
     `
       {
@@ -18,7 +18,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   if (result.errors) {
     reporter.panicOnBuild(
-      `There was an error loading your Contentful posts`,
+      `There was an error loading your posts`,
       result.errors
     )
     return

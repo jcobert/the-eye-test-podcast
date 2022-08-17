@@ -9,20 +9,6 @@ function BlogPost({ data }) {
   const post = data.contentfulBlogPost;
   const previous = data.previous;
   const next = data.next;
-  // const plainTextDescription = documentToPlainTextString(
-  //   JSON.parse(post.description.raw)
-  // );
-  // const plainTextBody = documentToPlainTextString(JSON.parse(post.body.raw));
-  // const { minutes: timeToRead } = readingTime(plainTextBody);
-
-  // const options = {
-  //   renderNode: {
-  //     [BLOCKS.EMBEDDED_ASSET]: (node) => {
-  //       const { gatsbyImage, description } = node.data.target;
-  //       return <GatsbyImage image={getImage(gatsbyImage)} alt={description} />;
-  //     },
-  //   },
-  // };
 
   const options = {
     renderMark: {
@@ -43,7 +29,14 @@ function BlogPost({ data }) {
     },
   };
 
-  return <div>{renderRichText(post.description, options)}</div>;
+  return (
+    <div>
+      <div>
+        <h1 className="text-center text-3xl mb-8 lg:mb-14">{post.title}</h1>
+      </div>
+      <div className="">{renderRichText(post.body, options)}</div>
+    </div>
+  );
 }
 
 export const pageQuery = graphql`

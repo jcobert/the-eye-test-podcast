@@ -1,6 +1,4 @@
-import "./src/styles/global.css";
 import React from "react";
-import { Script } from "gatsby";
 
 export const onRenderBody = ({ setHeadComponents }) => {
   setHeadComponents([
@@ -29,8 +27,4 @@ export const onRenderBody = ({ setHeadComponents }) => {
       crossOrigin="anonymous"
     />,
   ]);
-};
-
-export const wrapPageElement = ({ element, props }) => {
-  return <Layout {...props}>{element}<Script src="https://open.spotify.com/embed-podcast/iframe-api/v1" /></Layout>;
 };
