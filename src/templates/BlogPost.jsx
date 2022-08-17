@@ -34,7 +34,7 @@ function BlogPost({ data }) {
       <div>
         <h1 className="text-center text-3xl mb-8 lg:mb-14">{post.title}</h1>
       </div>
-      <div className="">{renderRichText(post.body, options)}</div>
+      <div className="lg:px-24 xl:px-48">{renderRichText(post.body, options)}</div>
     </div>
   );
 }
