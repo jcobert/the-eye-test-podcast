@@ -1,11 +1,13 @@
 import React from "react";
 import { renderRichText } from "gatsby-source-contentful/rich-text";
 import { INLINES, BLOCKS, MARKS } from "@contentful/rich-text-types";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { Link } from "gatsby";
-import { Img } from "gatsby-plugin-image";
 import { ChevronRightIcon } from "@heroicons/react/solid";
 
 function PostPreview(props) {
+  const image = getImage(props.post.heroImage);
+
   const options = {
     renderMark: {
       [MARKS.BOLD]: (text) => <b className="font-bold">{text}</b>,
@@ -34,10 +36,13 @@ function PostPreview(props) {
         <div className="bg-slate-50 rounded border border-slate-400 shadow-md h-full flex flex-col justify-between">
           <div className="flex flex-col gap-y-6 text-left px-8 pt-6 md:pt-8 h-full justify-between">
             {/* Preview Image */}
-            <div
-              className="h-36 bg-cover border shadow-sm w-full mx-auto lg:flex-initial"
-              style={{ backgroundImage: `url(${props.post.heroImage.url})` }}
-            ></div>
+            <div className="rounded-lg">
+              <GatsbyImage
+                image={image}
+                alt="blog post image"
+                className="rounded-lg shadow-md w-full h-36 sm:h-56 mx-auto border border-slate-300"
+              />
+            </div>
             {/* Title */}
             <div className="py-4 text-center font-semibold text-3xl md:text-3xl text-theme-primary">
               <h4>{props.post.title}</h4>
