@@ -54,7 +54,7 @@ function PostPreview(props) {
               {renderRichText(props.post.description, options)}
             </p>
             {/* CTA */}
-            <div className="hover:bg-gray-50 bg-theme-primary hover:text-theme-primary text-white text-lg font-medium w-full sm:w-10/12 md:w-5/12 lg:w-4/12 h-16 md:h-14 mx-auto mt-4 mb-8 rounded-md border hover:border-theme-primary border-white transition-all">
+            <div className="bg-theme-primary hover:bg-gray-50 text-white hover:text-theme-primary text-lg font-medium w-full sm:w-10/12 md:w-5/12 lg:w-4/12 h-16 md:h-14 mx-auto mt-4 mb-8 rounded-md border border-white hover:border-theme-primary transition-all">
               <Link
                 to={`/blog/${props.post.slug}`}
                 className="flex justify-center h-full gap-x-2"
