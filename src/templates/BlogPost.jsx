@@ -28,8 +28,29 @@ function BlogPost({ data }) {
           </a>
         );
       },
+      [BLOCKS.HEADING_1]: (node, children) => {
+        return <h1 className="text-3xl">{children}</h1>;
+      },
       [BLOCKS.HEADING_2]: (node, children) => {
-        return <h2 className="text-2xl">{children}</h2>;
+        return <h2 className="text-2xl sm:text-[1.75rem] font-semibold">{children}</h2>;
+      },
+      [BLOCKS.HEADING_3]: (node, children) => {
+        return <h3 className="text-2xl">{children}</h3>;
+      },
+      [BLOCKS.HEADING_4]: (node, children) => {
+        return <h4 className="text-xl">{children}</h4>;
+      },
+      [BLOCKS.PARAGRAPH]: (node, children) => {
+        return <p className="mb-4 md:mb-6">{children}</p>;
+      },
+      [BLOCKS.UL_LIST]: (node, children) => {
+        return <ul className="list-disc pl-4 mb-8">{children}</ul>;
+      },
+      [BLOCKS.OL_LIST]: (node, children) => {
+        return <ol className="list-decimal pl-4 mb-8">{children}</ol>;
+      },
+      [BLOCKS.LIST_ITEM]: (node, children) => {
+        return <li className="-mb-3">{children}</li>;
       },
     },
   };
@@ -38,7 +59,7 @@ function BlogPost({ data }) {
     <div>
       {/* Title */}
       <div>
-        <h1 className="text-center text-4xl mb-8 lg:mb-12">{post.title}</h1>
+        <h1 className="text-center font-semibold text-4xl sm:text-5xl mb-8 lg:mb-12">{post.title}</h1>
       </div>
       {/* Image */}
       <div className="lg:px-24 xl:px-40 rounded-lg">
@@ -49,7 +70,7 @@ function BlogPost({ data }) {
         />
       </div>
       {/* Body */}
-      <div className="lg:px-24 xl:px-40 mt-8">
+      <div className="lg:px-24 xl:px-40 mt-8 md:mt-10">
         {renderRichText(post.body, options)}
       </div>
       {/* Post Nav */}
