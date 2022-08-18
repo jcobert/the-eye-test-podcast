@@ -3,12 +3,13 @@ import { graphql } from "gatsby";
 import { renderRichText } from "gatsby-source-contentful/rich-text";
 import { INLINES, BLOCKS, MARKS } from "@contentful/rich-text-types";
 import { Link } from "gatsby";
-import { Img } from "gatsby-plugin-image";
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 function BlogPost({ data }) {
   const post = data.contentfulBlogPost;
   const previous = data.previous;
   const next = data.next;
+  const image = getImage(post.heroImage)
 
   const options = {
     renderMark: {
@@ -31,10 +32,22 @@ function BlogPost({ data }) {
 
   return (
     <div>
+      {/* Title */}
       <div>
-        <h1 className="text-center text-3xl mb-8 lg:mb-14">{post.title}</h1>
+        <h1 className="text-center text-4xl mb-8 lg:mb-12">{post.title}</h1>
       </div>
-      <div className="lg:px-24 xl:px-48">{renderRichText(post.body, options)}</div>
+      {/* Image */}
+      <div className="lg:px-24 xl:px-48">
+      <GatsbyImage 
+        image={image}
+        alt="blog post image"
+        className="rounded-lg w-full h-72 mx-auto"
+      />
+      </div>
+      {/* Body */}
+      <div className="lg:px-24 xl:px-48 mt-8">
+        {renderRichText(post.body, options)}
+      </div>
     </div>
   );
 }
@@ -54,11 +67,13 @@ export const pageQuery = graphql`
       publishDate(formatString: "MMMM Do, YYYY")
       rawDate: publishDate
       heroImage {
-        gatsbyImage(layout: FULL_WIDTH, placeholder: BLURRED, width: 1280)
-        resize(height: 630, width: 1200) {
-          src
-        }
-      }
+            url
+            gatsbyImageData(
+              layout: FULL_WIDTH
+              placeholder: TRACED_SVG
+              resizingBehavior: FILL
+            )
+          }
       body {
         raw
       }
