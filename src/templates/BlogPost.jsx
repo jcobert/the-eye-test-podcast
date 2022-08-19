@@ -29,20 +29,34 @@ function BlogPost({ data }) {
         );
       },
       [BLOCKS.HEADING_1]: (node, children) => {
-        return <h1 className="text-3xl">{children}</h1>;
+        return <h1 className="text-3xl font-bold mb-2 lg:mb-3">{children}</h1>;
       },
       [BLOCKS.HEADING_2]: (node, children) => {
         return (
-          <h2 className="text-2xl sm:text-[1.75rem] font-semibold mb-2 lg:mb-3">
+          <h2 className="text-[1.6rem] leading-8 sm:text-[1.75rem] font-semibold mb-2 lg:mb-3">
             {children}
           </h2>
         );
       },
       [BLOCKS.HEADING_3]: (node, children) => {
-        return <h3 className="text-2xl text-slate-800 mb-1">{children}</h3>;
+        return <h3 className="text-2xl font-semibold mb-1">{children}</h3>;
       },
       [BLOCKS.HEADING_4]: (node, children) => {
-        return <h4 className="text-xl">{children}</h4>;
+        return (
+          <h4 className="text-[1.4rem] font-semibold text-slate-800">
+            {children}
+          </h4>
+        );
+      },
+      [BLOCKS.HEADING_5]: (node, children) => {
+        return (
+          <h5 className="text-[1.3rem] font-semibold text-slate-800">
+            {children}
+          </h5>
+        );
+      },
+      [BLOCKS.HEADING_6]: (node, children) => {
+        return <h6 className="text-xl text-slate-800">{children}</h6>;
       },
       [BLOCKS.PARAGRAPH]: (node, children) => {
         return <p className="mb-4 md:mb-6 text-base">{children}</p>;
@@ -55,6 +69,13 @@ function BlogPost({ data }) {
       },
       [BLOCKS.LIST_ITEM]: (node, children) => {
         return <li className="-mb-3 leading-snug">{children}</li>;
+      },
+      [BLOCKS.QUOTE]: (node, children) => {
+        return (
+          <div>
+            <p className="text-slate-700">{children}</p>
+          </div>
+        );
       },
     },
   };
