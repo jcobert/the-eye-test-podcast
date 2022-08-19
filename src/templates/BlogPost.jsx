@@ -32,7 +32,11 @@ function BlogPost({ data }) {
         return <h1 className="text-3xl">{children}</h1>;
       },
       [BLOCKS.HEADING_2]: (node, children) => {
-        return <h2 className="text-2xl sm:text-[1.75rem] font-semibold mb-2 lg:mb-3">{children}</h2>;
+        return (
+          <h2 className="text-2xl sm:text-[1.75rem] font-semibold mb-2 lg:mb-3">
+            {children}
+          </h2>
+        );
       },
       [BLOCKS.HEADING_3]: (node, children) => {
         return <h3 className="text-2xl text-slate-800 mb-1">{children}</h3>;
@@ -57,9 +61,23 @@ function BlogPost({ data }) {
 
   return (
     <div>
+      {/* Back Button */}
+      <div className="mb-4 sm:mb-8 lg:mb-4 text-xl">
+        <Link
+          to="/blog"
+          className="flex justify-center h-full gap-x-2 w-fit transition-all text-theme-primary hover:text-slate-400"
+        >
+          <div className="self-center">
+            <ChevronLeftIcon className="w-6 -ml-2" />
+          </div>
+          <p className="self-center">All Posts</p>
+        </Link>
+      </div>
       {/* Title */}
       <div>
-        <h1 className="text-center font-semibold text-4xl sm:text-5xl mb-8 lg:mb-12">{post.title}</h1>
+        <h1 className="text-center font-semibold text-4xl sm:text-5xl mb-8 sm:mb-10 lg:mb-12 sm:-mt-4 lg:-mt-2">
+          {post.title}
+        </h1>
       </div>
       {/* Image */}
       <div className="lg:px-24 xl:px-40 rounded-lg">
@@ -74,7 +92,7 @@ function BlogPost({ data }) {
         {renderRichText(post.body, options)}
       </div>
       {/* Post Nav */}
-      <div className="flex justify-around my-8 text-xl">
+      <div className="flex justify-around my-12 text-xl">
         {/* Previous */}
         <div
           className={`transition-all ${
