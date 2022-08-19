@@ -16,6 +16,9 @@ module.exports = {
         'jost': ["Jost", "Helvetica", "Arial", "sans-serif"],
         'optician': ["OpticianSans", "Helvetica", "Arial", "sans-serif"],
       },
+      fontSize: {
+        'base': '1.05rem'
+      }
     },
   },
   plugins: [],

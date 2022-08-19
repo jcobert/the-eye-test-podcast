@@ -32,16 +32,16 @@ function BlogPost({ data }) {
         return <h1 className="text-3xl">{children}</h1>;
       },
       [BLOCKS.HEADING_2]: (node, children) => {
-        return <h2 className="text-2xl sm:text-[1.75rem] font-semibold">{children}</h2>;
+        return <h2 className="text-2xl sm:text-[1.75rem] font-semibold mb-2 lg:mb-3">{children}</h2>;
       },
       [BLOCKS.HEADING_3]: (node, children) => {
-        return <h3 className="text-2xl">{children}</h3>;
+        return <h3 className="text-2xl text-slate-800 mb-1">{children}</h3>;
       },
       [BLOCKS.HEADING_4]: (node, children) => {
         return <h4 className="text-xl">{children}</h4>;
       },
       [BLOCKS.PARAGRAPH]: (node, children) => {
-        return <p className="mb-4 md:mb-6">{children}</p>;
+        return <p className="mb-4 md:mb-6 text-base">{children}</p>;
       },
       [BLOCKS.UL_LIST]: (node, children) => {
         return <ul className="list-disc pl-4 mb-8">{children}</ul>;
@@ -50,7 +50,7 @@ function BlogPost({ data }) {
         return <ol className="list-decimal pl-4 mb-8">{children}</ol>;
       },
       [BLOCKS.LIST_ITEM]: (node, children) => {
-        return <li className="-mb-3">{children}</li>;
+        return <li className="-mb-3 leading-snug">{children}</li>;
       },
     },
   };
