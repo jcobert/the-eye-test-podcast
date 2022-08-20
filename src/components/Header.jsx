@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "gatsby";
 import { Disclosure, Transition } from "@headlessui/react";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
+import { StaticImage } from "gatsby-plugin-image";
 
 const navigation = [
   { name: "Home", to: "/", current: true },
@@ -94,12 +95,16 @@ function Header() {
                 <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-between">
                   <div className="flex-shrink-0 flex items-center">
                     <Link key={"logoHome"} to={"/"}>
-                      <div
-                        className={`h-16 w-24 bg-center bg-contain bg-no-repeat ${
+                      <StaticImage
+                        className={`h-16 w-24 ${
                           visible ? "" : "h-7"
                         }`}
-                        style={{ backgroundImage: "url('images/the-eye-test-logo.png')" }}
-                      ></div>
+                        src="../../static/images/the-eye-test-logo.png"
+                        alt="The Eye Test logo"
+                        objectFit="contain"
+                        loading="eager"
+                        placeholder="tracedSVG"
+                      />
                     </Link>
                   </div>
                   <div className="hidden sm:block sm:ml-6 my-auto">
