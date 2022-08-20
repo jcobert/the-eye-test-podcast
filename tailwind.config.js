@@ -3,6 +3,7 @@ module.exports = {
   content: [
     "./src/pages/**/*.{js,jsx,ts,tsx}",
     "./src/components/**/*.{js,jsx,ts,tsx}",
+    "./src/templates/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
     extend: {
@@ -15,6 +16,9 @@ module.exports = {
         'jost': ["Jost", "Helvetica", "Arial", "sans-serif"],
         'optician': ["OpticianSans", "Helvetica", "Arial", "sans-serif"],
       },
+      fontSize: {
+        'base': '1.05rem'
+      }
     },
   },
   plugins: [],

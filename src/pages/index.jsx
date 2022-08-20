@@ -1,5 +1,4 @@
 import React from "react";
-import Layout from "../components/Layout.jsx";
 import Heading from "../components/Heading.jsx";
 
 function Home() {
