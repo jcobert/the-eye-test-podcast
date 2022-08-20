@@ -74,7 +74,7 @@ function BlogPost({ data }) {
       },
       [BLOCKS.QUOTE]: (node, children) => {
         return (
-          <div className="flex px-8 md:px-14 lg:px-20 py-8 text-theme-primary">
+          <div className="flex px-8 md:px-14 lg:px-20 py-8 text-slate-400">
             <FontAwesomeIcon
               icon={faQuoteLeft}
               pull="left"
