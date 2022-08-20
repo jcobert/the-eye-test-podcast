@@ -5,6 +5,8 @@ import { INLINES, BLOCKS, MARKS } from "@contentful/rich-text-types";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { Link } from "gatsby";
 import { ChevronRightIcon, ChevronLeftIcon } from "@heroicons/react/solid";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faQuoteLeft, faQuoteRight } from "@fortawesome/free-solid-svg-icons";
 
 function BlogPost({ data }) {
   const post = data.contentfulBlogPost;
@@ -72,8 +74,18 @@ function BlogPost({ data }) {
       },
       [BLOCKS.QUOTE]: (node, children) => {
         return (
-          <div>
-            <p className="text-slate-700">{children}</p>
+          <div className="flex px-8 md:px-14 lg:px-20 py-8 text-theme-primary">
+            <FontAwesomeIcon
+              icon={faQuoteLeft}
+              pull="left"
+              className="text-xl sm:text-2xl pr-2 -mt-2"
+            />
+            <p className="text-slate-600">{children}</p>
+            <FontAwesomeIcon
+              icon={faQuoteRight}
+              pull="right"
+              className="text-xl sm:text-2xl pl-2 mb-2 self-end"
+            />
           </div>
         );
       },
