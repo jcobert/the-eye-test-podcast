@@ -6,7 +6,7 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { Link } from "gatsby";
 import { ChevronRightIcon, ChevronLeftIcon } from "@heroicons/react/solid";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faQuoteLeft, faQuoteRight } from "@fortawesome/free-solid-svg-icons";
+import { faQuoteLeft, faQuoteRight } from "@fortawesome/pro-solid-svg-icons";
 
 function BlogPost({ data }) {
   const post = data.contentfulBlogPost;
