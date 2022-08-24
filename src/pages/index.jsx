@@ -17,7 +17,7 @@ function Home({ data }) {
     <div>
       <Heading
         title={"The Eye Test"}
-        subtitle={"The official home of The Eye Test Podcast."}
+        subtitle={"Welcome to the official home of The Eye Test Podcast."}
       />
       <div className="flex flex-col gap-y-16">
         {/* Apple Podcast Player */}
