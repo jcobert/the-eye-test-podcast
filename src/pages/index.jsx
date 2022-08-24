@@ -8,7 +8,7 @@ function Home({ data }) {
   const postPreviews = [];
 
   posts.map(({ node, index }) => {
-    postPreviews.push(<PostPreview key={index} post={node} />);
+    postPreviews.push(<PostPreview key={index} post={node} layout="compact" />);
   });
 
   return (
@@ -19,7 +19,7 @@ function Home({ data }) {
       />
       {/* Featured Blog Posts */}
       <div>
-      <h3 className="text-2xl text-center">Recent Blog Posts</h3>
+      <h3 className="text-xl md:text-2xl text-center text-slate-600 mb-4 md:mb-8">Recent Blog Posts</h3>
         <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-16 gap-x-8 mb-24">
           {postPreviews.slice(0, 3)}
         </div>
