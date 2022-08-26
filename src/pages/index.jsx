@@ -3,7 +3,11 @@ import Heading from "../components/Heading.jsx";
 import PostPreview from "../components/PostPreview.jsx";
 import { graphql } from "gatsby";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMicrophoneLines } from "@fortawesome/pro-solid-svg-icons";
+import {
+  faMicrophoneLines,
+  faQuoteLeft,
+  faQuoteRight,
+} from "@fortawesome/pro-solid-svg-icons";
 
 function Home({ data }) {
   const posts = data.allContentfulBlogPost.edges;
@@ -40,16 +44,29 @@ function Home({ data }) {
           </div>
           {/* Placeholder */}
           <div className="col-start-1 col-span-1 lg:col-span-2 xl:col-span-3 row-start-1 border-slate-400 rounded p-2 lg:p-4">
-            <div className="mb-12">
+            <div className="mb-6">
               <FontAwesomeIcon
                 icon={faMicrophoneLines}
-                className="text-[4rem] md:text-[5rem] lg:text-[6rem] text-slate-700 mx-auto w-full"
+                className="text-[5rem] lg:text-[6rem] text-slate-700 mx-auto w-full"
               />
             </div>
             <div className="flex flex-col gap-y-4">
-              <p>
-                This is The Eye Test Podcast. I am your host, Brian Donovan.
-              </p>
+              <div className="flex justify-center w-full md:w-11/12 lg:w-10/12 mx-auto py-8 text-slate-700">
+                <FontAwesomeIcon
+                  icon={faQuoteLeft}
+                  pull="left"
+                  className="text-xl sm:text-2xl lg:text-3xl text-slate-400 pr-2 -mt-2"
+                />
+                <p className="text-lg sm:text-xl lg:text-2xl text-center">
+                  This is The Eye Test Podcast.
+                  <br />I am your host, Brian Donovan.
+                </p>
+                <FontAwesomeIcon
+                  icon={faQuoteRight}
+                  pull="right"
+                  className="text-xl sm:text-2xl lg:text-3xl text-slate-400 pl-2 mb-2 self-end"
+                />
+              </div>
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
                 nec ante id ligula rutrum blandit. Nunc blandit vehicula congue.
