@@ -8,8 +8,8 @@ function SpotifyPlayer(props) {
     let element = document.getElementById("embed-iframe");
     let options = {
       uri: uri,
-      height: height,
-      width: width,
+      // height: height,
+      // width: width,
     };
     let callback = (EmbedController) => {};
     IFrameAPI.createController(element, options, callback);
@@ -17,7 +17,7 @@ function SpotifyPlayer(props) {
   
   return (
     <div className="">
-      <div id="embed-iframe" className="mx-auto"></div>
+      <div id="embed-iframe" className=""></div>
     </div>
   );
 }
