@@ -25,12 +25,12 @@ function Home({ data }) {
         title={"The Eye Test"}
         subtitle={"Welcome to the official home of The Eye Test Podcast."}
       />
-      <div className="flex flex-col gap-y-16 md:gap-y-20 lg:gap-y-28 lg:px-2">
+      <div className="flex flex-col gap-y-20 md:gap-y-24 lg:gap-y-28 xl:gap-y-32 lg:px-2">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 xl:grid-cols-6 md:gap-x-4 gap-y-16 justify-items-stretch">
           {/* Apple Podcast Player */}
           <div className="md:col-start-2 lg:col-start-3 lg:col-span-3 xl:col-start-4">
             <h3 className="text-xl md:text-2xl text-center lg:text-left text-slate-600 mb-4 lg:mb-8">
-              Catch Up on the Latest Episodes
+              Catch Up on the Latest Episodes!
             </h3>
             <iframe
               className="w-full max-w-3xl mx-auto border border-slate-400 shadow rounded overflow-hidden"
@@ -70,12 +70,12 @@ function Home({ data }) {
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
                 nec ante id ligula rutrum blandit. Nunc blandit vehicula congue.
-                Cras luctus, neque nec sodales euismod, mi ipsum facilisis ex,
-                non lacinia nunc felis sit amet neque. Aliquam a libero enim.
-                Aliquam magna odio, gravida eget blandit a, convallis non
-                mauris. Fusce ultricies nisi suscipit consequat ornare. Nullam
-                scelerisque libero a augue consectetur, ac commodo massa
-                suscipit.
+                Cras luctus, neque nec sodales euismod.
+              </p>
+              <p>
+                Aliquam a libero enim. Aliquam magna odio, gravida eget blandit
+                a, convallis non mauris. Fusce ultricies nisi suscipit consequat
+                ornare.
               </p>
             </div>
           </div>
