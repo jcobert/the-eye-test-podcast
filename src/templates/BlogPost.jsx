@@ -97,10 +97,10 @@ function BlogPost({ data }) {
   return (
     <div>
       {/* Back Button */}
-      <div className="mb-4 sm:mb-8 lg:mb-4 text-xl">
+      <div className="mb-6 sm:mb-8 lg:mb-4 text-xl">
         <Link
           to="/blog"
-          className="flex justify-center h-full gap-x-2 w-fit transition-all text-theme-primary hover:text-slate-400"
+          className="flex justify-center h-full gap-x-2 w-fit transition-all text-slate-600 hover:text-slate-400"
         >
           <div className="self-center">
             <ChevronLeftIcon className="w-6 -ml-2" />
@@ -110,7 +110,7 @@ function BlogPost({ data }) {
       </div>
       {/* Title */}
       <div>
-        <h1 className="text-center font-semibold text-4xl sm:text-5xl mb-4 md:mb-6 lg:mb-8 sm:-mt-4 lg:-mt-2">
+        <h1 className="text-center text-theme-primary font-semibold text-4xl sm:text-5xl mb-4 md:mb-6 lg:mb-8 sm:-mt-4 lg:-mt-2">
           {post.title}
         </h1>
       </div>
