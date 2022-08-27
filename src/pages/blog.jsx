@@ -34,6 +34,17 @@ export const query = graphql`
           author {
             name
             title
+            image {
+              gatsbyImageData(
+                layout: CONSTRAINED
+                cornerRadius: 9999
+                width: 100
+                cropFocus: CENTER
+                height: 100
+                resizingBehavior: FILL
+                placeholder: TRACED_SVG
+              )
+            }
           }
           heroImage {
             url
