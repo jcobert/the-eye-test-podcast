@@ -14,6 +14,7 @@ function BlogPost({ data }) {
   const previous = data.previous;
   const next = data.next;
   const image = getImage(post.heroImage);
+  const avatar = getImage(post.author.image);
 
   const options = {
     renderMark: {
@@ -109,18 +110,23 @@ function BlogPost({ data }) {
       </div>
       {/* Title */}
       <div>
-        <h1 className="text-center font-semibold text-4xl sm:text-5xl mb-2 sm:-mt-4 lg:-mt-2">
+        <h1 className="text-center font-semibold text-4xl sm:text-5xl mb-2 md:mb-6 lg:mb-8 sm:-mt-4 lg:-mt-2">
           {post.title}
         </h1>
       </div>
       {/* Author */}
-      <div className="text-center text-slate-700 text-sm flex gap-x-1 justify-center items-center mb-4 sm:mb-10 lg:mb-12">
+      <div className="text-center text-slate-700 text-sm md:text-base flex gap-x-1 justify-center items-center mb-4 sm:mb-10 lg:mb-12">
+        {/* Avatar */}
+        <div className="w-12 lg:w-16 md:mx-2">
+          <GatsbyImage
+            image={avatar}
+            alt="author photo"
+            className="rounded-full border-2 border-theme-primary"
+          />
+        </div>
         <p>By {post.author.name}</p>
-        <FontAwesomeIcon 
-          icon={faPipe}
-          className="w-2 text-slate-600"
-        />
-        <p className="text-slate-500 text-sm">{post.author.title}</p>
+        <FontAwesomeIcon icon={faPipe} className="w-2 text-slate-600" />
+        <p className="text-slate-500">{post.author.title}</p>
       </div>
       {/* Image */}
       <div className="lg:px-24 xl:px-40 rounded-lg">
@@ -195,6 +201,17 @@ export const pageQuery = graphql`
       author {
         name
         title
+        image {
+          gatsbyImageData(
+            layout: CONSTRAINED
+            cornerRadius: 9999
+            width: 200
+            cropFocus: CENTER
+            height: 200
+            resizingBehavior: FILL
+            placeholder: TRACED_SVG
+          )
+        }
       }
       publishDate(formatString: "MMMM Do, YYYY")
       rawDate: publishDate
