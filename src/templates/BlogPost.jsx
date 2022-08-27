@@ -110,23 +110,23 @@ function BlogPost({ data }) {
       </div>
       {/* Title */}
       <div>
-        <h1 className="text-center font-semibold text-4xl sm:text-5xl mb-2 md:mb-6 lg:mb-8 sm:-mt-4 lg:-mt-2">
+        <h1 className="text-center font-semibold text-4xl sm:text-5xl mb-4 md:mb-6 lg:mb-8 sm:-mt-4 lg:-mt-2">
           {post.title}
         </h1>
       </div>
       {/* Author */}
-      <div className="text-center text-slate-700 text-sm md:text-base flex gap-x-1 justify-center items-center mb-4 sm:mb-10 lg:mb-12">
+      <div className="text-center text-slate-700 text-sm md:text-base flex gap-x-1 justify-center items-center mb-6 sm:mb-10 lg:mb-12">
         {/* Avatar */}
-        <div className="w-12 lg:w-16 md:mx-2">
+        <div className="w-12 lg:w-16 mx-2">
           <GatsbyImage
             image={avatar}
             alt="author photo"
-            className="rounded-full border border-theme-primary"
+            className="rounded-full shadow border border-theme-primary"
           />
         </div>
-        <p>By {post.author.name}</p>
+        <p className="flex-shrink-0">By {post.author.name}</p>
         <FontAwesomeIcon icon={faPipe} className="w-2 text-slate-600" />
-        <p className="text-slate-500">{post.author.title}</p>
+        <p className="text-slate-500 flex-shrink-0">{post.author.title}</p>
       </div>
       {/* Image */}
       <div className="lg:px-24 xl:px-40 rounded-lg">
@@ -145,7 +145,7 @@ function BlogPost({ data }) {
         {renderRichText(post.body, options)}
       </div>
       {/* Post Nav */}
-      <div className="flex justify-around my-12 text-xl">
+      <div className="flex justify-around my-12 md:my-16 text-xl">
         {/* Previous */}
         <div
           className={`transition-all ${
