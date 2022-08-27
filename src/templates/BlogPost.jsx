@@ -121,7 +121,7 @@ function BlogPost({ data }) {
           <GatsbyImage
             image={avatar}
             alt="author photo"
-            className="rounded-full border-2 border-theme-primary"
+            className="rounded-full border border-theme-primary"
           />
         </div>
         <p>By {post.author.name}</p>
