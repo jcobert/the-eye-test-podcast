@@ -7,6 +7,7 @@ import { Link } from "gatsby";
 import { ChevronRightIcon, ChevronLeftIcon } from "@heroicons/react/solid";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faQuoteLeft, faQuoteRight } from "@fortawesome/pro-solid-svg-icons";
+import { faPipe } from "@fortawesome/pro-regular-svg-icons";
 
 function BlogPost({ data }) {
   const post = data.contentfulBlogPost;
@@ -108,9 +109,18 @@ function BlogPost({ data }) {
       </div>
       {/* Title */}
       <div>
-        <h1 className="text-center font-semibold text-4xl sm:text-5xl mb-8 sm:mb-10 lg:mb-12 sm:-mt-4 lg:-mt-2">
+        <h1 className="text-center font-semibold text-4xl sm:text-5xl mb-2 sm:-mt-4 lg:-mt-2">
           {post.title}
         </h1>
+      </div>
+      {/* Author */}
+      <div className="text-center text-slate-700 text-sm flex gap-x-1 justify-center items-center mb-4 sm:mb-10 lg:mb-12">
+        <p>By {post.author.name}</p>
+        <FontAwesomeIcon 
+          icon={faPipe}
+          className="w-2 text-slate-600"
+        />
+        <p className="text-slate-500 text-sm">{post.author.title}</p>
       </div>
       {/* Image */}
       <div className="lg:px-24 xl:px-40 rounded-lg">
@@ -119,6 +129,10 @@ function BlogPost({ data }) {
           alt="blog post image"
           className="rounded-lg shadow-md w-full h-52 sm:h-56 md:h-72 mx-auto"
         />
+      </div>
+      {/* Date Published */}
+      <div className="text-sm text-left text-slate-700 lg:px-24 xl:px-40 mt-2">
+        <p>{post.publishDate}</p>
       </div>
       {/* Body */}
       <div className="lg:px-24 xl:px-40 mt-8 md:mt-10">
@@ -180,6 +194,7 @@ export const pageQuery = graphql`
       title
       author {
         name
+        title
       }
       publishDate(formatString: "MMMM Do, YYYY")
       rawDate: publishDate
