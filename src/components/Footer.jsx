@@ -38,7 +38,7 @@ function Footer() {
             <FontAwesomeIcon icon={faPaperPlane} className="" />
           </a>
         </div>
-        <div className="border border-slate-400 rounded-md p-2 md:p-1 bg-slate-800 md:ml-8 hover:bg-slate-700 transition-all">
+        <div className="border border-slate-400 hover:border-slate-200 rounded-md p-2 md:p-1 bg-slate-800 md:ml-8 hover:bg-slate-700 transition-all">
           <Link to={links.apple}>
             <ApplePodcast className="mx-auto md:w-28" />
           </Link>
