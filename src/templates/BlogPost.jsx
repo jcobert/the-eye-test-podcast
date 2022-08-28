@@ -7,12 +7,14 @@ import { Link } from "gatsby";
 import { ChevronRightIcon, ChevronLeftIcon } from "@heroicons/react/solid";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faQuoteLeft, faQuoteRight } from "@fortawesome/pro-solid-svg-icons";
+import { faPipe } from "@fortawesome/pro-regular-svg-icons";
 
 function BlogPost({ data }) {
   const post = data.contentfulBlogPost;
   const previous = data.previous;
   const next = data.next;
   const image = getImage(post.heroImage);
+  const avatar = getImage(post.author.image);
 
   const options = {
     renderMark: {
@@ -95,10 +97,10 @@ function BlogPost({ data }) {
   return (
     <div>
       {/* Back Button */}
-      <div className="mb-4 sm:mb-8 lg:mb-4 text-xl">
+      <div className="mb-6 sm:mb-8 lg:mb-4 text-xl">
         <Link
           to="/blog"
-          className="flex justify-center h-full gap-x-2 w-fit transition-all text-theme-primary hover:text-slate-400"
+          className="flex justify-center h-full gap-x-2 w-fit transition-all text-slate-600 hover:text-slate-400"
         >
           <div className="self-center">
             <ChevronLeftIcon className="w-6 -ml-2" />
@@ -108,9 +110,23 @@ function BlogPost({ data }) {
       </div>
       {/* Title */}
       <div>
-        <h1 className="text-center font-semibold text-4xl sm:text-5xl mb-8 sm:mb-10 lg:mb-12 sm:-mt-4 lg:-mt-2">
+        <h1 className="text-center text-theme-primary font-semibold text-4xl sm:text-5xl mb-4 md:mb-6 lg:mb-8 sm:-mt-4 lg:-mt-2">
           {post.title}
         </h1>
+      </div>
+      {/* Author */}
+      <div className="text-center text-slate-700 text-sm md:text-base flex gap-x-1 justify-center items-center mb-6 sm:mb-10 lg:mb-12">
+        {/* Avatar */}
+        <div className="w-12 lg:w-16 mx-2">
+          <GatsbyImage
+            image={avatar}
+            alt="author photo"
+            className="rounded-full shadow border border-theme-primary"
+          />
+        </div>
+        <p className="flex-shrink-0">By {post.author.name}</p>
+        <FontAwesomeIcon icon={faPipe} className="w-2 text-slate-600" />
+        <p className="text-slate-500 flex-shrink-0">{post.author.title}</p>
       </div>
       {/* Image */}
       <div className="lg:px-24 xl:px-40 rounded-lg">
@@ -120,12 +136,16 @@ function BlogPost({ data }) {
           className="rounded-lg shadow-md w-full h-52 sm:h-56 md:h-72 mx-auto"
         />
       </div>
+      {/* Date Published */}
+      <div className="text-sm text-left text-slate-700 lg:px-24 xl:px-40 mt-2">
+        <p>{post.publishDate}</p>
+      </div>
       {/* Body */}
       <div className="lg:px-24 xl:px-40 mt-8 md:mt-10">
         {renderRichText(post.body, options)}
       </div>
       {/* Post Nav */}
-      <div className="flex justify-around my-12 text-xl">
+      <div className="flex justify-around my-12 md:my-16 text-xl">
         {/* Previous */}
         <div
           className={`transition-all ${
@@ -180,6 +200,18 @@ export const pageQuery = graphql`
       title
       author {
         name
+        title
+        image {
+          gatsbyImageData(
+            layout: CONSTRAINED
+            cornerRadius: 9999
+            width: 200
+            cropFocus: CENTER
+            height: 200
+            resizingBehavior: FILL
+            placeholder: TRACED_SVG
+          )
+        }
       }
       publishDate(formatString: "MMMM Do, YYYY")
       rawDate: publishDate

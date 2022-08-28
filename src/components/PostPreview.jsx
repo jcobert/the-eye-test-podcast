@@ -7,7 +7,19 @@ import { ChevronRightIcon } from "@heroicons/react/solid";
 
 function PostPreview(props) {
   const image = getImage(props.post.heroImage);
+  const avatar = getImage(props.post.author.image);
   const layout = props.layout;
+
+  let avatarComponent = "";
+  if (layout !== "compact") {
+    avatarComponent = (
+      <GatsbyImage
+        image={avatar}
+        alt="author photo"
+        className="rounded-full border border-theme-primary"
+      />
+    );
+  }
 
   const options = {
     renderMark: {
@@ -75,14 +87,24 @@ function PostPreview(props) {
                     : "row-start-3"
                 }`}
               >
-                <p className="text-slate-700">By {props.post.author.name}</p>
-                <p
-                  className={`${
-                    layout === "compact" ? "hidden" : "text-slate-500 text-sm"
-                  }`}
-                >
-                  {props.post.author.title}
-                </p>
+                <div className="flex justify-center items-center gap-x-2">
+                  {/* Avatar */}
+                  <div className={`${layout === "compact" ? "hidden" : "w-10 lg:w-12 md:mx-2"}`}>{avatarComponent}</div>
+                  <div className="flex flex-col">
+                    <p className="text-slate-700">
+                      By {props.post.author.name}
+                    </p>
+                    <p
+                      className={`${
+                        layout === "compact"
+                          ? "hidden"
+                          : "text-slate-500 text-sm"
+                      }`}
+                    >
+                      {props.post.author.title}
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
             {/* Date (compact layout only) */}
