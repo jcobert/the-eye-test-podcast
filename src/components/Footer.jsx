@@ -6,6 +6,8 @@ import {
   faSpotify,
   faInstagram,
 } from "@fortawesome/free-brands-svg-icons";
+import { Link } from "gatsby";
+import ApplePodcast from "../../static/images/apple-podcasts/mono-white.svg";
 
 function Footer() {
   const currentYear = new Date().getFullYear();
@@ -14,6 +16,8 @@ function Footer() {
     instagram: "https://www.instagram.com/b_dono24",
     spotify: "https://open.spotify.com/show/0XYbDTCopdke2SPAWIxM0f",
     email: "mailto:brian@eyetestpodcast.com",
+    apple:
+      "https://podcasts.apple.com/us/podcast/the-eye-test-podcast/id1611984184?itsct=podcast_box&itscg=30200&ls=1",
   };
 
   return (
@@ -30,12 +34,14 @@ function Footer() {
           <a class="hover:text-slate-300 transition-all" href={links.spotify}>
             <FontAwesomeIcon icon={faSpotify} className="" />
           </a>
-          <a
-            class="hover:text-slate-300 transition-all"
-            href={links.email}
-          >
+          <a class="hover:text-slate-300 transition-all" href={links.email}>
             <FontAwesomeIcon icon={faPaperPlane} className="" />
           </a>
+        </div>
+        <div className="border rounded-md p-2 bg-slate-800">
+          <Link to={links.apple}>
+            <ApplePodcast className="mx-auto" />
+          </Link>
         </div>
         <div className="flex-grow md:ml-12">
           <p className="font-optician text-slate-400 text-2xl md:text-lg">
