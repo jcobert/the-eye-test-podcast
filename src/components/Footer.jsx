@@ -24,7 +24,7 @@ function Footer() {
     <div className="w-full bg-slate-700">
       <div className="md:max-w-7xl md:w-11/12 mx-auto text-white py-8 md:py-4 flex flex-col md:flex-row gap-y-8 md:justify-between items-center">
         {/* Links */}
-        <div class="text-3xl md:text-xl flex gap-x-16 md:gap-x-12">
+        <div class="text-3xl md:text-xl flex gap-x-16 md:gap-x-10">
           <a class="hover:text-slate-300 transition-all" href={links.twitter}>
             <FontAwesomeIcon icon={faTwitter} className="" />
           </a>
@@ -38,12 +38,12 @@ function Footer() {
             <FontAwesomeIcon icon={faPaperPlane} className="" />
           </a>
         </div>
-        <div className="border rounded-md p-2 bg-slate-800">
+        <div className="border border-slate-400 rounded-md p-2 md:p-1 bg-slate-800 md:ml-8 hover:bg-slate-700 transition-all">
           <Link to={links.apple}>
-            <ApplePodcast className="mx-auto" />
+            <ApplePodcast className="mx-auto md:w-28" />
           </Link>
         </div>
-        <div className="flex-grow md:ml-12">
+        <div className="flex-grow md:ml-6">
           <p className="font-optician text-slate-400 text-2xl md:text-lg">
             The Eye Test
           </p>
