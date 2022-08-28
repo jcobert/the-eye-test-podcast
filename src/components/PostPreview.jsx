@@ -89,7 +89,7 @@ function PostPreview(props) {
               >
                 <div className="flex justify-center items-center gap-x-2">
                   {/* Avatar */}
-                  <div className="w-10 lg:w-12 md:mx-2">{avatarComponent}</div>
+                  <div className={`${layout === "compact" ? "hidden" : "w-10 lg:w-12 md:mx-2"}`}>{avatarComponent}</div>
                   <div className="flex flex-col">
                     <p className="text-slate-700">
                       By {props.post.author.name}
