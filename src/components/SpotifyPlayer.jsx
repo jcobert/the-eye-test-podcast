@@ -8,13 +8,22 @@ function SpotifyPlayer(props) {
     let element = document.getElementById("embed-iframe");
     let options = {
       uri: uri,
-      // height: height,
-      // width: width,
+      height: height,
+      width: width,
     };
-    let callback = (EmbedController) => {};
+    let callback = (EmbedController) => {
+      document
+        .querySelectorAll("#episodeButtons > button")
+        .forEach((episode) => {
+          episode.addEventListener("click", () => {
+            EmbedController.loadUri(episode.dataset.spotifyId);
+            EmbedController.togglePlay();
+          });
+        });
+    };
     IFrameAPI.createController(element, options, callback);
   };
-  
+
   return (
     <div className="">
       <div id="embed-iframe" className=""></div>

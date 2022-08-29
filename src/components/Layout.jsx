@@ -4,6 +4,7 @@ import Footer from "./Footer";
 import GlobalPlayer from "./GlobalPlayer";
 
 function Layout({ children }) {
+  
   return (
     <div className="flex-grow font-jost bg-slate-100">
       <Header />
@@ -14,7 +15,7 @@ function Layout({ children }) {
       </div>
       {/* Global Media Player */}
       <div
-        className={`sticky bottom-0 mx-auto bg-slate-200 border border-slate-300 h-20 w-full lg:w-8/12 lg:rounded-t-md shadow-md`}
+        className={`sticky bottom-0 mx-auto bg-[rgb(45,124,189)] border border-slate-300 h-24 w-full lg:w-8/12 lg:rounded-t-md shadow-md`}
       >
         <GlobalPlayer />
       </div>
