@@ -4,48 +4,19 @@ import Footer from "./Footer";
 import GlobalPlayer from "./GlobalPlayer";
 
 function Layout({ children }) {
-  const [atBottom, setAtBottom] = React.useState(false);
-
-  const handleScroll = () => {
-    const bottom =
-      Math.ceil(window.innerHeight + window.scrollY) >=
-      document.documentElement.scrollHeight;
-
-    if (bottom) {
-      setAtBottom(true);
-    } else {
-      setAtBottom(false);
-    }
-  };
-
-  React.useEffect(() => {
-    window.addEventListener("scroll", handleScroll, {
-      passive: true,
-    });
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
   return (
     <div className="flex-grow font-jost bg-slate-100">
       <Header />
       <div className="min-h-screen flex flex-col">
-        <div
-          className="w-11/12 lg:max-w-7xl lg:w-11/12 mx-auto mt-24 sm:mt-32 lg:mt-32 px-2 sm:px-8 md:px-10 lg:px-0"
-          onScroll={handleScroll}
-        >
+        <div className="w-11/12 lg:max-w-7xl lg:w-11/12 mx-auto mt-24 sm:mt-32 lg:mt-32 px-2 sm:px-8 md:px-10 lg:px-0">
           {children}
         </div>
-        {/* Global player controls */}
-        {/* <div
-          className={`absolute bg-slate-200 h-20 w-full lg:w-8/12 lg:left-[17%] top-full -translate-y-full ${
-            atBottom ? "" : ""
-          }`}
-        >
-          <GlobalPlayer />
-        </div> */}
+      </div>
+      {/* Global Media Player */}
+      <div
+        className={`sticky bottom-0 mx-auto bg-slate-200 border border-slate-300 h-20 w-full lg:w-8/12 lg:rounded-t-md shadow-md`}
+      >
+        <GlobalPlayer />
       </div>
       <Footer />
     </div>
