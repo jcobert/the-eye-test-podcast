@@ -11,17 +11,7 @@ function SpotifyPlayer(props) {
       height: height,
       width: width,
     };
-    let callback = (EmbedController) => {
-      document
-        .querySelectorAll("#episodeButtons > button")
-        .forEach((episode) => {
-          episode.addEventListener("click", () => {
-            EmbedController.loadUri(episode.dataset.spotifyId);
-            EmbedController.togglePlay();
-          });
-        });
-    };
-    IFrameAPI.createController(element, options, callback);
+    IFrameAPI.createController(element, options, controllerCb);
   };
 
   return (
@@ -31,4 +21,14 @@ function SpotifyPlayer(props) {
   );
 }
 
+function controllerCb(EmbedController) {
+  document.querySelectorAll("#episodeButtons > button").forEach((episode) => {
+    episode.addEventListener("click", () => {
+      EmbedController.loadUri(episode.dataset.spotifyId);
+      EmbedController.togglePlay();
+    });
+  });
+}
+
+export { controllerCb };
 export default SpotifyPlayer;
