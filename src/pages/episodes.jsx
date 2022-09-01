@@ -1,27 +1,55 @@
-import React from "react";
+import React, { useContext } from "react";
 import Heading from "../components/Heading.jsx";
-import SpotifyPlayer from "../components/SpotifyPlayer.jsx";
+import {
+  GlobalStateContext,
+  GlobalDispatchContext,
+} from "../context/GlobalContextProvider.jsx";
 
 const spotifyEpisodes = [
   {
-    title: "",
-    uri: "spotify:episode:2PbJGxK2fwvxQjXOapiJAk?si=9a5862a069874c73",
+    title: "S1E16: The Texas Football",
+    date: "08132022",
+    uri: "spotify:episode:0g84uH74eHsuF0jmBK9scF?si=553dfaa9a3b74339",
+  },
+  {
+    title: "S1E15: The Mets/Braves + ROS Outlook",
+    date: "08132022",
+    uri: "spotify:episode:2PbJGxK2fwvxQjXOapiJAk?si=297087be17a64479",
   },
 ];
 
 function Episodes() {
+  const dispatch = useContext(GlobalDispatchContext);
+  const state = useContext(GlobalStateContext);
+
   return (
     <div>
       <Heading
         title={"Episodes"}
         subtitle={"Listen to The Eye Test Podcast right here."}
       />
-      {/* Spotify embed */}
-      {/* <div className="w-10/12 mx-auto">
-        {spotifyEpisodes.map((ep) => (
-          <SpotifyPlayer uri={ep.uri} height={"200"} width={"400"} title={ep.title} />
+      <div className="text-center text-lg text-theme-primary mb-16">
+        <p>{state.uri}</p>
+      </div>
+      <div
+        id="episodeButtons"
+        className="flex flex-col md:flex-row gap-y-2 gap-x-4"
+      >
+        {spotifyEpisodes.map((episode) => (
+          <button
+            className="bg-slate-500 text-white border border-slate-600 rounded shadow-md p-2"
+            data-spotify-id={episode.uri}
+            onClick={() => {              
+              dispatch({
+                type: "LOAD_EPISODE",
+                payload: episode.uri,
+              });
+            }}
+          >
+            {episode.title}
+          </button>
         ))}
-      </div> */}
+      </div>
     </div>
   );
 }

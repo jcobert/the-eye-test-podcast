@@ -1,4 +1,5 @@
 import React from "react";
+import GlobalContextProvider from "./src/context/GlobalContextProvider";
 
 export const onRenderBody = ({ setHeadComponents }) => {
   setHeadComponents([
@@ -27,4 +28,8 @@ export const onRenderBody = ({ setHeadComponents }) => {
       crossOrigin="anonymous"
     />,
   ]);
+};
+
+export const wrapRootElement = ({ element }) => {
+  return <GlobalContextProvider>{element}</GlobalContextProvider>;
 };
