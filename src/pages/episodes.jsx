@@ -1,5 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import Heading from "../components/Heading.jsx";
+import {
+  GlobalStateContext,
+  GlobalDispatchContext,
+} from "../context/GlobalContextProvider.jsx";
 
 const spotifyEpisodes = [
   {
@@ -15,12 +19,18 @@ const spotifyEpisodes = [
 ];
 
 function Episodes() {
+  const dispatch = useContext(GlobalDispatchContext);
+  const state = useContext(GlobalStateContext);
+
   return (
     <div>
       <Heading
         title={"Episodes"}
         subtitle={"Listen to The Eye Test Podcast right here."}
       />
+      <div className="text-center text-lg text-theme-primary mb-16">
+        <p>{state.uri}</p>
+      </div>
       <div
         id="episodeButtons"
         className="flex flex-col md:flex-row gap-y-2 gap-x-4"
@@ -29,6 +39,12 @@ function Episodes() {
           <button
             className="bg-slate-500 text-white border border-slate-600 rounded shadow-md p-2"
             data-spotify-id={episode.uri}
+            onClick={() => {              
+              dispatch({
+                type: "LOAD_EPISODE",
+                payload: episode.uri,
+              });
+            }}
           >
             {episode.title}
           </button>

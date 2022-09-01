@@ -1,14 +1,24 @@
 import React from "react";
 
-const GlobalStateContext = React.createContext();
-const GlobalDispatchContext = React.createContext();
+export const GlobalStateContext = React.createContext();
+export const GlobalDispatchContext = React.createContext();
 
 const initialState = {
+  // uri: "spotify:episode:0g84uH74eHsuF0jmBK9scF?si=553dfaa9a3b74339",
   uri: "",
 };
 
 function reducer(state, action) {
-  state.uri = action.value;
+  switch (action.type) {
+    case "LOAD_EPISODE": {
+      return {
+        ...state,
+        uri: action.payload,
+      };
+    }
+    default:
+      throw new Error("Bad action type.");
+  }
 }
 
 function GlobalContextProvider({ children }) {
