@@ -9,6 +9,7 @@ import {
   faBasketballHoop,
   faCirclePlay,
 } from "@fortawesome/pro-regular-svg-icons";
+import ShowMoreText from "react-show-more-text";
 
 function EpisodePreview(props) {
   const dispatch = useContext(GlobalDispatchContext);
@@ -17,6 +18,8 @@ function EpisodePreview(props) {
     .replace(episode.title, "")
     .trim()
     .replaceAll("\n", "<br>");
+
+  let descriptionDisplay = description.slice(100) + "... ";
 
   const tagIcons = [
     {
@@ -57,18 +60,26 @@ function EpisodePreview(props) {
           </p>
         </div>
         {/* Tags */}
-        {/* All as placeholder - to be set by episode data */}
+        {/* Showing all as placeholder - to be set by episode data */}
         <div className="flex flex-wrap gap-4 md:gap-6 justify-center py-4 text-slate-700">
           {tagIcons.map((tag) => {
             return <FontAwesomeIcon icon={tag.icon} className="text-2xl" />;
           })}
         </div>
         {/* Description */}
-        <div>
-          <p
-            className="text-left py-2"
-            dangerouslySetInnerHTML={{ __html: description }}
-          ></p>
+        <div className="">
+          <ShowMoreText
+          lines={3}
+          className="text-left"
+          anchorClass="text-slate-600"
+          truncatedEndingComponent={"... "}
+          >
+            <p
+              className="text-left py-2"
+              dangerouslySetInnerHTML={{ __html: description }}
+            ></p>
+          </ShowMoreText>
+          {/* <button className="text-slate-600">Show more</button> */}
         </div>
         {/* Listen Button */}
         <div className="my-2">
