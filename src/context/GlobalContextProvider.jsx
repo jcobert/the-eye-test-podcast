@@ -15,6 +15,12 @@ function reducer(state, action) {
         uri: action.payload,
       };
     }
+    case "UNLOAD_EPISODE": {
+      return {
+        ...state,
+        uri: "",
+      };
+    }
     default:
       throw new Error("Bad action type.");
   }
