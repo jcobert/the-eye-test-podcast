@@ -6,20 +6,26 @@ import {
 
 function EpisodePreview(props) {
   const dispatch = useContext(GlobalDispatchContext);
+  const episode = props.node;
+  const description = episode.description.replace(
+    episode.title,
+    ""
+  );
 
   return (
     <div>
-      {/* <p>Title: {props.episode.title}</p> */}
+      <h3>{episode.title}</h3>
+      <p>{description}</p>
       <button
         className="bg-slate-500 text-white border border-slate-600 rounded shadow-md p-2"
         onClick={() => {
           dispatch({
             type: "LOAD_EPISODE",
-            payload: props.episode.simplecastId,
+            payload: episode.simplecastId,
           });
         }}
       >
-        {props.episode.title}
+        {episode.title}
       </button>
     </div>
   );

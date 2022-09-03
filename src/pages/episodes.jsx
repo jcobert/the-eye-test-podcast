@@ -19,7 +19,7 @@ function Episodes({ data }) {
         className="flex flex-col md:flex-row gap-y-2 gap-x-4"
       >
         {episodes.map(({ node, index }) => {
-          return <EpisodePreview key={index} episode={node} />;
+          return <EpisodePreview key={index} node={node} />;
         })}
       </div>
     </div>
