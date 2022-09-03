@@ -24,8 +24,15 @@ module.exports = {
       resolve: "gatsby-plugin-react-svg",
       options: {
         rule: {
-          include: /images\/.*\.svg/
+          include: /images\/.*\.svg/,
         },
+      },
+    },
+    {
+      resolve: "@sergeysova/gatsby-source-simplecast",
+      options: {
+        token: process.env.SIMPLECAST_TOKEN,
+        podcastId: "a66d9758-9ee4-4c63-b480-f723d5a13d47",
       },
     },
   ],
