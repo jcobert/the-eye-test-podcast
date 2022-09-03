@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import Header from "./Header";
 import Footer from "./Footer";
+import { GlobalStateContext } from "../context/GlobalContextProvider.jsx";
 import GlobalPlayer from "./GlobalPlayer";
 
 function Layout({ children }) {
-  
+  const state = useContext(GlobalStateContext);
+
   return (
     <div className="flex-grow font-jost bg-slate-100">
       <Header />
@@ -14,11 +16,7 @@ function Layout({ children }) {
         </div>
       </div>
       {/* Global Media Player */}
-      {/* <div
-        className={`sticky bottom-0 mx-auto bg-[rgb(45,124,189)] border border-slate-300 h-24 w-full lg:w-8/12 lg:rounded-t-md shadow-md`}
-      >
-        <GlobalPlayer />
-      </div> */}
+      <GlobalPlayer />
       <Footer />
     </div>
   );

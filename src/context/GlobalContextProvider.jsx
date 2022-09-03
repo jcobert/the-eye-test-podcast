@@ -4,7 +4,6 @@ export const GlobalStateContext = React.createContext();
 export const GlobalDispatchContext = React.createContext();
 
 const initialState = {
-  // uri: "spotify:episode:0g84uH74eHsuF0jmBK9scF?si=553dfaa9a3b74339",
   uri: "",
 };
 
