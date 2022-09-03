@@ -14,11 +14,11 @@ function Layout({ children }) {
         </div>
       </div>
       {/* Global Media Player */}
-      <div
+      {/* <div
         className={`sticky bottom-0 mx-auto bg-[rgb(45,124,189)] border border-slate-300 h-24 w-full lg:w-8/12 lg:rounded-t-md shadow-md`}
       >
         <GlobalPlayer />
-      </div>
+      </div> */}
       <Footer />
     </div>
   );
