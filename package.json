@@ -33,7 +33,8 @@
     "gatsby-source-contentful": "^7.18.0",
     "gatsby-transformer-sharp": "^4.20.0",
     "react": "^18.1.0",
-    "react-dom": "^18.1.0"
+    "react-dom": "^18.1.0",
+    "react-show-more-text": "^1.5.2"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.8",

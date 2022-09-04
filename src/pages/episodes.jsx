@@ -14,10 +14,7 @@ function Episodes({ data }) {
         title={"Episodes"}
         subtitle={"Listen to The Eye Test Podcast right here."}
       />
-      <div
-        id="episodeButtons"
-        className="flex flex-col md:flex-row gap-y-2 gap-x-4"
-      >
+      <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-y-12 gap-x-8 mb-16">
         {episodes.map(({ node, index }) => {
           return <EpisodePreview key={index} node={node} />;
         })}
