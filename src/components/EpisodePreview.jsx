@@ -45,19 +45,20 @@ function EpisodePreview(props) {
     },
   ];
 
+  const latestBadge = (
+    <div className="text-left -mb-9">
+      <div className="relative -top-10 -left-8 flex gap-x-2 items-center text-theme-tertiary">
+        <FontAwesomeIcon icon={faCalendarStar} className="text-5xl" />
+        <h4 className="text-lg self-start -mt-1">New!</h4>
+      </div>
+    </div>
+  );
+
   return (
     <div>
       <div className="w-full flex flex-col gap-y-1 p-6 pt-4 text-center bg-slate-50 rounded border border-slate-400 shadow-md">
         {/* Latest Badge */}
-        <div className="text-left -mb-9">
-          <div className="relative -top-10 -left-8 flex gap-x-2 items-center text-theme-tertiary">
-            <FontAwesomeIcon
-              icon={faCalendarStar}
-              className="text-5xl"
-            />
-            <h4 className="text-lg self-start -mt-1">New!</h4>
-          </div>
-        </div>
+        <div className={`${!props.recent ? "hidden" : ""}`}>{latestBadge}</div>
         {/* Title */}
         <div className="">
           <h3 className="text-xl md:text-2xl font-semibold text-theme-primary">
