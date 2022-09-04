@@ -45,23 +45,27 @@ function EpisodePreview(props) {
     },
   ];
 
-  const latestBadge = (
-    <div className="text-left -mb-9">
-      <div className="relative -top-10 -left-8 flex gap-x-2 items-center text-theme-tertiary">
+  const newBadge = (
+    <div className="text-left -mb-10">
+      <div className="relative -top-10 -left-8 flex gap-x-2 items-start text-theme-tertiary">
         <FontAwesomeIcon icon={faCalendarStar} className="text-5xl" />
-        <h4 className="text-lg self-start -mt-1">New!</h4>
+        <h4 className="text-2xl -mt-1 font-optician">NEW!</h4>
       </div>
     </div>
   );
 
   return (
     <div>
-      <div className="w-full flex flex-col gap-y-1 p-6 pt-4 text-center bg-slate-50 rounded border border-slate-400 shadow-md">
-        {/* Latest Badge */}
-        <div className={`${!props.new ? "hidden" : ""}`}>{latestBadge}</div>
+      <div
+        className={`w-full flex flex-col gap-y-1 p-6 pt-4 text-center bg-slate-50 rounded shadow-md border ${
+          props.new ? "border-theme-tertiary" : "border-slate-400"
+        }`}
+      >
+        {/* New Badge */}
+        <div className={`${!props.new ? "hidden" : ""}`}>{newBadge}</div>
         {/* Title */}
-        <div className="">
-          <h3 className="text-xl md:text-2xl font-semibold text-theme-primary">
+        <div className={`${props.new ? "text-theme-tertiary" : "text-theme-primary lg:mt-3"}`}>
+          <h3 className="text-xl md:text-2xl font-semibold">
             {episode.title}
           </h3>
         </div>
@@ -107,7 +111,11 @@ function EpisodePreview(props) {
         {/* Listen Button */}
         <div className="mb-2 mt-6">
           <button
-            className="w-8/12 md:w-5/12 text-2xl lg:text-xl bg-theme-primary hover:bg-gray-50 text-white hover:text-theme-primary rounded-md border border-white hover:border-theme-primary transition-all p-2"
+            className={`w-8/12 md:w-5/12 text-2xl lg:text-xl hover:bg-gray-50 text-white border border-white rounded-md transition-all p-2 ${
+              props.new
+                ? "bg-theme-tertiary hover:text-theme-tertiary hover:border-theme-tertiary"
+                : "bg-theme-primary hover:text-theme-primary hover:border-theme-primary"
+            }`}
             onClick={() => {
               dispatch({
                 type: "LOAD_EPISODE",
