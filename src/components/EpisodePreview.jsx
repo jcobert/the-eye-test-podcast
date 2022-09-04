@@ -63,9 +63,9 @@ function EpisodePreview(props) {
         </div>
         {/* Tags */}
         {/* Showing all as placeholder - to be set by episode data */}
-        <div className="flex flex-wrap gap-4 md:gap-6 justify-center py-4 text-slate-700">
+        <div className="flex flex-wrap gap-6 justify-center py-4 text-slate-700">
           {tagIcons.map((tag) => {
-            return <FontAwesomeIcon icon={tag.icon} className="text-2xl" />;
+            return <FontAwesomeIcon icon={tag.icon} className="text-xl md:text-2xl" />;
           })}
         </div>
         {/* Description */}
