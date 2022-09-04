@@ -1,12 +1,11 @@
-import React, { useContext } from "react";
+import React from "react";
 import Heading from "../components/Heading.jsx";
-import { GlobalStateContext } from "../context/GlobalContextProvider.jsx";
 import { graphql } from "gatsby";
 import EpisodePreview from "../components/EpisodePreview.jsx";
 
 function Episodes({ data }) {
-  const state = useContext(GlobalStateContext);
   const episodes = data.allSimplecastEpisode.edges;
+  let recentCount = 0;
 
   return (
     <div>
@@ -16,7 +15,12 @@ function Episodes({ data }) {
       />
       <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-y-12 gap-x-8 mb-16">
         {episodes.map(({ node, index }) => {
-          return <EpisodePreview key={index} node={node} />;
+          let isNew = false;
+          if (node.daysSinceRelease < 8 && recentCount < 1) {
+            isNew = true;
+            recentCount++;
+          }
+          return <EpisodePreview key={index} node={node} new={isNew} />;
         })}
       </div>
     </div>
@@ -33,6 +37,7 @@ export const pageQuery = graphql`
           enclosureUrl
           number
           publishedAt(formatString: "MMMM D, Y")
+          daysSinceRelease
           title
           description
           image {

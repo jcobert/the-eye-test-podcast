@@ -9,8 +9,8 @@ module.exports = {
     extend: {
       colors: {
         "theme-primary": "#3892e2",
-        "theme-secondary": "#3f9ddb",
-        "theme-tertiary": "#ffc258",
+        "theme-secondary": "#344e95",
+        "theme-tertiary": "#ff9f46",
       },
       fontFamily: {
         'jost': ["Jost", "Helvetica", "Arial", "sans-serif"],
