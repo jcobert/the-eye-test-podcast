@@ -15,12 +15,12 @@ function Episodes({ data }) {
       />
       <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-y-12 gap-x-8 mb-16">
         {episodes.map(({ node, index }) => {
-          let recent = false;
+          let isNew = false;
           if (node.daysSinceRelease < 8 && recentCount < 1) {
-            recent = true;
+            isNew = true;
             recentCount++;
           }
-          return <EpisodePreview key={index} node={node} recent={recent} />;
+          return <EpisodePreview key={index} node={node} new={isNew} />;
         })}
       </div>
     </div>

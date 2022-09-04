@@ -58,7 +58,7 @@ function EpisodePreview(props) {
     <div>
       <div className="w-full flex flex-col gap-y-1 p-6 pt-4 text-center bg-slate-50 rounded border border-slate-400 shadow-md">
         {/* Latest Badge */}
-        <div className={`${!props.recent ? "hidden" : ""}`}>{latestBadge}</div>
+        <div className={`${!props.new ? "hidden" : ""}`}>{latestBadge}</div>
         {/* Title */}
         <div className="">
           <h3 className="text-xl md:text-2xl font-semibold text-theme-primary">
