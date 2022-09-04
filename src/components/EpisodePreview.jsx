@@ -8,6 +8,8 @@ import {
   faGolfClub,
   faBasketballHoop,
   faCirclePlay,
+  faAngleDown,
+  faAngleUp,
 } from "@fortawesome/pro-regular-svg-icons";
 import ShowMoreText from "react-show-more-text";
 
@@ -67,22 +69,23 @@ function EpisodePreview(props) {
           })}
         </div>
         {/* Description */}
-        <div className="">
+        <div className="text-left">
           <ShowMoreText
           lines={3}
-          className="text-left"
-          anchorClass="text-slate-600"
+          className=""
+          anchorClass="text-theme-primary"
           truncatedEndingComponent={"... "}
+          more=<span>Show More <FontAwesomeIcon icon={faAngleUp} className="text-sm" /></span>
+          less=<span>Show Less <FontAwesomeIcon icon={faAngleDown} className="text-sm" /></span>      
           >
             <p
               className="text-left py-2"
               dangerouslySetInnerHTML={{ __html: description }}
             ></p>
           </ShowMoreText>
-          {/* <button className="text-slate-600">Show more</button> */}
         </div>
         {/* Listen Button */}
-        <div className="my-2">
+        <div className="mb-2 mt-6">
           <button
             className="w-8/12 md:w-5/12 text-2xl lg:text-xl bg-theme-primary hover:bg-gray-50 text-white hover:text-theme-primary rounded-md border border-white hover:border-theme-primary transition-all p-2"
             onClick={() => {
