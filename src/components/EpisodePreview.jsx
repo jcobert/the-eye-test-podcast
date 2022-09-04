@@ -11,6 +11,7 @@ import {
   faAngleDown,
   faAngleUp,
 } from "@fortawesome/pro-regular-svg-icons";
+import { faCalendarStar, faCircleStar } from "@fortawesome/pro-solid-svg-icons";
 import ShowMoreText from "react-show-more-text";
 
 function EpisodePreview(props) {
@@ -20,8 +21,6 @@ function EpisodePreview(props) {
     .replace(episode.title, "")
     .trim()
     .replaceAll("\n", "<br>");
-
-  let descriptionDisplay = description.slice(100) + "... ";
 
   const tagIcons = [
     {
@@ -49,8 +48,18 @@ function EpisodePreview(props) {
   return (
     <div>
       <div className="w-full flex flex-col gap-y-1 p-6 pt-4 text-center bg-slate-50 rounded border border-slate-400 shadow-md">
+        {/* Latest Badge */}
+        <div className="text-left -mb-9">
+          <div className="relative -top-10 -left-8 flex gap-x-2 items-center text-theme-tertiary">
+            <FontAwesomeIcon
+              icon={faCalendarStar}
+              className="text-5xl"
+            />
+            <h4 className="text-lg self-start -mt-1">New!</h4>
+          </div>
+        </div>
         {/* Title */}
-        <div>
+        <div className="">
           <h3 className="text-xl md:text-2xl font-semibold text-theme-primary">
             {episode.title}
           </h3>
@@ -65,18 +74,28 @@ function EpisodePreview(props) {
         {/* Showing all as placeholder - to be set by episode data */}
         <div className="flex flex-wrap gap-6 justify-center py-4 text-slate-700">
           {tagIcons.map((tag) => {
-            return <FontAwesomeIcon icon={tag.icon} className="text-xl md:text-2xl" />;
+            return (
+              <FontAwesomeIcon
+                icon={tag.icon}
+                className="text-xl md:text-2xl"
+              />
+            );
           })}
         </div>
         {/* Description */}
         <div className="text-left">
           <ShowMoreText
-          lines={3}
-          className=""
-          anchorClass="text-theme-primary"
-          truncatedEndingComponent={"... "}
-          more=<span>Show More <FontAwesomeIcon icon={faAngleUp} className="text-sm" /></span>
-          less=<span>Show Less <FontAwesomeIcon icon={faAngleDown} className="text-sm" /></span>      
+            lines={3}
+            className=""
+            anchorClass="text-theme-primary"
+            truncatedEndingComponent={"... "}
+            more=<span>
+              Show More <FontAwesomeIcon icon={faAngleUp} className="text-sm" />
+            </span>
+            less=<span>
+              Show Less{" "}
+              <FontAwesomeIcon icon={faAngleDown} className="text-sm" />
+            </span>
           >
             <p
               className="text-left py-2"

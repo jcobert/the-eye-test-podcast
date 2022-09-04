@@ -10,7 +10,7 @@ module.exports = {
       colors: {
         "theme-primary": "#3892e2",
         "theme-secondary": "#3f9ddb",
-        "theme-tertiary": "#ffc258",
+        "theme-tertiary": "#eea72a",
       },
       fontFamily: {
         'jost': ["Jost", "Helvetica", "Arial", "sans-serif"],
