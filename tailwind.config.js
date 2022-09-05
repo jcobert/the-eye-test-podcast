@@ -18,7 +18,10 @@ module.exports = {
       },
       fontSize: {
         'base': '1.05rem'
-      }
+      },
+      maxWidth: {
+        'layoutMax': '90rem'
+      },
     },
   },
   plugins: [],
