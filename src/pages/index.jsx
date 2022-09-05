@@ -87,15 +87,17 @@ function Home({ data }) {
           </div>
           {/* Episode Feature */}
           <div className="">
-            <h3 className="text-xl md:text-2xl text-center lg:text-left text-slate-600 font-optician mb-4 lg:mb-8">
+            <h3 className="text-2xl md:text-2xl text-center lg:text-left text-slate-600 font-optician mb-4 lg:mb-8">
               Latest Episodes
             </h3>
-            <div className="pt-4">{episodePreviews.slice(0, 1)}</div>
+            <div className="w-full pt-4 grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-y-12 gap-x-8 mb-4">
+            {episodePreviews.slice(0, 3)}
+            </div>
           </div>
         </div>
         {/* Featured Blog Posts */}
         <div className="w-full col-span-full">
-          <h3 className="text-xl md:text-2xl text-center lg:text-left text-slate-600 font-optician mb-4 lg:mb-8">
+          <h3 className="text-2xl md:text-2xl text-center lg:text-left text-slate-600 font-optician mb-4 lg:mb-8">
             Recent Blog Posts
           </h3>
           <div className="w-full grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-y-12 gap-x-8 mb-24">
