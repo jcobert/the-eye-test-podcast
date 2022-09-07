@@ -38,7 +38,7 @@ function Home({ data }) {
         title={"The Eye Test"}
         subtitle={"Welcome to the official home of The Eye Test Podcast."}
       />
-      <div className="flex flex-col gap-y-20 md:gap-y-24 lg:gap-y-28 xl:gap-y-32 lg:px-2">
+      <div className="flex flex-col gap-y-20 md:gap-y-24 lg:px-2">
         <div className="flex flex-col md:gap-x-4 gap-y-16 justify-items-stretch">
           {/* Landing Feature */}
           <div className="rounded p-2 lg:p-4 border-slate-400">
@@ -85,18 +85,18 @@ function Home({ data }) {
               </div>
             </div>
           </div>
-          {/* Episode Feature */}
-          <div className="">
-            <h3 className="text-2xl md:text-2xl text-center lg:text-left text-slate-600 font-optician mb-4 lg:mb-8">
-              Latest Episodes
-            </h3>
-            <div className="w-full pt-4 grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-y-12 gap-x-8 mb-4">
+        </div>
+        {/* Episode Feature */}
+        <div className="w-full">
+          <h3 className="text-2xl md:text-2xl text-center lg:text-left text-slate-600 font-optician mb-4 lg:mb-8">
+            Latest Episodes
+          </h3>
+          <div className="w-full pt-4 grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-y-12 gap-x-8 mb-4">
             {episodePreviews.slice(0, 3)}
-            </div>
           </div>
         </div>
         {/* Featured Blog Posts */}
-        <div className="w-full col-span-full">
+        <div className="w-full">
           <h3 className="text-2xl md:text-2xl text-center lg:text-left text-slate-600 font-optician mb-4 lg:mb-8">
             Recent Blog Posts
           </h3>
