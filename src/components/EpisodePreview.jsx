@@ -88,22 +88,27 @@ function EpisodePreview(props) {
           })}
         </div>
         {/* Description */}
-        <div className="text-left">
+        <div className="text-left sm:px-4 md:px-6">
           <ShowMoreText
             lines={3}
-            className=""
+            className="py-2"
             anchorClass="text-theme-primary"
             truncatedEndingComponent={"... "}
-            more=<span>
-              Show More <FontAwesomeIcon icon={faAngleUp} className="text-sm" />
-            </span>
-            less=<span>
-              Show Less{" "}
-              <FontAwesomeIcon icon={faAngleDown} className="text-sm" />
-            </span>
+            more={
+              <span>
+                Show More{" "}
+                <FontAwesomeIcon icon={faAngleUp} className="text-sm" />
+              </span>
+            }
+            less={
+              <span>
+                Show Less{" "}
+                <FontAwesomeIcon icon={faAngleDown} className="text-sm" />
+              </span>
+            }
           >
             <p
-              className="text-left py-2"
+              className="text-left"
               dangerouslySetInnerHTML={{ __html: description }}
             ></p>
           </ShowMoreText>
