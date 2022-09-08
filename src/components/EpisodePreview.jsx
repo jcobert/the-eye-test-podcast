@@ -64,8 +64,8 @@ function EpisodePreview(props) {
         {/* New Badge */}
         <div className={`${!props.new ? "hidden" : ""}`}>{newBadge}</div>
         {/* Title */}
-        <div className={`${props.new ? "text-theme-tertiary" : "text-theme-primary lg:mt-3"}`}>
-          <h3 className="text-xl md:text-2xl font-semibold">
+        <div className={`${props.new ? "" : "lg:mt-3"}`}>
+          <h3 className="text-xl md:text-2xl font-semibold text-theme-primary">
             {episode.title}
           </h3>
         </div>
@@ -88,22 +88,27 @@ function EpisodePreview(props) {
           })}
         </div>
         {/* Description */}
-        <div className="text-left">
+        <div className="text-left sm:px-4 md:px-6">
           <ShowMoreText
             lines={3}
-            className=""
+            className="py-2"
             anchorClass="text-theme-primary"
             truncatedEndingComponent={"... "}
-            more=<span>
-              Show More <FontAwesomeIcon icon={faAngleUp} className="text-sm" />
-            </span>
-            less=<span>
-              Show Less{" "}
-              <FontAwesomeIcon icon={faAngleDown} className="text-sm" />
-            </span>
+            more={
+              <span>
+                Show More{" "}
+                <FontAwesomeIcon icon={faAngleUp} className="text-sm" />
+              </span>
+            }
+            less={
+              <span>
+                Show Less{" "}
+                <FontAwesomeIcon icon={faAngleDown} className="text-sm" />
+              </span>
+            }
           >
             <p
-              className="text-left py-2"
+              className="text-left"
               dangerouslySetInnerHTML={{ __html: description }}
             ></p>
           </ShowMoreText>
@@ -111,11 +116,7 @@ function EpisodePreview(props) {
         {/* Listen Button */}
         <div className="mb-2 mt-6">
           <button
-            className={`w-8/12 md:w-5/12 text-2xl lg:text-xl hover:bg-gray-50 text-white border border-white rounded-md transition-all p-2 ${
-              props.new
-                ? "bg-theme-tertiary hover:text-theme-tertiary hover:border-theme-tertiary"
-                : "bg-theme-primary hover:text-theme-primary hover:border-theme-primary"
-            }`}
+            className={`w-8/12 md:w-5/12 text-2xl lg:text-xl hover:bg-gray-50 text-white border border-white rounded-md transition-all p-2 bg-theme-primary hover:text-theme-primary hover:border-theme-primary`}
             onClick={() => {
               dispatch({
                 type: "LOAD_EPISODE",

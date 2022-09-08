@@ -70,7 +70,7 @@ function Header() {
       >
         {({ close }) => (
           <>
-            <div className="lg:max-w-7xl lg:w-11/12 mx-auto px-2 sm:px-8 md:px-10 lg:px-0">
+            <div className="max-w-layoutMax mx-auto px-2 sm:px-8 md:px-10 lg:px-16">
               <div
                 className={`relative flex items-center justify-between h-16 ${
                   visible ? "h-16" : "h-[2.5rem]"
