@@ -2,10 +2,12 @@ import React from "react";
 import Heading from "../components/Heading.jsx";
 import { graphql } from "gatsby";
 import EpisodePreview from "../components/EpisodePreview.jsx";
+import FilterListbox from "../components/FilterListbox.jsx";
 
 function Episodes({ data }) {
   const episodes = data.allSimplecastEpisode.edges;
   let recentCount = 0;
+  const tags = ["Bets", "Baseball", "Football", "Golf", "Basketball"];
 
   return (
     <div>
@@ -13,6 +15,10 @@ function Episodes({ data }) {
         title={"Episodes"}
         subtitle={"Listen to The Eye Test Podcast right here."}
       />
+      {/* Sort and Filter */}
+      <div className="pb-16">
+        <FilterListbox options={tags} />
+      </div>
       <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-y-12 gap-x-8 mb-16">
         {episodes.map(({ node, index }) => {
           let isNew = false;
