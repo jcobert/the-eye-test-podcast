@@ -9,26 +9,26 @@ function classNames(...classes) {
 function FilterListbox(props) {
   const [selected, setSelected] = React.useState("All");
   const tags = props.options;
-  tags.sort();
-  tags.unshift("All");
 
   React.useEffect(() => {
     handleFilter();
   }, [selected]);
 
+  // TODO - node.tags does not yet exist and will be an array
   function filterEpisodesByTag(key) {
     // return props.cards.filter(function (episode) {
-    //   return episode.props.tags.indexOf(key) >= 0;
+    //   return episode.props.node.tags.indexOf(key) >= 0;
     // });
   }
 
   const handleFilter = React.useCallback(() => {
-    // if (selected === "All") {
-    //   props.setSelectionState(props.cards);
-    // } else {
-    //   props.setSelectionState(filterEpisodesByTag(selected));
-    //   props.setFilteredState(true);
-    // }
+    if (selected === "All") {
+      props.setSelectionState(props.cards);
+      props.setFilteredState(false);
+    } else {
+      props.setSelectionState(filterEpisodesByTag(selected));
+      props.setFilteredState(true);
+    }
   });
 
   const handleChange = React.useCallback((e) => {

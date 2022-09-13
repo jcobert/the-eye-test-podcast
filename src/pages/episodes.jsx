@@ -5,9 +5,25 @@ import EpisodePreview from "../components/EpisodePreview.jsx";
 import FilterListbox from "../components/FilterListbox.jsx";
 
 function Episodes({ data }) {
+  const [filtered, setFiltered] = React.useState(false);
+  const [selection, setSelection] = React.useState("All");
+
   const episodes = data.allSimplecastEpisode.edges;
-  let recentCount = 0;
   const tags = ["Bets", "Baseball", "Football", "Golf", "Basketball"];
+  tags.sort();
+  tags.unshift("All");
+  let episodeCards = [];
+  
+  let recentCount = 0;
+  episodes.map(({ node, index }) => {
+    let isNew = false;
+    if (node.daysSinceRelease < 8 && recentCount < 1) {
+      isNew = true;
+      recentCount++;
+    }
+    episodeCards.push(<EpisodePreview key={index} node={node} new={isNew} />);
+  });
+
 
   return (
     <div>
@@ -17,17 +33,17 @@ function Episodes({ data }) {
       />
       {/* Sort and Filter */}
       <div className="pb-16">
-        <FilterListbox options={tags} />
+        <FilterListbox
+          options={tags}
+          filteredState={filtered}
+          setFilteredState={setFiltered}
+          selectionState={selection}
+          setSelectionState={setSelection}
+          cards={episodeCards}
+        />
       </div>
       <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-y-12 gap-x-8 mb-16">
-        {episodes.map(({ node, index }) => {
-          let isNew = false;
-          if (node.daysSinceRelease < 8 && recentCount < 1) {
-            isNew = true;
-            recentCount++;
-          }
-          return <EpisodePreview key={index} node={node} new={isNew} />;
-        })}
+        {selection}
       </div>
     </div>
   );
