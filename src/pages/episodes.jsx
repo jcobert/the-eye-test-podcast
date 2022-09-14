@@ -3,10 +3,12 @@ import Heading from "../components/Heading.jsx";
 import { graphql } from "gatsby";
 import EpisodePreview from "../components/EpisodePreview.jsx";
 import FilterListbox from "../components/FilterListbox.jsx";
+import SearchBar from "../components/SearchBar.jsx";
 
 function Episodes({ data }) {
   const [filtered, setFiltered] = React.useState(false);
   const [selection, setSelection] = React.useState("All");
+  const [found, setFound] = React.useState("");
 
   const episodes = data.allSimplecastEpisode.edges;
   const tags = ["Bets", "Baseball", "Football", "Golf", "Basketball"];
@@ -38,7 +40,7 @@ function Episodes({ data }) {
           <h6 className="w-full md:w-56 mx-auto md:ml-0 pb-1 text-slate-800">
             Sort and Filter
           </h6>
-          <div className="p-4 pt-3 border rounded-md flex">
+          <div className="p-4 pt-3 border rounded-md flex flex-col md:flex-row items-end justify-evenly gap-x-2">
             <FilterListbox
               options={tags}
               filteredState={filtered}
@@ -47,6 +49,15 @@ function Episodes({ data }) {
               setSelectionState={setSelection}
               cards={episodeCards}
               title="Category"
+            />
+            <SearchBar
+              episodes={episodes}
+              selectionState={selection}
+              setSelectionState={setSelection}
+              foundState={found}
+              setFoundState={setFound}
+              cards={episodeCards}
+              className="flex-1"
             />
           </div>
         </div>
