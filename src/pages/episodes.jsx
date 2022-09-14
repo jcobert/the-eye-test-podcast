@@ -40,7 +40,7 @@ function Episodes({ data }) {
           <h6 className="w-full md:w-56 mx-auto md:ml-0 pb-1 text-slate-800">
             Sort and Filter
           </h6>
-          <div className="p-4 pt-3 border rounded-md flex flex-col md:flex-row items-end justify-evenly gap-x-2">
+          <div className="p-4 pt-3 border rounded-md flex flex-col md:flex-row items-end justify-evenly gap-x-2 gap-y-2">
             <FilterListbox
               options={tags}
               filteredState={filtered}
@@ -52,6 +52,8 @@ function Episodes({ data }) {
             />
             <SearchBar
               episodes={episodes}
+              filteredState={filtered}
+              setFilteredState={setFiltered}
               selectionState={selection}
               setSelectionState={setSelection}
               foundState={found}

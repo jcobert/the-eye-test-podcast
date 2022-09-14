@@ -32,7 +32,7 @@ function SearchBar(props) {
       props.setSelectionState(props.cards);
     } else {
       props.setSelectionState(filterEpisodesBySearch(query.toLowerCase()));
-      // props.setFilteredState(true);
+      props.setFilteredState(true);
     }
   });
 
@@ -40,7 +40,7 @@ function SearchBar(props) {
     <div className="w-full mx-auto md:ml-0 md:mr-4">
       <Combobox
         onChange={(episode) => {
-          setQuery(episode.name);
+          setQuery(episode.node.title);
         }}
         as="div"
         className="bg-white border border-gray-300 rounded-md shadow-sm text-left overflow-hidden"
@@ -56,7 +56,7 @@ function SearchBar(props) {
           />
         </div>
         {filteredEpisodes.length > 0 && (
-          <Combobox.Options className="absolute z-50 mt-1 py-1 bg-white border border-gray-200 shadow-md rounded-md max-h-32 overflow-y-auto overflow-elipsis">
+          <Combobox.Options className="absolute z-50 mt-1 py-1 bg-white border border-gray-200 shadow-md rounded-md max-h-60 overflow-y-auto overflow-ellipsis">
             {filteredEpisodes.map((episode) => (
               <Combobox.Option key={episode.id} value={episode}>
                 {({ active }) => (
@@ -66,18 +66,18 @@ function SearchBar(props) {
                     }`}
                   >
                     <span>{episode.node.title}</span>
-                    {/* <span>
-                      {episode.nicknames.map((nickname, i) => (
-                        <span
-                          className={`font-light text-sm ${
-                            active ? "text-white" : "text-gray-400"
-                          }`}
-                        >
-                          {nickname}
-                          {`${episode.nicknames.length - 1 === i ? "" : ", "}`}
-                        </span>
-                      ))}
-                    </span> */}
+                    <p
+                      className={`font-light text-sm ${
+                        active ? "text-white" : "text-gray-400"
+                      }`}
+                      
+                    >
+                      {episode.node.description
+                        .replace(episode.node.title, "")
+                        .trim()
+                        .replaceAll("\n", " ")
+                        .slice(0, 120) + " ..."}
+                    </p>
                   </div>
                 )}
               </Combobox.Option>
@@ -87,7 +87,7 @@ function SearchBar(props) {
         {query && filteredEpisodes.length === 0 && (
           <div className="absolute z-50 mt-1 py-1 bg-white border border-gray-100 shadow-sm rounded-md">
             <p className="text-gray-500 text-sm px-4 py-2">
-              Hmm can't find anyone by that name.
+              Hmm can't find any episodes.
             </p>
           </div>
         )}
