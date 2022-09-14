@@ -36,12 +36,12 @@ function FilterListbox(props) {
   });
 
   return (
-    <div className="w-11/12 md:w-auto lg:w-56 mx-auto md:mr-4">
+    <div className="w-full md:w-56">
       <Listbox value={selected} onChange={handleChange}>
         {({ open }) => (
           <>
             <Listbox.Label className="block text-sm font-medium text-gray-700">
-              Filter by Category
+              {props.title}
             </Listbox.Label>
             <div className="mt-1 relative">
               <Listbox.Button className="relative w-full bg-white border border-gray-300 rounded-md shadow-sm pl-3 pr-10 py-2 text-left cursor-default focus:outline-none focus:ring-1 focus:ring-[#7396c8] focus:border-[#7396c8]">
