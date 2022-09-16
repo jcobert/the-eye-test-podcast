@@ -11,7 +11,7 @@ function Episodes({ data }) {
   const [found, setFound] = React.useState("");
 
   const episodes = data.allSimplecastEpisode.edges;
-  const tags = ["Bets", "Baseball", "Football", "Golf", "Basketball"];
+  const tags = ["Betting", "Baseball", "Football", "Golf", "Basketball"];
   tags.sort();
   tags.unshift("All");
   let episodeCards = [];
