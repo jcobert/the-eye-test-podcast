@@ -5,6 +5,7 @@ export const GlobalDispatchContext = React.createContext();
 
 const initialState = {
   uri: "",
+  title: "",
 };
 
 function reducer(state, action) {
@@ -12,13 +13,15 @@ function reducer(state, action) {
     case "LOAD_EPISODE": {
       return {
         ...state,
-        uri: action.payload,
+        uri: action.payload[0],
+        title: action.payload[1],
       };
     }
     case "UNLOAD_EPISODE": {
       return {
         ...state,
         uri: "",
+        title: "",
       };
     }
     default:
