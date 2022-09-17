@@ -120,7 +120,7 @@ function EpisodePreview(props) {
             onClick={() => {
               dispatch({
                 type: "LOAD_EPISODE",
-                payload: episode.simplecastId,
+                payload: [episode.simplecastId, episode.title],
               });
             }}
           >
