@@ -231,11 +231,11 @@ export const pageQuery = graphql`
         raw
       }
     }
-    previous: contentfulBlogPost(slug: { eq: $previousPostSlug }) {
+    next: contentfulBlogPost(slug: { eq: $previousPostSlug }) {
       slug
       title
     }
-    next: contentfulBlogPost(slug: { eq: $nextPostSlug }) {
+    previous: contentfulBlogPost(slug: { eq: $nextPostSlug }) {
       slug
       title
     }
