@@ -2,9 +2,26 @@ import React from "react";
 import Heading from "../components/Heading.jsx";
 import PostPreview from "../components/PostPreview.jsx";
 import { graphql } from "gatsby";
+import FilterListbox from "../components/FilterListbox.jsx";
+import SearchBar from "../components/SearchBar.jsx";
 
 function Blog({ data }) {
+  const [filtered, setFiltered] = React.useState(false);
+  const [selection, setSelection] = React.useState("All");
+  const [found, setFound] = React.useState("");
+
   const posts = data.allContentfulBlogPost.edges;
+  const tags = ["Betting", "Baseball", "Football", "Golf", "Basketball"];
+  tags.sort();
+  tags.unshift("All");
+  let blogPostCards = [];
+
+  {
+    posts.map(({ node, index }) => {
+      blogPostCards.push(<PostPreview key={index} post={node} />);
+    });
+  }
+
   return (
     <div>
       <Heading
@@ -13,11 +30,38 @@ function Blog({ data }) {
           "Hot takes and expert knowledge from The Eye Test contributors."
         }
       />
-      <div className="w-full flex flex-col gap-y-16 mb-24">
-        {posts.map(({ node, index }) => {
-          return <PostPreview key={index} post={node} />;
-        })}
+      {/* Sort and Filter */}
+      <div className="pb-20 md:pb-16 lg:float-right lg:mb-20">
+        <div className="lg:w-fit">
+          <h6 className="w-full md:w-56 mx-auto md:ml-0 pb-1 text-slate-800">
+            Sort and Filter
+          </h6>
+          <div className="p-4 pt-3 border rounded-md flex flex-col md:flex-row items-end justify-evenly gap-x-2 gap-y-2">
+            <FilterListbox
+              options={tags}
+              filteredState={filtered}
+              setFilteredState={setFiltered}
+              selectionState={selection}
+              setSelectionState={setSelection}
+              cards={blogPostCards}
+              title="Category"
+              source="blog"
+            />
+            <SearchBar
+              posts={posts}
+              filteredState={filtered}
+              setFilteredState={setFiltered}
+              selectionState={selection}
+              setSelectionState={setSelection}
+              foundState={found}
+              setFoundState={setFound}
+              cards={blogPostCards}
+              className="flex-1"
+            />
+          </div>
+        </div>
       </div>
+      <div className="w-full flex flex-col gap-y-16 mb-24">{selection}</div>
     </div>
   );
 }
