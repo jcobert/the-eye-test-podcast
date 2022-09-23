@@ -49,9 +49,10 @@ function Episodes({ data }) {
               setSelectionState={setSelection}
               cards={episodeCards}
               title="Category"
+              source="podcast"
             />
             <SearchBar
-              episodes={episodes}
+              items={episodes}
               filteredState={filtered}
               setFilteredState={setFiltered}
               selectionState={selection}
@@ -59,6 +60,7 @@ function Episodes({ data }) {
               foundState={found}
               setFoundState={setFound}
               cards={episodeCards}
+              source="podcast"
               className="flex-1"
             />
           </div>

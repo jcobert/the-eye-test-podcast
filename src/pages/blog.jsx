@@ -48,7 +48,7 @@ function Blog({ data }) {
               source="blog"
             />
             <SearchBar
-              posts={posts}
+              items={posts}
               filteredState={filtered}
               setFilteredState={setFiltered}
               selectionState={selection}
@@ -56,6 +56,7 @@ function Blog({ data }) {
               foundState={found}
               setFoundState={setFound}
               cards={blogPostCards}
+              source="blog"
               className="flex-1"
             />
           </div>
