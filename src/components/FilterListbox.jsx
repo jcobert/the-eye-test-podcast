@@ -59,7 +59,6 @@ function FilterListbox(props) {
 
   function filterEpisodesByKeywords(category) {
     const keys = keywords[category];
-    console.log(keys);
     return props.cards.filter(function (episode) {
       return (
         keys.some((key) =>
@@ -74,7 +73,6 @@ function FilterListbox(props) {
 
   function filterBlogPostsByKeywords(category) {
     const keys = keywords[category];
-    console.log(keys);
     return props.cards.filter(function (blogPost) {
       return (
         keys.some((key) =>
@@ -87,14 +85,24 @@ function FilterListbox(props) {
     });
   }
 
+  function filterBlogPostsByAuthor(author) {
+    return props.cards.filter(function (blogPost) {
+      return blogPost.props.post.author.name === author;
+    });
+  }
+
   const handleFilter = React.useCallback(() => {
     if (selected === "All") {
       props.setSelectionState(props.cards);
       props.setFilteredState(false);
     } else {
       if (props.source === "blog") {
-        props.setSelectionState(filterBlogPostsByKeywords(selected));
-      } else {
+        if (props.filter === "category") {
+          props.setSelectionState(filterBlogPostsByKeywords(selected));
+        } else if (props.filter === "author") {
+          props.setSelectionState(filterBlogPostsByAuthor(selected));
+        }
+      } else if (props.source === "podcast") {
         props.setSelectionState(filterEpisodesByKeywords(selected));
       }
       props.setFilteredState(true);

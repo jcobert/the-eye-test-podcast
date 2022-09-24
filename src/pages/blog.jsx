@@ -14,13 +14,18 @@ function Blog({ data }) {
   const tags = ["Betting", "Baseball", "Football", "Golf", "Basketball"];
   tags.sort();
   tags.unshift("All");
+  let authors = [];
   let blogPostCards = [];
 
   {
     posts.map(({ node, index }) => {
       blogPostCards.push(<PostPreview key={index} post={node} />);
+      authors.push(node.author.name);
     });
   }
+
+  authors.sort();
+  authors.unshift("All");
 
   return (
     <div>
@@ -47,6 +52,17 @@ function Blog({ data }) {
               filter="category"
               source="blog"
               title="Category"
+            />
+            <FilterListbox
+              options={authors}
+              filteredState={filtered}
+              setFilteredState={setFiltered}
+              selectionState={selection}
+              setSelectionState={setSelection}
+              cards={blogPostCards}
+              filter="author"
+              source="blog"
+              title="Author"
             />
             <SearchBar
               items={posts}
