@@ -159,7 +159,7 @@ function FilterListbox(props) {
                           <div className="flex items-center">
                             <span
                               className={classNames(
-                                selected ? "font-semibold" : "font-normal",
+                                selected ? "" : "",
                                 "ml-3 block truncate"
                               )}
                             >
