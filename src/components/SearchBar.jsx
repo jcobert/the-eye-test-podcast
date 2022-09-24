@@ -105,14 +105,14 @@ function SearchBar(props) {
               <Combobox.Option key={item.id} value={item}>
                 {({ active }) => (
                   <div
-                    className={`px-4 py-2 space-x-2 font-medium ${
+                    className={`px-4 py-2 font-medium ${
                       active ? "text-white bg-[#3c76bd]" : "text-gray-900"
                     }`}
                   >
                     <span>{item.node.title}</span>
                     <p
                       className={`font-light text-sm ${
-                        active ? "text-white" : "text-gray-400"
+                        active ? "text-slate-200" : "text-gray-400"
                       }`}
                     >
                       {props.source === "blog"

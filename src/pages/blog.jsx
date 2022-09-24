@@ -44,8 +44,9 @@ function Blog({ data }) {
               selectionState={selection}
               setSelectionState={setSelection}
               cards={blogPostCards}
-              title="Category"
+              filter="category"
               source="blog"
+              title="Category"
             />
             <SearchBar
               items={posts}

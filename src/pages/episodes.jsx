@@ -48,8 +48,9 @@ function Episodes({ data }) {
               selectionState={selection}
               setSelectionState={setSelection}
               cards={episodeCards}
-              title="Category"
+              filter="category"
               source="podcast"
+              title="Category"
             />
             <SearchBar
               items={episodes}

@@ -1,6 +1,8 @@
 import React from "react";
 import { Listbox, Transition } from "@headlessui/react";
 import { CheckIcon, SelectorIcon, FilterIcon } from "@heroicons/react/outline";
+import { renderRichText } from "gatsby-source-contentful/rich-text";
+import { INLINES, BLOCKS, MARKS } from "@contentful/rich-text-types";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -8,14 +10,42 @@ function classNames(...classes) {
 
 function FilterListbox(props) {
   const [selected, setSelected] = React.useState("All");
-  const tags = props.options;
-  const keywords = {
-    Betting: ["bets", "gambl", "picks", "over/under", "moneyline"],
-    Baseball: ["baseball", "mlb", "mets", "yankees"],
-    Football: ["football", "nfl", "jets"],
-    Golf: ["golf", "pga", "masters"],
-    Basketball: ["basketball", "nba", "knicks", "nets"],
+
+  const options = {
+    renderMark: {
+      [MARKS.BOLD]: (text) => <b className="font-bold">{text}</b>,
+    },
+    renderNode: {
+      [INLINES.HYPERLINK]: (node, children) => {
+        const { uri } = node.data;
+        return (
+          <a href={uri} className="underline text-theme-primary">
+            {children}
+          </a>
+        );
+      },
+      [BLOCKS.HEADING_2]: (node, children) => {
+        return <h2 className="text-2xl">{children}</h2>;
+      },
+    },
   };
+
+  const tags = props.options;
+  const searchTerms = {
+    category: {
+      Betting: ["bets", "gambl", "picks", "over/under", "moneyline"],
+      Baseball: ["baseball", "mlb", "mets", "yankees"],
+      Football: ["football", "nfl", "jets"],
+      Golf: ["golf", "pga", "masters"],
+      Basketball: ["basketball", "nba", "knicks", "nets"],
+    },
+  };
+
+  let keywords = null;
+  if (props.filter === "category") {
+    keywords = searchTerms.category;
+  }
+
   React.useEffect(() => {
     handleFilter();
   }, [selected]);
