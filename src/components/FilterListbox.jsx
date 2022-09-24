@@ -122,7 +122,7 @@ function FilterListbox(props) {
               {props.title}
             </Listbox.Label>
             <div className="mt-1 relative">
-              <Listbox.Button className="relative w-full bg-white border border-gray-300 rounded-md shadow-sm pl-3 pr-10 py-2 text-left cursor-default focus:outline-none focus:ring-1 focus:ring-[#7396c8] focus:border-[#7396c8]">
+              <Listbox.Button className="relative w-full text-slate-700 bg-white border border-gray-300 rounded-md shadow-sm pl-3 pr-10 py-2 text-left cursor-default focus:outline-none focus:ring-1 focus:ring-[#7396c8] focus:border-[#7396c8]">
                 <span className="flex items-center">
                   <FilterIcon className="h-5 w-5" aria-hidden="true" />
                   <span className="ml-3 block truncate">{selected}</span>
@@ -147,7 +147,7 @@ function FilterListbox(props) {
                       key={i}
                       className={({ active }) =>
                         classNames(
-                          active ? "text-white bg-[#3c76bd]" : "text-gray-900",
+                          active ? "text-white bg-[#3c76bd]" : "text-slate-700",
                           "cursor-default select-none relative py-2 pl-3 pr-9"
                         )
                       }
