@@ -7,13 +7,13 @@ import SearchBar from "../components/SearchBar.jsx";
 
 function Blog({ data }) {
   const [filtered, setFiltered] = React.useState(false);
-  const [selection, setSelection] = React.useState("All");
+  const [selection, setSelection] = React.useState("Any");
   const [found, setFound] = React.useState("");
 
   const posts = data.allContentfulBlogPost.edges;
   const tags = ["Betting", "Baseball", "Football", "Golf", "Basketball"];
   tags.sort();
-  tags.unshift("All");
+  tags.unshift("Any");
   let authors = [];
   let blogPostCards = [];
 
@@ -25,7 +25,7 @@ function Blog({ data }) {
   }
 
   authors.sort();
-  authors.unshift("All");
+  authors.unshift("Any");
 
   return (
     <div>

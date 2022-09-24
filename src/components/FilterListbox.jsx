@@ -9,7 +9,7 @@ function classNames(...classes) {
 }
 
 function FilterListbox(props) {
-  const [selected, setSelected] = React.useState("All");
+  const [selected, setSelected] = React.useState("Any");
 
   const options = {
     renderMark: {
@@ -92,7 +92,7 @@ function FilterListbox(props) {
   }
 
   const handleFilter = React.useCallback(() => {
-    if (selected === "All") {
+    if (selected === "Any") {
       props.setSelectionState(props.cards);
       props.setFilteredState(false);
     } else {

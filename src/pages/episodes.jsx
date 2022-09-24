@@ -7,13 +7,13 @@ import SearchBar from "../components/SearchBar.jsx";
 
 function Episodes({ data }) {
   const [filtered, setFiltered] = React.useState(false);
-  const [selection, setSelection] = React.useState("All");
+  const [selection, setSelection] = React.useState("Any");
   const [found, setFound] = React.useState("");
 
   const episodes = data.allSimplecastEpisode.edges;
   const tags = ["Betting", "Baseball", "Football", "Golf", "Basketball"];
   tags.sort();
-  tags.unshift("All");
+  tags.unshift("Any");
   let episodeCards = [];
 
   let recentCount = 0;
