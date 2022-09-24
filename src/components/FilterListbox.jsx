@@ -114,7 +114,7 @@ function FilterListbox(props) {
   });
 
   return (
-    <div className="w-full md:w-56">
+    <div className="w-full">
       <Listbox value={selected} onChange={handleChange}>
         {({ open }) => (
           <>

@@ -37,9 +37,9 @@ function Episodes({ data }) {
       {/* Sort and Filter */}
       <div className="pb-20 md:pb-16 lg:float-right lg:mb-20">
         <div className="lg:w-fit">
-          <h6 className="w-full md:w-56 mx-auto md:ml-0 pb-1 text-slate-800">
+          {/* <h6 className="w-full md:w-56 mx-auto md:ml-0 pb-1 text-slate-800">
             Sort and Filter
-          </h6>
+          </h6> */}
           <div className="p-4 pt-3 border rounded-md flex flex-col md:flex-row items-end justify-evenly gap-x-2 gap-y-2">
             <FilterListbox
               options={tags}
@@ -51,6 +51,7 @@ function Episodes({ data }) {
               filter="category"
               source="podcast"
               title="Category"
+              className=""
             />
             <SearchBar
               items={episodes}
