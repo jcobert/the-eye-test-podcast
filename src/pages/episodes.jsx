@@ -69,7 +69,13 @@ function Episodes({ data }) {
         </div>
       </div>
       <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-y-12 gap-x-8 mb-16">
-        {selection}
+        {selection.length < 1 ? (
+          <div className="text-center text-slate-700">
+            <p>No episodes found...</p>
+          </div>
+        ) : (
+          selection
+        )}
       </div>
     </div>
   );

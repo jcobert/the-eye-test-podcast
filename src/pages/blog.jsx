@@ -119,7 +119,13 @@ function Blog({ data }) {
           </div>
         </div>
       </div>
-      <div className="w-full flex flex-col gap-y-16 mb-24">{selection}</div>
+      <div className="w-full flex flex-col gap-y-16 mb-24">{selection.length < 1 ? (
+          <div className="text-center text-slate-700">
+            <p>No posts found...</p>
+          </div>
+        ) : (
+          selection
+        )}</div>
     </div>
   );
 }
