@@ -7,13 +7,13 @@ import SearchBar from "../components/SearchBar.jsx";
 
 function Episodes({ data }) {
   const [filtered, setFiltered] = React.useState(false);
-  const [selection, setSelection] = React.useState("All");
+  const [selection, setSelection] = React.useState("Any");
   const [found, setFound] = React.useState("");
 
   const episodes = data.allSimplecastEpisode.edges;
   const tags = ["Betting", "Baseball", "Football", "Golf", "Basketball"];
   tags.sort();
-  tags.unshift("All");
+  tags.unshift("Any");
   let episodeCards = [];
 
   let recentCount = 0;
@@ -35,11 +35,11 @@ function Episodes({ data }) {
         />
       </div>
       {/* Sort and Filter */}
-      <div className="pb-20 md:pb-16 lg:float-right lg:mb-20">
-        <div className="lg:w-fit">
-          <h6 className="w-full md:w-56 mx-auto md:ml-0 pb-1 text-slate-800">
+      <div className="pb-20 md:pb-16 lg:mb-20 lg:flex justify-end">
+        <div className="lg:w-9/12">
+          {/* <h6 className="w-full md:w-56 mx-auto md:ml-0 pb-1 text-slate-800">
             Sort and Filter
-          </h6>
+          </h6> */}
           <div className="p-4 pt-3 border rounded-md flex flex-col md:flex-row items-end justify-evenly gap-x-2 gap-y-2">
             <FilterListbox
               options={tags}
@@ -48,10 +48,13 @@ function Episodes({ data }) {
               selectionState={selection}
               setSelectionState={setSelection}
               cards={episodeCards}
+              filter="category"
+              source="podcast"
               title="Category"
+              className=""
             />
             <SearchBar
-              episodes={episodes}
+              items={episodes}
               filteredState={filtered}
               setFilteredState={setFiltered}
               selectionState={selection}
@@ -59,13 +62,20 @@ function Episodes({ data }) {
               foundState={found}
               setFoundState={setFound}
               cards={episodeCards}
-              className="flex-1"
+              source="podcast"
+              className=""
             />
           </div>
         </div>
       </div>
       <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-y-12 gap-x-8 mb-16">
-        {selection}
+        {selection.length < 1 ? (
+          <div className="text-center text-slate-700">
+            <p>No episodes found...</p>
+          </div>
+        ) : (
+          selection
+        )}
       </div>
     </div>
   );
