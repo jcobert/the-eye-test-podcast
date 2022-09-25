@@ -30,7 +30,7 @@ function FilterListbox(props) {
     },
   };
 
-  const tags = props.options;
+  const items = props.options;
   const searchTerms = {
     category: {
       Betting: ["bets", "gambl", "picks", "over/under", "moneyline"],
@@ -110,7 +110,11 @@ function FilterListbox(props) {
   });
 
   const handleChange = React.useCallback((e) => {
-    setSelected(e);
+    if (props.filter === "author") {
+      setSelected(e[0]);
+    } else {
+      setSelected(e);
+    }
   });
 
   return (
@@ -125,7 +129,9 @@ function FilterListbox(props) {
               <Listbox.Button className="relative w-full text-slate-700 bg-white border border-gray-300 rounded-md shadow-sm pl-3 pr-10 py-2 text-left cursor-default focus:outline-none focus:ring-1 focus:ring-[#7396c8] focus:border-[#7396c8]">
                 <span className="flex items-center">
                   <FilterIcon className="h-5 w-5" aria-hidden="true" />
-                  <span className="ml-3 block truncate">{selected}</span>
+                  <span className="ml-3 block truncate">
+                    {selected === "A" ? "Any" : selected}
+                  </span>
                 </span>
                 <span className="ml-3 absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
                   <SelectorIcon
@@ -144,17 +150,20 @@ function FilterListbox(props) {
                 // leaveFrom="opacity-100"
                 // leaveTo="opacity-0"
               >
-                <Listbox.Options className="absolute z-10 mt-1 w-full bg-white shadow-lg max-h-56 rounded-md py-1 text-base ring-1 ring-black ring-opacity-5 overflow-auto focus:outline-none sm:text-sm">
-                  {tags.map((tag, i) => (
+                <Listbox.Options className="absolute z-10 mt-1 w-full divide-y divide-slate-100 bg-white shadow-lg max-h-56 rounded-md py-1 text-base ring-1 ring-black ring-opacity-5 overflow-auto focus:outline-none sm:text-sm">
+                  {items.map((item, i) => (
                     <Listbox.Option
                       key={i}
                       className={({ active }) =>
                         classNames(
-                          active ? "text-white bg-theme-primary" : "text-slate-700",
-                          "cursor-default select-none relative py-2 pl-3 pr-9"
+                          active
+                            ? "text-white bg-theme-primary"
+                            : "text-slate-700",
+                          "cursor-default select-none relative pl-3 pr-9",
+                          props.filter !== "author" ? "py-4 md:py-2" : "py-2"
                         )
                       }
-                      value={tag}
+                      value={item}
                       onClick={handleFilter}
                     >
                       {({ selected, active }) => (
@@ -166,13 +175,36 @@ function FilterListbox(props) {
                                 "ml-3 block truncate"
                               )}
                             >
-                              {tag}
+                              {props.filter === "author" && i > 0 ? (
+                                <div className="flex flex-col items-start">
+                                  <span>{item[0]}</span>
+                                  {/* <FontAwesomeIcon
+                                    icon={faPipe}
+                                    className={`text-xs ${
+                                      active
+                                        ? "text-slate-50"
+                                        : "text-slate-500"
+                                    }`}
+                                  /> */}
+                                  <span
+                                    className={` text-sm ${
+                                      active
+                                        ? "text-slate-50"
+                                        : "text-slate-500"
+                                    }`}
+                                  >
+                                    {item[1]}
+                                  </span>
+                                </div>
+                              ) : (
+                                item
+                              )}
                             </span>
                           </div>
                           {selected ? (
                             <span
                               className={classNames(
-                                active ? "text-white" : "text-[#3c76bd]",
+                                active ? "text-white" : "text-theme-primary",
                                 "absolute inset-y-0 right-0 flex items-center pr-4"
                               )}
                             >

@@ -27,12 +27,12 @@ function Blog({ data }) {
   {
     posts.map(({ node, index }) => {
       blogPostCards.push(<PostPreview key={index} post={node} />);
-      authors.push(node.author.name);
+      authors.push([node.author.name, node.author.title]);
     });
   }
 
   authors.sort();
-  authors.unshift("Any");
+  authors.unshift(["Any"]);
 
   return (
     <div>
