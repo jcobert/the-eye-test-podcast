@@ -137,9 +137,12 @@ function FilterListbox(props) {
               <Transition
                 show={open}
                 as={React.Fragment}
-                leave="transition ease-in duration-100"
-                leaveFrom="opacity-100"
-                leaveTo="opacity-0"
+                // enter="transition ease-in duration-100"
+                // enterFrom="opacity-0"
+                // enterTo="opacity-100"
+                // leave="transition ease-out duration-100"
+                // leaveFrom="opacity-100"
+                // leaveTo="opacity-0"
               >
                 <Listbox.Options className="absolute z-10 mt-1 w-full bg-white shadow-lg max-h-56 rounded-md py-1 text-base ring-1 ring-black ring-opacity-5 overflow-auto focus:outline-none sm:text-sm">
                   {tags.map((tag, i) => (
@@ -147,7 +150,7 @@ function FilterListbox(props) {
                       key={i}
                       className={({ active }) =>
                         classNames(
-                          active ? "text-white bg-[#3c76bd]" : "text-slate-700",
+                          active ? "text-white bg-theme-primary" : "text-slate-700",
                           "cursor-default select-none relative py-2 pl-3 pr-9"
                         )
                       }

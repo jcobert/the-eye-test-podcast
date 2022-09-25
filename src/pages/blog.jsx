@@ -48,7 +48,7 @@ function Blog({ data }) {
       <div className="pb-12 md:pb-16 lg:mb-4 md:max-w-2xl mx-auto">
         <div className="flex flex-col mx-auto lg:w-9/12">
           {/* Search Bar */}
-          <div className="mb-4 lg:mb-6">
+          <div className="mb-4 lg:mb-6 z-30">
             <SearchBar
               items={posts}
               filteredState={filtered}
@@ -61,28 +61,30 @@ function Blog({ data }) {
               source="blog"
             />
           </div>
-          <div className="p-2 border rounded-md bg-slate-50 hover:border-slate-300 z-50">
+          {/* Filter and Sort Panel */}
+          <div className="border rounded-md bg-slate-50 hover:border-slate-300 transition z-20">
             <Disclosure>
               {({ open }) => (
                 <>
-                  <Disclosure.Button className="w-full flex justify-between items-center text-slate-700">
+                  <Disclosure.Button className="w-full p-2 flex justify-between items-center text-slate-700 hover:text-theme-primary transition-all">
                     <div className="flex px-2 justify-center items-center gap-x-3">
                       <FontAwesomeIcon icon={faSliders} className="text-xl" />
                       <p>Filter and Sort</p>
                     </div>
                     <FontAwesomeIcon
-                      icon={open ? faAngleDown : faAngleUp}
-                      className="text-xl px-2"
+                      // icon={open ? faAngleDown : faAngleUp}
+                      icon={faAngleUp}
+                      className={`text-xl px-2 ${open ? "rotate-180" : ""} transition-all duration-100`}
                     />
                   </Disclosure.Button>
                   <Transition
                     show={open}
-                    enter="transition duration-100 ease-out"
+                    enter="transition duration-200 ease-out"
                     enterFrom="transform scale-95 opacity-0"
                     enterTo="transform scale-100 opacity-100"
-                    leave="transition duration-75 ease-out"
-                    leaveFrom="transform scale-100 opacity-100"
-                    leaveTo="transform scale-95 opacity-0"
+                    // leave="transition duration-100 ease-out"
+                    // leaveFrom="transform scale-100 opacity-100"
+                    // leaveTo="transform scale-95 opacity-0"
                   >
                     <Disclosure.Panel static>
                       <div className="p-2 mt-2 border-t flex flex-col md:flex-row items-end justify-evenly gap-x-2 gap-y-2">
@@ -115,7 +117,6 @@ function Blog({ data }) {
               )}
             </Disclosure>
           </div>
-          {/* Sort and Filter */}
         </div>
       </div>
       <div className="w-full flex flex-col gap-y-16 mb-24">{selection}</div>
