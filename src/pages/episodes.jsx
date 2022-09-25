@@ -35,8 +35,8 @@ function Episodes({ data }) {
         />
       </div>
       {/* Sort and Filter */}
-      <div className="pb-20 md:pb-16 lg:float-right lg:mb-20">
-        <div className="lg:w-fit">
+      <div className="pb-20 md:pb-16 lg:mb-20 lg:flex justify-end">
+        <div className="lg:w-9/12">
           {/* <h6 className="w-full md:w-56 mx-auto md:ml-0 pb-1 text-slate-800">
             Sort and Filter
           </h6> */}
@@ -63,7 +63,7 @@ function Episodes({ data }) {
               setFoundState={setFound}
               cards={episodeCards}
               source="podcast"
-              className="flex-1"
+              className=""
             />
           </div>
         </div>

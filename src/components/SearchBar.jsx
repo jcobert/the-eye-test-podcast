@@ -81,7 +81,7 @@ function SearchBar(props) {
   });
 
   return (
-    <div className="w-full mx-auto md:ml-0 md:mr-4">
+    <div className="w-full mx-auto">
       <Combobox
         onChange={(item) => {
           setQuery(item.node.title);
