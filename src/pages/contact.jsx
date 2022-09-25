@@ -11,7 +11,7 @@ function Contact() {
           subtitle={"Have something to share? Drop us a line."}
         />
       </div>
-      <div>
+      <div className="border rounded-md bg-slate-50 max-w-2xl mx-auto">
         <ContactForm />
       </div>
     </div>
