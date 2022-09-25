@@ -1,8 +1,6 @@
 import React from "react";
 import { Listbox, Transition } from "@headlessui/react";
 import { CheckIcon, SelectorIcon, FilterIcon } from "@heroicons/react/outline";
-import { renderRichText } from "gatsby-source-contentful/rich-text";
-import { INLINES, BLOCKS, MARKS } from "@contentful/rich-text-types";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -10,25 +8,6 @@ function classNames(...classes) {
 
 function FilterListbox(props) {
   const [selected, setSelected] = React.useState("Any");
-
-  const options = {
-    renderMark: {
-      [MARKS.BOLD]: (text) => <b className="font-bold">{text}</b>,
-    },
-    renderNode: {
-      [INLINES.HYPERLINK]: (node, children) => {
-        const { uri } = node.data;
-        return (
-          <a href={uri} className="underline text-theme-primary">
-            {children}
-          </a>
-        );
-      },
-      [BLOCKS.HEADING_2]: (node, children) => {
-        return <h2 className="text-2xl">{children}</h2>;
-      },
-    },
-  };
 
   const items = props.options;
   const searchTerms = {
@@ -150,7 +129,7 @@ function FilterListbox(props) {
                 // leaveFrom="opacity-100"
                 // leaveTo="opacity-0"
               >
-                <Listbox.Options className="absolute z-10 mt-1 w-full divide-y divide-slate-100 bg-white shadow-lg max-h-56 rounded-md py-1 text-base ring-1 ring-black ring-opacity-5 overflow-auto focus:outline-none sm:text-sm">
+                <Listbox.Options className="absolute z-10 mt-1 w-full divide-y divide-slate-100 bg-white shadow-lg max-h-96 rounded-md py-1 text-base ring-1 ring-black ring-opacity-5 overflow-auto focus:outline-none sm:text-sm">
                   {items.map((item, i) => (
                     <Listbox.Option
                       key={i}
@@ -178,14 +157,6 @@ function FilterListbox(props) {
                               {props.filter === "author" && i > 0 ? (
                                 <div className="flex flex-col items-start">
                                   <span>{item[0]}</span>
-                                  {/* <FontAwesomeIcon
-                                    icon={faPipe}
-                                    className={`text-xs ${
-                                      active
-                                        ? "text-slate-50"
-                                        : "text-slate-500"
-                                    }`}
-                                  /> */}
                                   <span
                                     className={` text-sm ${
                                       active
