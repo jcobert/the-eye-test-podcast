@@ -24,26 +24,44 @@ function EpisodePreview(props) {
 
   const tagIcons = [
     {
-      name: "bets",
+      name: "betting",
       icon: faDice,
+      keywords: ["bets", "gambl", "picks", "over/under", "moneyline"],
     },
     {
       name: "baseball",
       icon: faBaseball,
+      keywords: ["baseball", "mlb", "mets", "yankees"],
     },
     {
       name: "football",
       icon: faFootball,
+      keywords: ["football", "nfl", "jets"],
     },
     {
       name: "golf",
       icon: faGolfClub,
+      keywords: ["golf", "pga", "masters"],
     },
     {
       name: "basketball",
       icon: faBasketballHoop,
+      keywords: ["basketball", "nba", "knicks", "nets"],
     },
   ];
+
+  function identifyTags() {
+    return tagIcons.filter(function (tag) {
+      return (
+        tag.keywords.some((keyword) =>
+          episode.title.toLowerCase().includes(keyword)
+        ) ||
+        tag.keywords.some((keyword) =>
+          episode.description.toLowerCase().includes(keyword)
+        )
+      );
+    });
+  }
 
   const newBadge = (
     <div className="text-left -mb-10">
@@ -76,9 +94,9 @@ function EpisodePreview(props) {
           </p>
         </div>
         {/* Tags */}
-        {/* Showing all as placeholder - to be set by episode data */}
+        {/* Placeholder - to be set by episode data */}        
         <div className="flex flex-wrap gap-6 justify-center py-4 text-slate-700">
-          {tagIcons.map((tag) => {
+          {identifyTags().map((tag) => {
             return (
               <FontAwesomeIcon
                 icon={tag.icon}
