@@ -41,7 +41,7 @@ function EpisodePreview(props) {
     {
       name: "golf",
       icon: faGolfClub,
-      keywords: ["golf", "pga", "masters"],
+      keywords: ["golf", "pga", "masters", "us open"],
     },
     {
       name: "basketball",
