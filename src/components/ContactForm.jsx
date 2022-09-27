@@ -1,15 +1,25 @@
 import React from "react";
 import { useForm, ValidationError } from "@formspree/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPaperPlane } from "@fortawesome/pro-regular-svg-icons";
+import {
+  faPaperPlane,
+  faCircleCheck,
+} from "@fortawesome/pro-regular-svg-icons";
 
 function ContactForm() {
   const [state, handleSubmit] = useForm("xqkjqlqq");
+
   if (state.succeeded) {
-    return <p>Thanks for reaching out!</p>;
+    return (
+      <div className="flex flex-col lg:flex-row items-center justify-center gap-y-4 gap-x-4 text-center text-lg text-slate-700 border rounded-md bg-slate-50 py-14">
+        <FontAwesomeIcon icon={faCircleCheck} className="text-theme-primary text-xl" />
+        <p>Thanks for reaching out!</p>
+      </div>
+    );
   }
+
   return (
-    <div>
+    <div className="border rounded-md bg-slate-50">
       <form onSubmit={handleSubmit}>
         <div className="flex flex-col items-center gap-y-6 px-4 py-6 sm:p-8 text-slate-700">
           {/* Name */}
@@ -19,6 +29,7 @@ function ContactForm() {
               id="name"
               type="text"
               name="name"
+              required
               className="border rounded p-2"
             />
             <ValidationError prefix="Name" field="name" errors={state.errors} />
@@ -44,7 +55,8 @@ function ContactForm() {
             <textarea
               id="message"
               name="message"
-              className="border rounded p-2"
+              required
+              className="border rounded p-2 h-28"
             />
             <ValidationError
               prefix="Message"
@@ -53,7 +65,7 @@ function ContactForm() {
             />
           </div>
           {/* Submit */}
-          <div className="w-8/12 md:w-6/12 mt-4">
+          <div className="w-8/12 md:w-6/12 mt-4 mb-2">
             <button
               type="submit"
               disabled={state.submitting}
