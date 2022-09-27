@@ -15,7 +15,7 @@ function FilterListbox(props) {
       Betting: ["bets", "gambl", "picks", "over/under", "moneyline"],
       Baseball: ["baseball", "mlb", "mets", "yankees"],
       Football: ["football", "nfl", "jets"],
-      Golf: ["golf", "pga", "masters"],
+      Golf: ["golf", "pga", "masters", "us open"],
       Basketball: ["basketball", "nba", "knicks", "nets"],
     },
   };
