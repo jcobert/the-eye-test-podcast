@@ -9,6 +9,7 @@ import {
   faQuoteLeft,
   faQuoteRight,
 } from "@fortawesome/pro-solid-svg-icons";
+import { faTwitter } from "@fortawesome/free-brands-svg-icons";
 import { Timeline } from "react-twitter-widgets";
 
 function Home({ data }) {
@@ -39,7 +40,7 @@ function Home({ data }) {
         title={"The Eye Test"}
         subtitle={"Welcome to the official home of The Eye Test Podcast."}
       />
-      <div className="flex flex-col gap-y-20 md:gap-y-24 lg:px-2">
+      <div className="flex flex-col gap-y-20 md:gap-y-24 lg:px-2 mb-16 md:mb-24">
         <div className="flex flex-col md:gap-x-4 gap-y-16 justify-items-stretch">
           {/* Landing Feature */}
           <div className="rounded p-2 lg:p-4 border-slate-400">
@@ -106,7 +107,12 @@ function Home({ data }) {
           </div>
         </div>
         {/* Twitter Feed */}
-        <div className="max-w-xl mx-auto">
+        <div className="flex gap-x-8 justify-center">
+          <span className="block w-4/12 border-b"></span>
+          <FontAwesomeIcon icon={faTwitter} className="text-6xl text-slate-500" />
+          <span className="block w-4/12 border-b"></span>
+        </div>
+        <div className="w-full max-w-xl mx-auto">
           <Timeline
             dataSource={{
               sourceType: "profile",
@@ -114,7 +120,7 @@ function Home({ data }) {
             }}
             options={{
               tweetLimit: 5,
-            }}            
+            }}
           />
         </div>
       </div>
