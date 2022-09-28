@@ -9,6 +9,8 @@ import {
   faQuoteLeft,
   faQuoteRight,
 } from "@fortawesome/pro-solid-svg-icons";
+import { faTwitter } from "@fortawesome/free-brands-svg-icons";
+import { Timeline } from "react-twitter-widgets";
 
 function Home({ data }) {
   const posts = data.allContentfulBlogPost.edges;
@@ -38,7 +40,7 @@ function Home({ data }) {
         title={"The Eye Test"}
         subtitle={"Welcome to the official home of The Eye Test Podcast."}
       />
-      <div className="flex flex-col gap-y-20 md:gap-y-24 lg:px-2">
+      <div className="flex flex-col gap-y-20 md:gap-y-24 lg:px-2 mb-16 md:mb-24">
         <div className="flex flex-col md:gap-x-4 gap-y-16 justify-items-stretch">
           {/* Landing Feature */}
           <div className="rounded p-2 lg:p-4 border-slate-400">
@@ -100,9 +102,26 @@ function Home({ data }) {
           <h3 className="text-2xl md:text-2xl text-center lg:text-left text-slate-600 font-optician mb-4 lg:mb-8">
             Recent Blog Posts
           </h3>
-          <div className="w-full grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-y-12 gap-x-8 mb-24">
+          <div className="w-full grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-y-12 gap-x-8 mb-4">
             {postPreviews.slice(0, 3)}
           </div>
+        </div>
+        {/* Twitter Feed */}
+        <div className="flex gap-x-8 justify-center">
+          <span className="block w-4/12 border-b"></span>
+          <FontAwesomeIcon icon={faTwitter} className="text-6xl text-slate-500" />
+          <span className="block w-4/12 border-b"></span>
+        </div>
+        <div className="w-full max-w-xl mx-auto">
+          <Timeline
+            dataSource={{
+              sourceType: "profile",
+              screenName: "DonoPodcast",
+            }}
+            options={{
+              tweetLimit: 5,
+            }}
+          />
         </div>
       </div>
     </div>
