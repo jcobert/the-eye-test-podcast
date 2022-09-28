@@ -9,6 +9,7 @@ import {
   faQuoteLeft,
   faQuoteRight,
 } from "@fortawesome/pro-solid-svg-icons";
+import { Timeline } from "react-twitter-widgets";
 
 function Home({ data }) {
   const posts = data.allContentfulBlogPost.edges;
@@ -100,9 +101,21 @@ function Home({ data }) {
           <h3 className="text-2xl md:text-2xl text-center lg:text-left text-slate-600 font-optician mb-4 lg:mb-8">
             Recent Blog Posts
           </h3>
-          <div className="w-full grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-y-12 gap-x-8 mb-24">
+          <div className="w-full grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-y-12 gap-x-8 mb-4">
             {postPreviews.slice(0, 3)}
           </div>
+        </div>
+        {/* Twitter Feed */}
+        <div className="max-w-xl mx-auto">
+          <Timeline
+            dataSource={{
+              sourceType: "profile",
+              screenName: "DonoPodcast",
+            }}
+            options={{
+              tweetLimit: 5,
+            }}            
+          />
         </div>
       </div>
     </div>
