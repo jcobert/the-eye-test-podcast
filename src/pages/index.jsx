@@ -19,7 +19,7 @@ function Home({ data }) {
   const episodePreviews = [];
 
   posts.map(({ node, index }) => {
-    postPreviews.push(<PostPreview key={index} post={node} layout="compact" />);
+    postPreviews.push(<PostPreview key={index} post={node} layout="compact" animate={true} />);
   });
 
   let recentCount = 0;
@@ -30,7 +30,7 @@ function Home({ data }) {
       recentCount++;
     }
     episodePreviews.push(
-      <EpisodePreview key={index} node={node} new={isNew} />
+      <EpisodePreview key={index} node={node} new={isNew} animate={true} />
     );
   });
 
