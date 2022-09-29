@@ -51,7 +51,7 @@ function GlobalPlayer() {
       id="player-container"
       className={`sticky bottom-0 mx-auto w-full md:w-10/12 lg:w-8/12 max-w-4xl lg:rounded-t-md p-2 ${
         state.uri === "" ? "hidden" : ""
-      }`}
+      } animate-player-display`}
     >
       <div className="my-auto bg-transparent border border-slate-400 rounded-md shadow-md">
         {/* Player Title Bar */}

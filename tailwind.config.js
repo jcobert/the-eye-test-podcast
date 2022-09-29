@@ -22,6 +22,17 @@ module.exports = {
       maxWidth: {
         'layoutMax': '90rem'
       },
+      keyframes: {
+        enter: {
+          '0%': { opacity: 10, transform: 'translateY(100%)' },
+          '25%': { transform: 'scale(97%)' },
+          '75%': { transform: 'scale(100%)' },
+          '100%': { opacity: 100, transform: 'translateY(0)' }
+        }
+      },
+      animation: {
+        'player-display': 'enter 500ms ease'
+      }
     },
   },
   plugins: [],
