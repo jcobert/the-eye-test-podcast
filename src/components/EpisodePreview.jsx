@@ -72,10 +72,21 @@ function EpisodePreview(props) {
     </div>
   );
 
+  // scroll animation options
+  const sal = {
+    type: "slide-up",
+    easing: "ease-out-expo",
+    duration: "700",
+  };
+
   return (
-    <div>
+    <div
+      data-sal={props.animate ? sal.type : ""}
+      data-sal-easing={sal.easing}
+      data-sal-duration={sal.duration}
+    >
       <div
-        className={`w-full flex flex-col gap-y-1 p-6 pt-4 text-center bg-slate-50 rounded shadow-md border ${
+        className={`w-full md:max-w-2xl mx-auto flex flex-col gap-y-1 p-6 pt-4 text-center bg-slate-50 rounded shadow-md border ${
           props.new ? "border-theme-tertiary" : "border-slate-400"
         }`}
       >
@@ -94,7 +105,7 @@ function EpisodePreview(props) {
           </p>
         </div>
         {/* Tags */}
-        {/* Placeholder - to be set by episode data */}        
+        {/* Placeholder - to be set by episode data */}
         <div className="flex flex-wrap gap-6 justify-center py-4 text-slate-700">
           {identifyTags().map((tag) => {
             return (
