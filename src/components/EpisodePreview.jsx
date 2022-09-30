@@ -86,7 +86,7 @@ function EpisodePreview(props) {
       data-sal-duration={sal.duration}
     >
       <div
-        className={`w-full flex flex-col gap-y-1 p-6 pt-4 text-center bg-slate-50 rounded shadow-md border ${
+        className={`w-full md:max-w-2xl mx-auto flex flex-col gap-y-1 p-6 pt-4 text-center bg-slate-50 rounded shadow-md border ${
           props.new ? "border-theme-tertiary" : "border-slate-400"
         }`}
       >

@@ -49,7 +49,7 @@ function GlobalPlayer() {
   return (
     <div
       id="player-container"
-      className={`sticky bottom-0 mx-auto w-full md:w-10/12 lg:w-8/12 max-w-4xl lg:rounded-t-md p-2 ${
+      className={`sticky bottom-2 md:bottom-0 mx-auto w-[95%] sm:w-full md:w-10/12 lg:w-8/12 max-w-4xl lg:rounded-t-md p-2 ${
         state.uri === "" ? "hidden" : ""
       } animate-player-display`}
     >
@@ -89,16 +89,18 @@ function GlobalPlayer() {
             </button>
           </div>
         </div>
-        <iframe
-          id="iframe"
-          className="rounded-md rounded-t-none bg-gray-50"
-          height="200px"
-          width="100%"
-          frameborder="no"
-          scrolling="no"
-          seamless
-          src={`https://player.simplecast.com/${state.uri}?dark=false&hide_share=true`}
-        ></iframe>
+        <div className="bg-gray-50 rounded-md">
+          <iframe
+            id="iframe"
+            className="rounded-md rounded-t-none bg-gray-50 animate-iframe-display"
+            height="200px"
+            width="100%"
+            frameborder="no"
+            scrolling="no"
+            seamless
+            src={`https://player.simplecast.com/${state.uri}?dark=false&hide_share=true`}
+          ></iframe>
+        </div>
       </div>
     </div>
   );

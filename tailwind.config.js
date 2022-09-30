@@ -28,10 +28,17 @@ module.exports = {
           '25%': { transform: 'scale(97%)' },
           '75%': { transform: 'scale(100%)' },
           '100%': { opacity: 100, transform: 'translateY(0)' }
+        },
+        fade: {
+          '0%': { opacity: 0, transform: 'scale(95%)' },
+          '25%': { opacity: 0 },
+          '75%': { opacity: 70 },
+          '100%': { opacity: 100, transform: 'scale(100%)' }
         }
       },
       animation: {
-        'player-display': 'enter 500ms ease'
+        'player-display': 'enter 500ms ease',
+        'iframe-display': 'fade 350ms ease-out'
       }
     },
   },
