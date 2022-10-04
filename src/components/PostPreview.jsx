@@ -49,11 +49,12 @@ function PostPreview(props) {
 
   return (
     <div
+      className="flex flex-col"
       data-sal={props.animate ? sal.type : ""}
       data-sal-easing={sal.easing}
       data-sal-duration={sal.duration}
     >
-      <div className="md:max-w-2xl mx-auto">
+      <div className="md:max-w-2xl mx-auto flex-1">
         {/* Date Published */}
         <div
           className={`${layout === "compact" ? "hidden" : "text-slate-600"}`}
