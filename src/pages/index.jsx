@@ -94,33 +94,35 @@ function Home({ data }) {
         </div>
         {/* Episode Feature */}
         <div className="w-full">
-          <h3 className="text-2xl md:text-2xl text-center lg:text-left text-slate-600 font-optician mb-4 lg:mb-8">
+          <h3 className="text-3xl text-center lg:text-left text-slate-600 font-optician mb-4 lg:mb-8">
             Latest Episodes
           </h3>
+          {/* Episodes Grid */}
           <div className="w-full pt-4 grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-y-12 gap-x-8 mb-4">
             {episodePreviews.slice(0, 3)}
-          </div>
-          {/* Link to Episodes Page */}
-          <div className="flex justify-center lg:justify-end items-center mt-10">
-            <Link
-              key={"more-episodes"}
-              to={"/episodes"}
-              className={
-                "w-full md:w-fit text-lg font-medium text-theme-primary hover:text-slate-500 bg-slate-50 border border-slate-400 px-3 py-2 rounded transition"
-              }
-            >
-              <div className="flex items-center gap-x-2 justify-center">
-                <span>More episodes</span>
-                <FontAwesomeIcon icon={faAngleRight} className="" />
-              </div>
-            </Link>
+            {/* Link to Episodes Page */}
+            <div className="flex justify-center xl:col-start-2 items-center">
+              <Link
+                key={"more-episodes"}
+                to={"/episodes"}
+                className={
+                  "w-full md:w-fit text-lg font-medium text-theme-primary hover:text-slate-500 bg-slate-50 border border-slate-400 hover:border-slate-500 px-6 py-2 rounded transition"
+                }
+              >
+                <div className="flex items-center gap-x-2 justify-center">
+                  <span>More episodes</span>
+                  <FontAwesomeIcon icon={faAngleRight} className="" />
+                </div>
+              </Link>
+            </div>
           </div>
         </div>
         {/* Featured Blog Posts */}
         <div className="w-full">
-          <h3 className="text-2xl md:text-2xl text-center lg:text-left text-slate-600 font-optician mb-4 lg:mb-8">
+          <h3 className="text-3xl text-center lg:text-left text-slate-600 font-optician mb-4 lg:mb-8">
             Recent Blog Posts
           </h3>
+          {/* Posts Grid */}
           <div className="w-full grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-y-12 gap-x-8 mb-4">
             {postPreviews.slice(0, 3)}
           </div>
