@@ -8,9 +8,11 @@ import {
   faMicrophoneLines,
   faQuoteLeft,
   faQuoteRight,
+  faAngleRight,
 } from "@fortawesome/pro-solid-svg-icons";
 import { faTwitter } from "@fortawesome/free-brands-svg-icons";
 import { Timeline } from "react-twitter-widgets";
+import { Link } from "gatsby";
 
 function Home({ data }) {
   const posts = data.allContentfulBlogPost.edges;
@@ -19,7 +21,9 @@ function Home({ data }) {
   const episodePreviews = [];
 
   posts.map(({ node, index }) => {
-    postPreviews.push(<PostPreview key={index} post={node} layout="compact" animate={true} />);
+    postPreviews.push(
+      <PostPreview key={index} post={node} layout="compact" animate={true} />
+    );
   });
 
   let recentCount = 0;
@@ -96,6 +100,21 @@ function Home({ data }) {
           <div className="w-full pt-4 grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-y-12 gap-x-8 mb-4">
             {episodePreviews.slice(0, 3)}
           </div>
+          {/* Link to Episodes Page */}
+          <div className="flex justify-center lg:justify-end items-center mt-10">
+            <Link
+              key={"more-episodes"}
+              to={"/episodes"}
+              className={
+                "w-full md:w-fit text-lg font-medium text-theme-primary hover:text-slate-500 bg-slate-50 border border-slate-400 px-3 py-2 rounded transition"
+              }
+            >
+              <div className="flex items-center gap-x-2 justify-center">
+                <span>More episodes</span>
+                <FontAwesomeIcon icon={faAngleRight} className="" />
+              </div>
+            </Link>
+          </div>
         </div>
         {/* Featured Blog Posts */}
         <div className="w-full">
@@ -109,7 +128,10 @@ function Home({ data }) {
         {/* Twitter Feed */}
         <div className="flex gap-x-8 justify-center">
           <span className="block w-4/12 border-b"></span>
-          <FontAwesomeIcon icon={faTwitter} className="text-6xl text-slate-500" />
+          <FontAwesomeIcon
+            icon={faTwitter}
+            className="text-6xl text-slate-500"
+          />
           <span className="block w-4/12 border-b"></span>
         </div>
         <div className="w-full max-w-xl mx-auto">
