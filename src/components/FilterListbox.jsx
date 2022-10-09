@@ -101,7 +101,7 @@ function FilterListbox(props) {
       <Listbox value={selected} onChange={handleChange}>
         {({ open }) => (
           <>
-            <Listbox.Label className="block text-sm font-medium text-gray-700">
+            <Listbox.Label className="block text-sm text-gray-700">
               {props.title}
             </Listbox.Label>
             <div className="mt-1 relative">

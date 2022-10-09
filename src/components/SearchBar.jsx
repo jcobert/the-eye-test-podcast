@@ -105,7 +105,7 @@ function SearchBar(props) {
               <Combobox.Option key={item.id} value={item}>
                 {({ active }) => (
                   <div
-                    className={`px-4 py-2 font-medium ${
+                    className={`px-4 py-2 ${
                       active ? "text-white bg-theme-primary" : "text-gray-900"
                     }`}
                   >
