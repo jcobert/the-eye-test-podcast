@@ -12,6 +12,7 @@ module.exports = {
     "gatsby-plugin-image",
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
+    "gatsby-plugin-netlify",
     {
       resolve: `gatsby-plugin-scroll-reveal`,
       options: {
