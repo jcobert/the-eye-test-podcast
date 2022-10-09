@@ -83,7 +83,7 @@ function PostPreview(props) {
               </div>
               {/* Title */}
               <div
-                className={`text-center font-semibold text-theme-primary ${
+                className={`text-center font-medium text-theme-primary ${
                   layout === "compact"
                     ? "row-start-1 row-span-1 text-2xl"
                     : "row-start-2 py-4 text-3xl"
@@ -143,7 +143,7 @@ function PostPreview(props) {
             </p>
             {/* CTA */}
             <div
-              className={`bg-theme-primary hover:bg-gray-50 text-white hover:text-theme-primary text-lg font-medium h-16 md:h-14 mx-auto mt-4 mb-8 rounded-md border border-white hover:border-theme-primary transition-all ${
+              className={`bg-theme-primary hover:bg-gray-50 text-white hover:text-theme-primary text-lg h-16 md:h-14 mx-auto mt-4 mb-8 rounded-md border border-white hover:border-theme-primary transition-all ${
                 layout === "compact"
                   ? "w-full"
                   : "w-full sm:w-10/12 md:w-5/12 lg:w-4/12"

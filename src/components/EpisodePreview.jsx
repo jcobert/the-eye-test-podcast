@@ -81,12 +81,13 @@ function EpisodePreview(props) {
 
   return (
     <div
+      className="flex flex-col"
       data-sal={props.animate ? sal.type : ""}
       data-sal-easing={sal.easing}
       data-sal-duration={sal.duration}
     >
       <div
-        className={`w-full md:max-w-2xl mx-auto flex flex-col gap-y-1 p-6 pt-4 text-center bg-slate-50 rounded shadow-md border ${
+        className={`w-full md:max-w-2xl mx-auto flex-1 flex flex-col gap-y-1 p-6 pt-4 text-center bg-slate-50 rounded shadow-md border ${
           props.new ? "border-theme-tertiary" : "border-slate-400"
         }`}
       >
@@ -94,7 +95,7 @@ function EpisodePreview(props) {
         <div className={`${!props.new ? "hidden" : ""}`}>{newBadge}</div>
         {/* Title */}
         <div className={`${props.new ? "" : "lg:mt-3"}`}>
-          <h3 className="text-xl md:text-2xl font-semibold text-theme-primary">
+          <h3 className="text-xl md:text-2xl font-medium text-theme-primary">
             {episode.title}
           </h3>
         </div>

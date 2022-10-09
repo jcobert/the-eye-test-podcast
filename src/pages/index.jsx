@@ -106,7 +106,7 @@ function Home({ data }) {
                 key={"more-episodes"}
                 to={"/episodes"}
                 className={
-                  "w-full md:w-fit text-lg font-medium text-theme-primary hover:text-slate-500 bg-slate-50 border border-slate-400 hover:border-slate-500 px-6 py-2 rounded transition"
+                  "w-full md:w-48 text-lg text-theme-primary hover:text-slate-500 bg-slate-50 border border-slate-400 hover:border-slate-500 px-6 py-2 rounded transition"
                 }
               >
                 <div className="flex items-center gap-x-2 justify-center">
@@ -131,7 +131,7 @@ function Home({ data }) {
                 key={"more-posts"}
                 to={"/blog"}
                 className={
-                  "w-full md:w-fit text-lg font-medium text-theme-primary hover:text-slate-500 bg-slate-50 border border-slate-400 hover:border-slate-500 px-6 py-2 rounded transition"
+                  "w-full md:w-48 text-lg text-theme-primary hover:text-slate-500 bg-slate-50 border border-slate-400 hover:border-slate-500 px-6 py-2 rounded transition"
                 }
               >
                 <div className="flex items-center gap-x-2 justify-center">

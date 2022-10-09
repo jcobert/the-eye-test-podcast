@@ -142,7 +142,7 @@ function Header() {
                       key={item.name}
                       to={item.to}
                       className={
-                        "text-xl leading-8 text-theme-primary hover:bg-theme-primary hover:text-white block px-3 py-2 rounded-md font-medium text-right"
+                        "text-xl leading-8 text-theme-primary hover:bg-theme-primary hover:text-white block px-3 py-2 rounded-md text-right"
                       }
                       activeClassName={activeLinkStyleMobile}
                       aria-current={item.current ? "page" : undefined}

@@ -37,24 +37,24 @@ function BlogPost({ data }) {
       },
       [BLOCKS.HEADING_2]: (node, children) => {
         return (
-          <h2 className="text-[1.6rem] leading-8 sm:text-[1.75rem] font-semibold mb-2 lg:mb-3">
+          <h2 className="text-[1.6rem] leading-8 sm:text-[1.75rem] font-medium mb-2 lg:mb-3">
             {children}
           </h2>
         );
       },
       [BLOCKS.HEADING_3]: (node, children) => {
-        return <h3 className="text-2xl font-semibold mb-1">{children}</h3>;
+        return <h3 className="text-2xl font-medium mb-1">{children}</h3>;
       },
       [BLOCKS.HEADING_4]: (node, children) => {
         return (
-          <h4 className="text-[1.4rem] font-semibold text-slate-800">
+          <h4 className="text-[1.4rem] font-medium text-slate-800">
             {children}
           </h4>
         );
       },
       [BLOCKS.HEADING_5]: (node, children) => {
         return (
-          <h5 className="text-[1.3rem] font-semibold text-slate-800">
+          <h5 className="text-[1.3rem] font-medium text-slate-800">
             {children}
           </h5>
         );
@@ -110,7 +110,7 @@ function BlogPost({ data }) {
       </div>
       {/* Title */}
       <div>
-        <h1 className="text-center text-theme-primary font-semibold text-4xl sm:text-5xl mb-4 md:mb-6 lg:mb-8 sm:-mt-4 lg:-mt-2">
+        <h1 className="text-center text-theme-primary font-medium text-4xl sm:text-5xl mb-4 md:mb-6 lg:mb-8 sm:-mt-4 lg:-mt-2">
           {post.title}
         </h1>
       </div>
