@@ -31,6 +31,10 @@ export const onRenderBody = ({ setHeadComponents }) => {
   ]);
 };
 
-export const wrapRootElement = ({ element, props }) => {
-  return <GlobalContextProvider><Layout {...props}>{element}</Layout></GlobalContextProvider>;
+export const wrapRootElement = ({ element }) => {
+  return <GlobalContextProvider>{element}</GlobalContextProvider>;
+};
+
+export const wrapPageElement = ({ element, props }) => {
+  return <Layout {...props}>{element}</Layout>;
 };

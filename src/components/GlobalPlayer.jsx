@@ -19,21 +19,20 @@ function GlobalPlayer() {
     playerTitle = playerTitle.slice(0, 40) + "...";
   }
 
+  const [hidden, setHidden] = React.useState(false);
+
   function handleHideShow() {
     document.getElementById("iframe").classList.toggle("hidden");
     if (document.getElementById("iframe").className.includes("hidden")) {
-      document.getElementById("icon-collapse").classList.add("hidden");
-      document.getElementById("icon-expand").classList.remove("hidden");
       document
         .getElementById("controls-bar")
         .classList.add("rounded-b-[.3rem]");
     } else {
-      document.getElementById("icon-expand").classList.add("hidden");
-      document.getElementById("icon-collapse").classList.remove("hidden");
       document
         .getElementById("controls-bar")
         .classList.remove("rounded-b-[.3rem]");
     }
+    setHidden(!hidden);
   }
 
   function handleClose() {
@@ -63,13 +62,12 @@ function GlobalPlayer() {
           <div>
             <button id="btn-hide-show" onClick={handleHideShow}>
               <FontAwesomeIcon
-                id="icon-expand"
-                icon={faUpRightAndDownLeftFromCenter}
-                className="text-xl text-white px-2 pt-1 hidden hover:text-slate-200 transition-all"
-              />
-              <FontAwesomeIcon
-                id="icon-collapse"
-                icon={faDownLeftAndUpRightToCenter}
+                id="icon-hide-show"
+                icon={
+                  hidden
+                    ? faUpRightAndDownLeftFromCenter
+                    : faDownLeftAndUpRightToCenter
+                }
                 className="text-xl text-white px-2 pt-1 hover:text-slate-200 transition-all"
               />
             </button>
