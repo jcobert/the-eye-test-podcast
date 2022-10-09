@@ -12,10 +12,10 @@ module.exports = {
         "theme-secondary": "#344e95",
         "theme-tertiary": "#ff9f46",
       },
-      fontFamily: {
-        'jost': ["Jost", "Helvetica", "Arial", "sans-serif"],
-        'optician': ["OpticianSans", "Helvetica", "Arial", "sans-serif"],
-      },
+      // fontFamily: {
+      //   'jost': ["Jost", "Helvetica", "Arial", "sans-serif"],
+      //   'optician': ["OpticianSans", "Helvetica", "Arial", "sans-serif"],
+      // },
       fontSize: {
         'base': '1.05rem'
       },
@@ -42,5 +42,5 @@ module.exports = {
       }
     },
   },
-  plugins: [],
+  plugins: ['gatsby-plugin-postcss'],
 };
