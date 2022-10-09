@@ -1,8 +1,10 @@
 import "./src/styles/global.css";
-import React from "react";
 import Layout from "./src/components/Layout";
-// import { Script } from "gatsby";
+import React from "react";
 import GlobalContextProvider from "./src/context/GlobalContextProvider";
+import "@fortawesome/fontawesome-svg-core/styles.css";
+import { config } from "@fortawesome/fontawesome-svg-core";
+config.autoAddCss = false;
 
 export const wrapPageElement = ({ element, props }) => {
   return <Layout {...props}>{element}</Layout>;

@@ -1,11 +1,9 @@
-import React, { useContext } from "react";
+import React from "react";
 import Header from "./Header";
 import Footer from "./Footer";
-import { GlobalStateContext } from "../context/GlobalContextProvider.jsx";
 import GlobalPlayer from "./GlobalPlayer";
 
 function Layout({ children }) {
-  const state = useContext(GlobalStateContext);
 
   return (
     <div className="flex-grow font-jost bg-slate-100">
