@@ -1,6 +1,6 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPaperPlane } from "@fortawesome/pro-solid-svg-icons";
+import { faEnvelope } from "@fortawesome/pro-solid-svg-icons";
 import {
   faTwitter,
   faSpotify,
@@ -35,7 +35,7 @@ function Footer() {
             <FontAwesomeIcon icon={faSpotify} className="" />
           </a>
           <a class="hover:text-slate-300 transition-all" href={links.email}>
-            <FontAwesomeIcon icon={faPaperPlane} className="" />
+            <FontAwesomeIcon icon={faEnvelope} className="" />
           </a>
         </div>
         <div className="border border-slate-400 hover:border-slate-200 rounded-md p-2 md:p-1 bg-slate-800 md:ml-8 hover:bg-slate-700 transition-all">
