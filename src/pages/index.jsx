@@ -125,6 +125,21 @@ function Home({ data }) {
           {/* Posts Grid */}
           <div className="w-full grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-y-12 gap-x-8 mb-4">
             {postPreviews.slice(0, 3)}
+            {/* Link to Blog Page */}
+            <div className="flex justify-center xl:col-start-2 items-center">
+              <Link
+                key={"more-posts"}
+                to={"/blog"}
+                className={
+                  "w-full md:w-fit text-lg font-medium text-theme-primary hover:text-slate-500 bg-slate-50 border border-slate-400 hover:border-slate-500 px-6 py-2 rounded transition"
+                }
+              >
+                <div className="flex items-center gap-x-2 justify-center">
+                  <span>More posts</span>
+                  <FontAwesomeIcon icon={faAngleRight} className="" />
+                </div>
+              </Link>
+            </div>
           </div>
         </div>
         {/* Twitter Feed */}
