@@ -5,7 +5,7 @@ require("dotenv").config({
 module.exports = {
   siteMetadata: {
     title: `The Eye Test Podcast`,
-    siteUrl: `https://www.yourdomain.tld`,
+    siteUrl: `https://www.eyetestpodcast.com`,
   },
   plugins: [
     "gatsby-plugin-postcss",
