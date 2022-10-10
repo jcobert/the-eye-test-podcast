@@ -7,6 +7,7 @@ import {
   faYoutube,
 } from "@fortawesome/free-brands-svg-icons";
 // import {} from "@fortawesome/pro-solid-svg-icons";
+import { StaticImage } from "gatsby-plugin-image";
 
 function About() {
   const links = {
@@ -25,7 +26,7 @@ function About() {
       {/* Main Content */}
       <div className="flex flex-col gap-y-8">
         {/* Background */}
-        <div>
+        <div className="border rounded bg-slate-50 p-4 md:p-8">
           <h4 className="text-2xl text-slate-800 text-center lg:text-left mb-4">
             Background
           </h4>
@@ -49,26 +50,16 @@ function About() {
               Can of corn bunt small ball count mound, leather forkball
               southpaw.
             </p>
-            <p>
-              Baltimore chop right fielder cracker jack take losses lineup
-              slider. Win baltimore chop manager designated hitter left fielder
-              leather rainout on deck. Pinch runner bat helmet left on base left
-              fielder 4-6-3 error no decision second base. National pastime
-              first base on-base percentage right field error backstop cracker
-              jack cork. Sabremetrics first base interleague dead red bullpen
-              pinch hitter screwball. Second base runs hey batter run batted in
-              outfielder, ball no decision game swing.
-            </p>
           </div>
         </div>
         {/* The Team */}
-        <div>
+        <div className="border rounded bg-slate-50 p-4 md:p-8">
           <h4 className="text-2xl text-slate-800 text-center lg:text-left mb-4">
             The Team
           </h4>
-          <div className="flex flex-col gap-y-4">
+          <div className="flex flex-col gap-y-6">
             <div>
-              <h5 className="text-lg text-slate-700">Brian Donovan</h5>
+              <h5 className="text-lg text-slate-900 mb-1">Brian Donovan</h5>
               <p>
                 Bro ipsum dolor sit amet clean McTwist trail swag schwag jib
                 pinner, ollie giblets huckfest gondy afterbang. Bail bowl snake
@@ -80,42 +71,53 @@ function About() {
               </p>
             </div>
             <div>
-              <h5 className="text-lg text-slate-700">Josh Cobert</h5>
-              <div className="flex flex-col gap-y-3 lg:gap-y-4">
-                <p>
-                  Josh pushes the buttons and pulls the levers behind the
-                  scenes. From editing and producing podcast episodes, to
-                  creating the catchy theme song, and even developing this
-                  website, Josh makes sure The Eye Test makes its way to your
-                  eyes and ears. A long time pal of Brian, he is happy to help
-                  showcase Brian's passion for sports and elevate this platform.
-                </p>
-                <p>
-                  Looking for that catchy theme song? It's available to stream
-                  here or wherever you get your music.
-                </p>
-                {/* Music Links */}
-                <div className="flex gap-x-2 justify-evenly text-slate-700 text-5xl">
-                  <a
-                    class="hover:text-slate-500 transition-all"
-                    href={links.spotify}
-                  >
-                    <FontAwesomeIcon icon={faSpotify} className="" />
-                  </a>
-                  <a
-                    class="hover:text-slate-300 transition-all"
-                    href={links.apple}
-                  >
-                    <FontAwesomeIcon icon={faApple} className="" />
-                  </a>
-                  <a
-                    class="hover:text-slate-300 transition-all"
-                    href={links.youtube}
-                  >
-                    <FontAwesomeIcon icon={faYoutube} className="" />
-                  </a>
-                </div>
-              </div>
+              <h5 className="text-lg text-slate-900 mb-1">Josh Cobert</h5>
+              <p>
+                Josh pushes the buttons and pulls the levers behind the scenes.
+                From editing and producing podcast episodes, to creating the
+                catchy theme song, and even developing this website, Josh makes
+                sure The Eye Test makes its way to your eyes and ears. A long
+                time pal of Brian, he is happy to help showcase Brian's passion
+                for sports and elevate this platform.
+              </p>
+            </div>
+          </div>
+        </div>
+        {/* Theme Song CTA */}
+        <div className="w-full md:w-[32rem] lg:w-[34rem] mx-auto p-4 mt-4 bg-slate-50 border rounded">
+          <p className="text-center text-xl text-theme-primary">
+            Looking for that catchy theme song?
+          </p>
+          <p className="text-center text-slate-700">
+            It's available to stream wherever you get your music.
+          </p>
+          <div className="flex flex-col lg:flex-row lg:w-full lg:mx-auto justify-center items-center gap-y-4">
+            {/* Album Artwork */}
+            <StaticImage
+              className="w-32 max-w-[8rem] my-4 lg:ml-16"
+              src="../images/theme-song-art.jpg"
+              alt="Theme song album artwork"
+              objectFit="contain"
+              loading="eager"
+              placeholder="tracedSVG"
+            />
+            {/* Music Links */}
+            <div className="flex flex-1 gap-x-2 justify-evenly sm:justify-center sm:gap-x-24 md:gap-x-12 w-full md:w-fit mx-auto text-slate-700 text-4xl">
+              <a
+                class="hover:text-slate-500 transition-all"
+                href={links.spotify}
+              >
+                <FontAwesomeIcon icon={faSpotify} className="" />
+              </a>
+              <a class="hover:text-slate-500 transition-all" href={links.apple}>
+                <FontAwesomeIcon icon={faApple} className="" />
+              </a>
+              <a
+                class="hover:text-slate-500 transition-all"
+                href={links.youtube}
+              >
+                <FontAwesomeIcon icon={faYoutube} className="" />
+              </a>
             </div>
           </div>
         </div>
