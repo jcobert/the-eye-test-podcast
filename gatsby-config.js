@@ -5,7 +5,7 @@ require("dotenv").config({
 module.exports = {
   siteMetadata: {
     title: `The Eye Test Podcast`,
-    siteUrl: `https://www.yourdomain.tld`,
+    siteUrl: `https://www.eyetestpodcast.com`,
   },
   plugins: [
     "gatsby-plugin-postcss",
@@ -13,6 +13,18 @@ module.exports = {
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
     "gatsby-plugin-netlify",
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `The Eye Test`,
+        short_name: `The Eye Test`,
+        start_url: `/`,
+        background_color: `#ffffff`,
+        theme_color: `#3892e2`,
+        display: `standalone`,
+        icon: `src/images/the-eye-test-favicon.png`,
+      },
+    },
     {
       resolve: `gatsby-plugin-scroll-reveal`,
       options: {
