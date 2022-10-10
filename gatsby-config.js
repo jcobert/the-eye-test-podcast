@@ -14,6 +14,18 @@ module.exports = {
     "gatsby-transformer-sharp",
     "gatsby-plugin-netlify",
     {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `The Eye Test`,
+        short_name: `The Eye Test`,
+        start_url: `/`,
+        background_color: `#ffffff`,
+        theme_color: `#3892e2`,
+        display: `standalone`,
+        icon: `src/images/the-eye-test-favicon.png`,
+      },
+    },
+    {
       resolve: `gatsby-plugin-scroll-reveal`,
       options: {
         threshold: 0.1, // Percentage of an element's area that needs to be visible to launch animation
