@@ -77,7 +77,7 @@ function Home({ data }) {
                 </div>
               </div>
               {/* Placeholder Blurb */}
-              <div className="w-full flex flex-col self-center gap-y-4 lg:gap-y-8 mt-2 md:mt-10 lg:mt-0 px-2 md:px-10 lg:px-2">
+              {/* <div className="w-full flex flex-col self-center gap-y-4 lg:gap-y-8 mt-2 md:mt-10 lg:mt-0 px-2 md:px-10 lg:px-2">
                 <p>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                   Nullam nec ante id ligula rutrum blandit. Nunc blandit
@@ -88,7 +88,7 @@ function Home({ data }) {
                   blandit a, convallis non mauris. Fusce ultricies nisi suscipit
                   consequat ornare.
                 </p>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
@@ -158,7 +158,7 @@ function Home({ data }) {
               screenName: "DonoPodcast",
             }}
             options={{
-              tweetLimit: 5,
+              tweetLimit: 3,
             }}
           />
         </div>
