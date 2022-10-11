@@ -26,8 +26,8 @@ function About() {
       {/* Main Content */}
       <div className="flex flex-col gap-y-8">
         {/* Background */}
-        <div className="border rounded bg-slate-50 p-4 md:p-8">
-          <h4 className="text-2xl text-slate-800 text-center lg:text-left mb-4">
+        <div className="border rounded bg-slate-50 p-4 md:p-8 lg:px-12">
+          <h4 className="text-2xl text-slate-800 text-center lg:text-left mb-6">
             Background
           </h4>
           <div className="text-left flex flex-col gap-y-3 lg:gap-y-4">
@@ -53,13 +53,24 @@ function About() {
           </div>
         </div>
         {/* The Team */}
-        <div className="border rounded bg-slate-50 p-4 md:p-8">
-          <h4 className="text-2xl text-slate-800 text-center lg:text-left mb-4">
+        <div className="border rounded bg-slate-50 p-4 md:p-8 lg:px-12">
+          <h4 className="text-2xl text-slate-800 text-center lg:text-left mb-6">
             The Team
           </h4>
-          <div className="flex flex-col gap-y-6">
+          <div className="flex flex-col gap-y-10">
             <div>
-              <h5 className="text-lg text-slate-900 mb-1">Brian Donovan</h5>
+              <StaticImage
+                className="w-16 rounded-full outline outline-slate-300 shadow float-left mr-6"
+                src="../images/brian-donovan.png"
+                alt="Josh Cobert bio photo"
+                objectFit="contain"
+                loading="eager"
+                placeholder="tracedSVG"
+              />
+              <div className="flex flex-col mb-1">
+                <h5 className="text-lg text-slate-800">Brian Donovan</h5>
+                <p className="text-slate-500 -mt-2">Founder and Host</p>
+              </div>
               <p>
                 Bro ipsum dolor sit amet clean McTwist trail swag schwag jib
                 pinner, ollie giblets huckfest gondy afterbang. Bail bowl snake
@@ -71,7 +82,20 @@ function About() {
               </p>
             </div>
             <div>
-              <h5 className="text-lg text-slate-900 mb-1">Josh Cobert</h5>
+              <StaticImage
+                className="w-16 rounded-full outline outline-slate-300 shadow float-left mr-6"
+                src="../images/josh-cobert.jpg"
+                alt="Josh Cobert bio photo"
+                objectFit="contain"
+                loading="eager"
+                placeholder="tracedSVG"
+              />
+              <div className="flex flex-col mb-1">
+                <h5 className="text-lg text-slate-800">Josh Cobert</h5>
+                <p className="text-slate-500 -mt-2">
+                  Producer, Technology Lead
+                </p>
+              </div>
               <p>
                 Josh pushes the buttons and pulls the levers behind the scenes.
                 From editing and producing podcast episodes, to creating the
@@ -84,17 +108,17 @@ function About() {
           </div>
         </div>
         {/* Theme Song CTA */}
-        <div className="w-full md:w-[32rem] lg:w-[34rem] mx-auto p-4 mt-4 bg-slate-50 border rounded">
-          <p className="text-center text-xl text-theme-primary">
+        <div className="w-full md:w-[32rem] lg:w-[34rem] mx-auto p-4 bg-slate-50 border rounded">
+          <p className="text-center text-xl text-slate-900">
             Looking for that catchy theme song?
           </p>
           <p className="text-center text-slate-700">
             It's available to stream wherever you get your music.
           </p>
-          <div className="flex flex-col lg:flex-row lg:w-full lg:mx-auto justify-center items-center gap-y-4">
+          <div className="flex flex-col flex-wrap lg:flex-row lg:w-full lg:mx-auto justify-center items-center gap-y-4 my-4 lg:my-6">
             {/* Album Artwork */}
             <StaticImage
-              className="w-32 max-w-[8rem] my-4 lg:ml-16"
+              className="w-32 max-w-[9rem] flex-auto lg:ml-16 my-4 lg:my-0"
               src="../images/theme-song-art.jpg"
               alt="Theme song album artwork"
               objectFit="contain"
@@ -102,22 +126,30 @@ function About() {
               placeholder="tracedSVG"
             />
             {/* Music Links */}
-            <div className="flex flex-1 gap-x-2 justify-evenly sm:justify-center sm:gap-x-24 md:gap-x-12 w-full md:w-fit mx-auto text-slate-700 text-4xl">
-              <a
-                class="hover:text-slate-500 transition-all"
-                href={links.spotify}
-              >
-                <FontAwesomeIcon icon={faSpotify} className="" />
-              </a>
-              <a class="hover:text-slate-500 transition-all" href={links.apple}>
-                <FontAwesomeIcon icon={faApple} className="" />
-              </a>
-              <a
-                class="hover:text-slate-500 transition-all"
-                href={links.youtube}
-              >
-                <FontAwesomeIcon icon={faYoutube} className="" />
-              </a>
+            <div className="flex flex-col flex-1 w-full md:w-fit">
+              <p className="text-center text-xl text-theme-primary font-optician py-2">
+                Listen now!
+              </p>
+              <div className="flex gap-x-2 justify-around sm:justify-evenly md:justify-center sm:gap-x-24 md:gap-x-12 mx-auto w-full text-slate-700 text-5xl sm:text-4xl bg-slate-100 border rounded py-2 md:w-fit md:px-6">
+                <a
+                  class="hover:text-theme-primary transition-all"
+                  href={links.spotify}
+                >
+                  <FontAwesomeIcon icon={faSpotify} className="" />
+                </a>
+                <a
+                  class="hover:text-theme-primary transition-all"
+                  href={links.apple}
+                >
+                  <FontAwesomeIcon icon={faApple} className="" />
+                </a>
+                <a
+                  class="hover:text-theme-primary transition-all"
+                  href={links.youtube}
+                >
+                  <FontAwesomeIcon icon={faYoutube} className="" />
+                </a>
+              </div>
             </div>
           </div>
         </div>
