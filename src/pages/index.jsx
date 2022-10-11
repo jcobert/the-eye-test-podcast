@@ -158,7 +158,7 @@ function Home({ data }) {
               screenName: "DonoPodcast",
             }}
             options={{
-              tweetLimit: 5,
+              tweetLimit: 3,
             }}
           />
         </div>
