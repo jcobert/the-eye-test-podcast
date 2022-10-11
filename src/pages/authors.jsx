@@ -2,8 +2,6 @@ import React from "react";
 import Heading from "../components/Heading.jsx";
 import AuthorProfile from "../components/AuthorProfile.jsx";
 import { graphql } from "gatsby";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAngleUp, faAngleDown } from "@fortawesome/pro-regular-svg-icons";
 
 function Authors({ data }) {
   const authors = data.allContentfulContributor.edges;
@@ -46,9 +44,9 @@ export const query = graphql`
             gatsbyImageData(
               layout: CONSTRAINED
               cornerRadius: 9999
-              width: 100
+              width: 600
               cropFocus: CENTER
-              height: 100
+              height: 600
               resizingBehavior: FILL
               placeholder: TRACED_SVG
             )
