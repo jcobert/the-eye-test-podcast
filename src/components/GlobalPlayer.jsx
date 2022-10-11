@@ -48,15 +48,15 @@ function GlobalPlayer() {
   return (
     <div
       id="player-container"
-      className={`sticky bottom-2 md:bottom-0 mx-auto w-[95%] sm:w-full md:w-10/12 lg:w-8/12 max-w-4xl lg:rounded-t-md p-2 ${
+      className={`sticky bottom-3 md:bottom-1 mx-auto w-[95%] sm:w-full md:w-10/12 lg:w-8/12 max-w-4xl lg:rounded-t-md p-2 ${
         state.uri === "" ? "hidden" : ""
       } animate-player-display`}
     >
-      <div className="my-auto bg-transparent border border-slate-400 rounded-md shadow-md">
+      <div className="my-auto bg-transparent border border-slate-500 rounded-md shadow-md">
         {/* Player Title Bar */}
         <div
           id="controls-bar"
-          className="p-1 bg-theme-primary/95 rounded-t-[.3rem] flex justify-between flex-1"
+          className="p-1 bg-gradient-to-bl from-[#5777cf]/95  via-theme-primary/95 to-[#4465be]/95 rounded-t-[.3rem] flex justify-between flex-1"
         >
           {/* Hide/Show Button */}
           <div>

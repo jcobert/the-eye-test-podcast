@@ -60,12 +60,13 @@ function About() {
           <div className="flex flex-col gap-y-10">
             <div>
               <StaticImage
-                className="w-16 rounded-full outline outline-slate-300 shadow float-left mr-6"
+                className="w-16 rounded-full shadow float-left mr-6"
                 src="../images/brian-donovan.png"
-                alt="Josh Cobert bio photo"
+                alt="Brian Donovan bio photo"
                 objectFit="contain"
                 loading="eager"
                 placeholder="tracedSVG"
+                imgClassName="rounded-full outline outline-black border-2 border-slate-300"
               />
               <div className="flex flex-col mb-1">
                 <h5 className="text-lg text-slate-800">Brian Donovan</h5>
@@ -82,13 +83,14 @@ function About() {
               </p>
             </div>
             <div>
-              <StaticImage
-                className="w-16 rounded-full outline outline-slate-300 shadow float-left mr-6"
+            <StaticImage
+                className="w-16 rounded-full shadow float-left mr-6"
                 src="../images/josh-cobert.jpg"
                 alt="Josh Cobert bio photo"
                 objectFit="contain"
                 loading="eager"
                 placeholder="tracedSVG"
+                imgClassName="rounded-full outline outline-black border-2 border-slate-300"
               />
               <div className="flex flex-col mb-1">
                 <h5 className="text-lg text-slate-800">Josh Cobert</h5>
