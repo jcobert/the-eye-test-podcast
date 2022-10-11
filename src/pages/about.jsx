@@ -66,7 +66,7 @@ function About() {
                 objectFit="contain"
                 loading="eager"
                 placeholder="tracedSVG"
-                imgClassName="rounded-full outline outline-black border-2 border-slate-300"
+                imgClassName="rounded-full border-2 border-slate-300"
               />
               <div className="flex flex-col mb-1">
                 <h5 className="text-lg text-slate-800">Brian Donovan</h5>
@@ -90,7 +90,7 @@ function About() {
                 objectFit="contain"
                 loading="eager"
                 placeholder="tracedSVG"
-                imgClassName="rounded-full outline outline-black border-2 border-slate-300"
+                imgClassName="rounded-full border-2 border-slate-300"
               />
               <div className="flex flex-col mb-1">
                 <h5 className="text-lg text-slate-800">Josh Cobert</h5>
