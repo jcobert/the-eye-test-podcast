@@ -16,13 +16,55 @@ function AuthorProfile(props) {
       [INLINES.HYPERLINK]: (node, children) => {
         const { uri } = node.data;
         return (
-          <a href={uri} className="underline text-theme-primary">
+          <a
+            href={uri}
+            className="underline text-theme-primary hover:text-slate-500 transition-all"
+          >
             {children}
           </a>
         );
       },
+      [BLOCKS.HEADING_1]: (node, children) => {
+        return <h1 className="text-3xl font-bold mb-2 lg:mb-3">{children}</h1>;
+      },
       [BLOCKS.HEADING_2]: (node, children) => {
-        return <h2 className="text-2xl">{children}</h2>;
+        return (
+          <h2 className="text-[1.6rem] leading-8 sm:text-[1.75rem] font-medium mb-2 lg:mb-3">
+            {children}
+          </h2>
+        );
+      },
+      [BLOCKS.HEADING_3]: (node, children) => {
+        return <h3 className="text-2xl font-medium mb-1">{children}</h3>;
+      },
+      [BLOCKS.HEADING_4]: (node, children) => {
+        return (
+          <h4 className="text-[1.4rem] font-medium text-slate-800">
+            {children}
+          </h4>
+        );
+      },
+      [BLOCKS.HEADING_5]: (node, children) => {
+        return (
+          <h5 className="text-[1.3rem] font-medium text-slate-800">
+            {children}
+          </h5>
+        );
+      },
+      [BLOCKS.HEADING_6]: (node, children) => {
+        return <h6 className="text-xl text-slate-800">{children}</h6>;
+      },
+      [BLOCKS.PARAGRAPH]: (node, children) => {
+        return <p className="mb-4 md:mb-6 text-base">{children}</p>;
+      },
+      [BLOCKS.UL_LIST]: (node, children) => {
+        return <ul className="list-disc pl-4 mb-8">{children}</ul>;
+      },
+      [BLOCKS.OL_LIST]: (node, children) => {
+        return <ol className="list-decimal pl-4 mb-8">{children}</ol>;
+      },
+      [BLOCKS.LIST_ITEM]: (node, children) => {
+        return <li className="-mb-3 leading-snug">{children}</li>;
       },
     },
   };
@@ -43,7 +85,7 @@ function AuthorProfile(props) {
     >
       <div className="w-full md:max-w-2xl mx-auto flex-1">
         {/* Body */}
-        <div className="p-6 bg-slate-50 rounded border border-slate-400 flex flex-col justify-between">
+        <div className="p-6 rounded border flex flex-col justify-between">
           <div className="flex flex-col lg:flex-row">
             {/* Avatar */}
             <GatsbyImage
@@ -56,7 +98,7 @@ function AuthorProfile(props) {
             />
             {/* Name */}
             <div className="text-center lg:text-left lg:ml-4 flex-auto">
-              <h4 className="font-medium text-theme-primary text-3xl">
+              <h4 className="font-medium text-3xl text-transparent bg-clip-text bg-gradient-to-r from-theme-primary/95 to-[#4465be]/95">
                 {props.author.name}
               </h4>
               <h6 className="text-slate-700">{props.author.title}</h6>
