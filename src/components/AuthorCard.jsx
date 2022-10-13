@@ -5,7 +5,7 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTwitter, faFacebook } from "@fortawesome/free-brands-svg-icons";
 
-function AuthorProfile(props) {
+function AuthorCard(props) {
   const avatar = getImage(props.author.image);
 
   const options = {
@@ -124,4 +124,4 @@ function AuthorProfile(props) {
   );
 }
 
-export default AuthorProfile;
+export default AuthorCard;

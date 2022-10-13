@@ -1,6 +1,6 @@
 import React from "react";
 import Heading from "../components/Heading.jsx";
-import AuthorProfile from "../components/AuthorProfile.jsx";
+import AuthorCard from "../components/AuthorCard.jsx";
 import { graphql } from "gatsby";
 
 function Authors({ data }) {
@@ -9,7 +9,7 @@ function Authors({ data }) {
 
   {
     authors.map(({ node, index }) => {
-      authorCards.push(<AuthorProfile key={index} author={node} />);
+      authorCards.push(<AuthorCard key={index} author={node} />);
     });
   }
 
@@ -37,7 +37,6 @@ export const query = graphql`
             raw
           }
           name
-          facebook
           email
           company
           image {
