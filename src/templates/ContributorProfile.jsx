@@ -1,12 +1,14 @@
 import React from "react";
+import { graphql } from "gatsby";
 import { renderRichText } from "gatsby-source-contentful/rich-text";
 import { INLINES, BLOCKS, MARKS } from "@contentful/rich-text-types";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTwitter, faFacebook } from "@fortawesome/free-brands-svg-icons";
 
-function AuthorCard(props) {
-  const avatar = getImage(props.author.image);
+function ContributorProfile({ data }) {
+  const contributor = data.contentfulContributor;
+  const avatar = getImage(contributor.image);
 
   const options = {
     renderMark: {
@@ -69,20 +71,8 @@ function AuthorCard(props) {
     },
   };
 
-  // scroll animation options
-  const sal = {
-    type: "slide-up",
-    easing: "ease-out-expo",
-    duration: "700",
-  };
-
   return (
-    <div
-      className="flex flex-col"
-      data-sal={props.animate ? sal.type : ""}
-      data-sal-easing={sal.easing}
-      data-sal-duration={sal.duration}
-    >
+    <div className="flex flex-col">
       <div className="w-full md:max-w-2xl mx-auto flex-1">
         {/* Body */}
         <div className="p-6 rounded border flex flex-col justify-between">
@@ -90,7 +80,7 @@ function AuthorCard(props) {
             {/* Avatar */}
             <GatsbyImage
               image={avatar}
-              alt="author photo"
+              alt="contributor photo"
               className="w-32 mx-auto rounded-full shadow"
               imgClassName="rounded-full border-2 border-slate-300"
               placeholder="tracedSVG"
@@ -99,24 +89,24 @@ function AuthorCard(props) {
             {/* Name */}
             <div className="text-center lg:text-left lg:ml-4 flex-auto">
               <h4 className="font-medium text-3xl text-transparent bg-clip-text bg-gradient-to-r from-theme-primary/95 to-[#4465be]/95">
-                {props.author.name}
+                {contributor.name}
               </h4>
-              <h6 className="text-slate-700">{props.author.title}</h6>
+              <h6 className="text-slate-700">{contributor.title}</h6>
               <div
                 className={`${
-                  !props.author.twitter
+                  !contributor.twitter
                     ? "hidden"
                     : "flex justify-center lg:justify-start items-center gap-x-2 mt-2"
                 }`}
               >
                 <FontAwesomeIcon className="text-slate-600" icon={faTwitter} />
-                <span className="text-slate-700">{props.author.twitter}</span>
+                <span className="text-slate-700">{contributor.twitter}</span>
               </div>
             </div>
           </div>
           {/* Bio */}
           <div className="text-base sm:text-lg mt-6 p-4">
-            {renderRichText(props.author.shortBio, options)}
+            {renderRichText(contributor.shortBio, options)}
           </div>
         </div>
       </div>
@@ -124,4 +114,32 @@ function AuthorCard(props) {
   );
 }
 
-export default AuthorCard;
+export const pageQuery = graphql`
+  query ContributorByName($name: String!) {
+    contentfulContributor(name: { eq: $name }) {
+      twitter
+      title
+      shortBio {
+        raw
+      }
+      name
+      email
+      company
+      image {
+        gatsbyImageData(
+          layout: CONSTRAINED
+          cornerRadius: 9999
+          width: 600
+          cropFocus: CENTER
+          height: 600
+          resizingBehavior: FILL
+          placeholder: TRACED_SVG
+        )
+      }
+    }
+  }
+`;
+
+export default ContributorProfile;
+
+export const Head = () => <title>The Eye Test</title>;

@@ -1,15 +1,15 @@
 import React from "react";
-import Heading from "../components/Heading.jsx";
-import AuthorCard from "../components/AuthorCard.jsx";
+import Heading from "../../components/Heading.jsx";
+import ContributorCard from "../../components/ContributorCard.jsx";
 import { graphql } from "gatsby";
 
-function Authors({ data }) {
-  const authors = data.allContentfulContributor.edges;
-  let authorCards = [];
+function Contributors({ data }) {
+  const contributors = data.allContentfulContributor.edges;
+  let contributorCards = [];
 
   {
-    authors.map(({ node, index }) => {
-      authorCards.push(<AuthorCard key={index} author={node} />);
+    contributors.map(({ node, index }) => {
+      contributorCards.push(<ContributorCard key={index} contributor={node} />);
     });
   }
 
@@ -21,7 +21,7 @@ function Authors({ data }) {
           subtitle={"Meet the contributors to The Eye Test blog."}
         />
       </div>
-      <div className="w-full flex flex-col gap-y-16 mb-24">{authorCards}</div>
+      <div className="w-full flex flex-col gap-y-16 mb-24">{contributorCards}</div>
     </div>
   );
 }
@@ -56,6 +56,6 @@ export const query = graphql`
   }
 `;
 
-export default Authors;
+export default Contributors;
 
 export const Head = () => <title>The Eye Test</title>;

@@ -3,7 +3,7 @@ const path = require("path");
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions;
   const blogPost = path.resolve("./src/templates/BlogPost.jsx");
-  const authorProfile = path.resolve("./src/templates/AuthorProfile.jsx");
+  const contributorProfile = path.resolve("./src/templates/ContributorProfile.jsx");
 
   const blogPosts = await graphql(
     `
@@ -44,7 +44,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     }
   });
 
-  const authorProfiles = await graphql(
+  const contributorProfiles = await graphql(
     `
       {
         allContentfulContributor {
@@ -62,14 +62,14 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       );
       return;
     }
-    const authors = result.data.allContentfulContributor.nodes;
-    if (authors.length > 0) {
-      authors.forEach((author) => {
+    const contributors = result.data.allContentfulContributor.nodes;
+    if (contributors.length > 0) {
+      contributors.forEach((contributor) => {
         createPage({
-          path: `/authors/${author.name.toLowerCase().replace(" ", "-")}/`,
-          component: authorProfile,
+          path: `/blog/contributors/${contributor.name.toLowerCase().replace(" ", "-")}/`,
+          component: contributorProfile,
           context: {
-            name: author.name,
+            name: contributor.name,
           },
         });
       });
