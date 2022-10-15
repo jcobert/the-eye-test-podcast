@@ -13,18 +13,25 @@ import {
 import { faTwitter } from "@fortawesome/free-brands-svg-icons";
 import { Timeline } from "react-twitter-widgets";
 import { Link } from "gatsby";
+import NoResults from "../components/NoResults.jsx";
 
 function Home({ data }) {
   const posts = data.allContentfulBlogPost.edges;
-  const postPreviews = [];
+  let postPreviews = [];
   const episodes = data.allSimplecastEpisode.edges;
-  const episodePreviews = [];
+  let episodePreviews = [];
+  let noResults = false;
 
-  posts.map(({ node, index }) => {
-    postPreviews.push(
-      <PostPreview key={index} post={node} layout="compact" animate={true} />
-    );
-  });
+  if (posts.length === 1) {
+    postPreviews = [<NoResults />];
+    noResults = true;
+  } else {
+    posts.map(({ node, index }) => {
+      postPreviews.push(
+        <PostPreview key={index} post={node} layout="compact" animate={true} />
+      );
+    });
+  }
 
   let recentCount = 0;
   episodes.map(({ node, index }) => {
@@ -123,10 +130,22 @@ function Home({ data }) {
             Recent Blog Posts
           </h3>
           {/* Posts Grid */}
-          <div className="w-full grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-y-12 gap-x-8 mb-4">
+          <div
+            className={
+              noResults
+                ? "block"
+                : "w-full grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-y-12 gap-x-8 mb-4"
+            }
+          >
             {postPreviews.slice(0, 3)}
             {/* Link to Blog Page */}
-            <div className="flex justify-center xl:col-start-2 items-center">
+            <div
+              className={`${
+                noResults
+                  ? "hidden"
+                  : "flex justify-center xl:col-start-2 items-center"
+              }`}
+            >
               <Link
                 key={"more-posts"}
                 to={"/blog"}
@@ -177,8 +196,26 @@ export const query = graphql`
             raw
           }
           author {
-            name
+            twitter
+            instagram
             title
+            shortBio {
+              raw
+            }
+            name
+            email
+            company
+            image {
+              gatsbyImageData(
+                layout: CONSTRAINED
+                cornerRadius: 9999
+                width: 600
+                cropFocus: CENTER
+                height: 600
+                resizingBehavior: FILL
+                placeholder: TRACED_SVG
+              )
+            }
           }
           heroImage {
             url

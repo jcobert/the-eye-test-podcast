@@ -11,6 +11,7 @@ import {
   faAngleUp,
   faAngleDown,
 } from "@fortawesome/pro-regular-svg-icons";
+import NoResults from "../components/NoResults.jsx";
 
 function Blog({ data }) {
   const [filtered, setFiltered] = React.useState(false);
@@ -23,8 +24,12 @@ function Blog({ data }) {
   tags.unshift("Any");
   let authors = [];
   let blogPostCards = [];
+  let noResults = false;
 
-  {
+  if (posts.length === 1) {
+    blogPostCards = [<NoResults />];
+    noResults = true;
+  } else {
     posts.map(({ node, index }) => {
       blogPostCards.push(<PostPreview key={index} post={node} />);
       authors.push([node.author.name, node.author.title]);
@@ -48,7 +53,11 @@ function Blog({ data }) {
       <div className="pb-12 md:pb-16 lg:mb-4 md:max-w-2xl mx-auto">
         <div className="flex flex-col mx-auto lg:w-9/12">
           {/* Search Bar */}
-          <div className="mb-4 lg:mb-6 z-30">
+          <div
+            className={`mb-4 lg:mb-6 z-30 ${
+              noResults ? "pointer-events-none" : "pointer-events-auto"
+            }`}
+          >
             <SearchBar
               items={posts}
               filteredState={filtered}
@@ -74,7 +83,9 @@ function Blog({ data }) {
                     <FontAwesomeIcon
                       // icon={open ? faAngleDown : faAngleUp}
                       icon={faAngleUp}
-                      className={`text-xl px-2 ${open ? "rotate-180" : ""} transition-all duration-100`}
+                      className={`text-xl px-2 ${
+                        open ? "rotate-180" : ""
+                      } transition-all duration-100`}
                     />
                   </Disclosure.Button>
                   <Transition
@@ -85,6 +96,9 @@ function Blog({ data }) {
                     // leave="transition duration-100 ease-out"
                     // leaveFrom="transform scale-100 opacity-100"
                     // leaveTo="transform scale-95 opacity-0"
+                    className={
+                      noResults ? "pointer-events-none" : "pointer-events-auto"
+                    }
                   >
                     <Disclosure.Panel static>
                       <div className="p-2 mt-2 border-t flex flex-col md:flex-row items-end justify-evenly gap-x-2 gap-y-2">
@@ -119,13 +133,15 @@ function Blog({ data }) {
           </div>
         </div>
       </div>
-      <div className="w-full flex flex-col gap-y-16 mb-24">{selection.length < 1 ? (
+      <div className="w-full flex flex-col gap-y-16 mb-24">
+        {selection.length < 1 ? (
           <div className="text-center text-slate-700">
             <p>No posts found...</p>
           </div>
         ) : (
           selection
-        )}</div>
+        )}
+      </div>
     </div>
   );
 }
@@ -140,15 +156,22 @@ export const query = graphql`
             raw
           }
           author {
-            name
+            twitter
+            instagram
             title
+            shortBio {
+              raw
+            }
+            name
+            email
+            company
             image {
               gatsbyImageData(
                 layout: CONSTRAINED
                 cornerRadius: 9999
-                width: 100
+                width: 600
                 cropFocus: CENTER
-                height: 100
+                height: 600
                 resizingBehavior: FILL
                 placeholder: TRACED_SVG
               )
