@@ -19,8 +19,9 @@ function PostPreview(props) {
     avatarComponent = (
       <GatsbyImage
         image={avatar}
-        alt="author photo"
-        className="rounded-full border border-theme-primary"
+        alt="contributor photo"
+        className="rounded-full shadow"
+        imgClassName="rounded-full border-2 border-slate-300"
       />
     );
   }

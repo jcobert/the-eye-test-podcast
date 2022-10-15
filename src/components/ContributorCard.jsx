@@ -86,7 +86,7 @@ function ContributorCard(props) {
     >
       <div className="w-full md:max-w-2xl mx-auto flex-1">
         {/* Body */}
-        <div className="p-6 rounded border flex flex-col justify-between">
+        <div className="p-6 rounded border flex flex-col justify-between font-jost">
           <div className="flex flex-col lg:flex-row">
             {/* Avatar */}
             <GatsbyImage
