@@ -74,7 +74,9 @@ function Blog({ data }) {
                     <FontAwesomeIcon
                       // icon={open ? faAngleDown : faAngleUp}
                       icon={faAngleUp}
-                      className={`text-xl px-2 ${open ? "rotate-180" : ""} transition-all duration-100`}
+                      className={`text-xl px-2 ${
+                        open ? "rotate-180" : ""
+                      } transition-all duration-100`}
                     />
                   </Disclosure.Button>
                   <Transition
@@ -119,13 +121,15 @@ function Blog({ data }) {
           </div>
         </div>
       </div>
-      <div className="w-full flex flex-col gap-y-16 mb-24">{selection.length < 1 ? (
+      <div className="w-full flex flex-col gap-y-16 mb-24">
+        {selection.length < 1 ? (
           <div className="text-center text-slate-700">
             <p>No posts found...</p>
           </div>
         ) : (
           selection
-        )}</div>
+        )}
+      </div>
     </div>
   );
 }
@@ -140,15 +144,21 @@ export const query = graphql`
             raw
           }
           author {
-            name
+            twitter
             title
+            shortBio {
+              raw
+            }
+            name
+            email
+            company
             image {
               gatsbyImageData(
                 layout: CONSTRAINED
                 cornerRadius: 9999
-                width: 100
+                width: 600
                 cropFocus: CENTER
-                height: 100
+                height: 600
                 resizingBehavior: FILL
                 placeholder: TRACED_SVG
               )

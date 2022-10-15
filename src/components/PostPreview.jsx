@@ -4,8 +4,12 @@ import { INLINES, BLOCKS, MARKS } from "@contentful/rich-text-types";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { Link } from "gatsby";
 import { ChevronRightIcon } from "@heroicons/react/solid";
+import { Dialog, Transition } from "@headlessui/react";
+import ContributorCard from "./ContributorCard";
 
 function PostPreview(props) {
+  const [open, setOpen] = React.useState(false);
+
   const image = getImage(props.post.heroImage);
   const avatar = getImage(props.post.author.image);
   const layout = props.layout;
@@ -105,13 +109,16 @@ function PostPreview(props) {
                     className={`${
                       layout === "compact" ? "hidden" : "w-10 lg:w-12 md:mx-2"
                     }`}
+                    onClick={() => setOpen(true)}
                   >
                     {avatarComponent}
                   </div>
+                  {/* Name */}
                   <div className="flex flex-col">
                     <p className="text-slate-700">
                       By {props.post.author.name}
                     </p>
+                    {/* Title */}
                     <p
                       className={`${
                         layout === "compact"
@@ -124,6 +131,39 @@ function PostPreview(props) {
                   </div>
                 </div>
               </div>
+              <Transition.Root show={open} as={React.Fragment}>
+                <Dialog as="div" className="relative z-40" onClose={setOpen}>
+                  <Transition.Child
+                    as={React.Fragment}
+                    enter="ease-out duration-300"
+                    enterFrom="opacity-0"
+                    enterTo="opacity-100"
+                    leave="ease-in duration-200"
+                    leaveFrom="opacity-100"
+                    leaveTo="opacity-0"
+                  >
+                    <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
+                  </Transition.Child>
+
+                  <div className="fixed inset-0 z-10 overflow-y-auto">
+                    <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+                      <Transition.Child
+                        as={React.Fragment}
+                        enter="ease-out duration-300"
+                        enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                        enterTo="opacity-100 translate-y-0 sm:scale-100"
+                        leave="ease-in duration-200"
+                        leaveFrom="opacity-100 translate-y-0 sm:scale-100"
+                        leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                      >
+                        <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
+                          <ContributorCard contributor={props.post.author} />
+                        </Dialog.Panel>
+                      </Transition.Child>
+                    </div>
+                  </div>
+                </Dialog>
+              </Transition.Root>
             </div>
             {/* Date (compact layout only) */}
             <div
