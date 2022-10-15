@@ -31,6 +31,7 @@ function Home({ data }) {
         <PostPreview key={index} post={node} layout="compact" animate={true} />
       );
     });
+    postPreviews.shift();
   }
 
   let recentCount = 0;

@@ -34,6 +34,7 @@ function Blog({ data }) {
       blogPostCards.push(<PostPreview key={index} post={node} />);
       authors.push([node.author.name, node.author.title]);
     });
+    blogPostCards.shift();
   }
 
   authors.sort();
