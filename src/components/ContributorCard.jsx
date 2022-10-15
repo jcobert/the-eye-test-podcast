@@ -3,7 +3,8 @@ import { renderRichText } from "gatsby-source-contentful/rich-text";
 import { INLINES, BLOCKS, MARKS } from "@contentful/rich-text-types";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTwitter, faFacebook } from "@fortawesome/free-brands-svg-icons";
+import { faTwitter, faInstagram } from "@fortawesome/free-brands-svg-icons";
+import { Link } from "gatsby";
 
 function ContributorCard(props) {
   const avatar = getImage(props.contributor.image);
@@ -96,21 +97,53 @@ function ContributorCard(props) {
               placeholder="tracedSVG"
               objectFit="contain"
             />
-            {/* Name */}
             <div className="text-center lg:text-left lg:ml-4 flex-auto">
-              <h4 className="font-medium text-3xl text-transparent bg-clip-text bg-gradient-to-r from-theme-primary/95 to-[#4465be]/95">
+              {/* Name */}
+              <h4 className="text-3xl text-transparent bg-clip-text bg-gradient-to-r from-theme-primary/95 to-[#4465be]/95">
                 {props.contributor.name}
               </h4>
+              {/* Title */}
               <h6 className="text-slate-700">{props.contributor.title}</h6>
-              <div
-                className={`${
-                  !props.contributor.twitter
-                    ? "hidden"
-                    : "flex justify-center lg:justify-start items-center gap-x-2 mt-2"
-                }`}
-              >
-                <FontAwesomeIcon className="text-slate-600" icon={faTwitter} />
-                <span className="text-slate-700">{props.contributor.twitter}</span>
+              {/* Social Links */}
+              <div className="flex flex-col sm:flex-row lg:flex-col gap-x-6 justify-center">
+                {/* Twitter */}
+                <div
+                  className={`${
+                    !props.contributor.twitter
+                      ? "hidden"
+                      : "flex justify-center lg:justify-start items-center gap-x-2 mt-2"
+                  }`}
+                >
+                  <Link
+                    className="text-slate-700 hover:text-theme-primary transition"
+                    to={`https://twitter.com/${props.contributor.twitter}`}
+                  >
+                    <FontAwesomeIcon
+                      className="text-slate-600 mr-2"
+                      icon={faTwitter}
+                    />
+                    @{props.contributor.twitter}
+                  </Link>
+                </div>
+                {/* Instagram */}
+                <div
+                  className={`${
+                    !props.contributor.instagram
+                      ? "hidden"
+                      : "flex justify-center lg:justify-start items-center gap-x-2 mt-2"
+                  }`}
+                >
+                  <Link
+                    className="text-slate-700 hover:text-theme-primary transition"
+                    to={`https://www.instagram.com/${props.contributor.instagram}`}
+                  >
+                    <FontAwesomeIcon
+                      className="text-slate-600 mr-2 pr-[.15rem]"
+                      icon={faInstagram}
+                    />
+                    @{props.contributor.instagram}
+                  </Link>
+                </div>
               </div>
             </div>
           </div>

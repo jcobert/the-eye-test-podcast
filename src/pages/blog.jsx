@@ -145,6 +145,7 @@ export const query = graphql`
           }
           author {
             twitter
+            instagram
             title
             shortBio {
               raw

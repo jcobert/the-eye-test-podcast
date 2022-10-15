@@ -108,13 +108,13 @@ function PostPreview(props) {
                   <div
                     className={`${
                       layout === "compact" ? "hidden" : "w-10 lg:w-12 md:mx-2"
-                    }`}
+                    } cursor-pointer`}
                     onClick={() => setOpen(true)}
                   >
                     {avatarComponent}
                   </div>
                   {/* Name */}
-                  <div className="flex flex-col">
+                  <div className="flex flex-col cursor-pointer" onClick={() => setOpen(true)}>
                     <p className="text-slate-700">
                       By {props.post.author.name}
                     </p>
@@ -156,7 +156,7 @@ function PostPreview(props) {
                         leaveFrom="opacity-100 translate-y-0 sm:scale-100"
                         leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
                       >
-                        <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
+                        <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-slate-50/95 text-left shadow-xl transition-all sm:my-8 w-full sm:max-w-2xl">
                           <ContributorCard contributor={props.post.author} />
                         </Dialog.Panel>
                       </Transition.Child>
