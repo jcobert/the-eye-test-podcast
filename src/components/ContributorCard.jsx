@@ -97,7 +97,8 @@ function ContributorCard(props) {
               placeholder="tracedSVG"
               objectFit="contain"
             />
-            <div className="text-center lg:text-left lg:ml-4 flex-auto">
+            {/* Info */}
+            <div className="text-center lg:text-left lg:ml-4 flex-auto mt-2 lg:mt-0">
               {/* Name */}
               <h4 className="text-3xl text-transparent bg-clip-text bg-gradient-to-r from-theme-primary/95 to-[#4465be]/95">
                 {props.contributor.name}
@@ -105,24 +106,24 @@ function ContributorCard(props) {
               {/* Title */}
               <h6 className="text-slate-700">{props.contributor.title}</h6>
               {/* Social Links */}
-              <div className="flex flex-col sm:flex-row lg:flex-col gap-x-6 justify-center">
+              <div className="flex lg:flex-col gap-x-16 md:gap-x-16 gap-y-2 justify-center mt-4">
                 {/* Twitter */}
                 <div
                   className={`${
                     !props.contributor.twitter
                       ? "hidden"
-                      : "flex justify-center lg:justify-start items-center gap-x-2 mt-2"
+                      : "flex justify-center lg:justify-start items-center gap-x-2"
                   }`}
                 >
                   <Link
-                    className="text-slate-700 hover:text-theme-primary transition"
+                    className="flex items-center md:flex-col lg:flex-row text-slate-700 hover:text-theme-primary transition"
                     to={`https://twitter.com/${props.contributor.twitter}`}
                   >
                     <FontAwesomeIcon
-                      className="text-slate-600 mr-2"
+                      className="text-slate-600 text-3xl md:text-xl lg:text-lg lg:mr-2 hover:text-slate-500 transition"
                       icon={faTwitter}
                     />
-                    @{props.contributor.twitter}
+                    <span className="hidden md:inline-block text-sm">@{props.contributor.twitter}</span>
                   </Link>
                 </div>
                 {/* Instagram */}
@@ -130,18 +131,18 @@ function ContributorCard(props) {
                   className={`${
                     !props.contributor.instagram
                       ? "hidden"
-                      : "flex justify-center lg:justify-start items-center gap-x-2 mt-2"
+                      : "flex justify-center lg:justify-start items-center gap-x-2"
                   }`}
                 >
                   <Link
-                    className="text-slate-700 hover:text-theme-primary transition"
+                    className="flex items-center md:flex-col lg:flex-row text-slate-700 hover:text-theme-primary transition"
                     to={`https://www.instagram.com/${props.contributor.instagram}`}
                   >
                     <FontAwesomeIcon
-                      className="text-slate-600 mr-2 pr-[.15rem]"
+                      className="text-slate-600 text-3xl md:text-xl lg:text-lg lg:mr-[.65rem] hover:text-slate-500 transition"
                       icon={faInstagram}
                     />
-                    @{props.contributor.instagram}
+                    <span className="hidden md:inline-block text-sm">@{props.contributor.instagram}</span>
                   </Link>
                 </div>
               </div>

@@ -114,8 +114,8 @@ function PostPreview(props) {
                     {avatarComponent}
                   </div>
                   {/* Name */}
-                  <div className="flex flex-col cursor-pointer" onClick={() => setOpen(true)}>
-                    <p className="text-slate-700">
+                  <div className="flex flex-col cursor-pointer group" onClick={() => setOpen(true)}>
+                    <p className="text-slate-700 group-hover:text-theme-primary transition">
                       By {props.post.author.name}
                     </p>
                     {/* Title */}
@@ -124,7 +124,7 @@ function PostPreview(props) {
                         layout === "compact"
                           ? "hidden"
                           : "text-slate-500 text-sm"
-                      }`}
+                      } group-hover:text-slate-400 transition`}
                     >
                       {props.post.author.title}
                     </p>
