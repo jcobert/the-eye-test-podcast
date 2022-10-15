@@ -177,8 +177,26 @@ export const query = graphql`
             raw
           }
           author {
-            name
+            twitter
+            instagram
             title
+            shortBio {
+              raw
+            }
+            name
+            email
+            company
+            image {
+              gatsbyImageData(
+                layout: CONSTRAINED
+                cornerRadius: 9999
+                width: 600
+                cropFocus: CENTER
+                height: 600
+                resizingBehavior: FILL
+                placeholder: TRACED_SVG
+              )
+            }
           }
           heroImage {
             url
