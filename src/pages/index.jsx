@@ -63,15 +63,15 @@ function Home({ data }) {
                 <div className="w-full md:w-7/12 lg:w-full justify-end">
                   <FontAwesomeIcon
                     icon={faMicrophoneLines}
-                    className="text-[5rem] lg:text-[6rem] text-slate-700 mx-auto w-full"
+                    className="text-[5rem] lg:text-[6rem] text-slate-500/90 mx-auto w-full animate-icon-enter"
                   />
                 </div>
                 {/* Text */}
-                <div className="flex justify-center md:justify-start lg:justify-center w-full md:w-11/12 lg:w-10/12 mx-auto py-8 text-slate-700">
+                <div className="flex justify-center md:justify-start lg:justify-center w-full md:w-11/12 lg:w-10/12 mx-auto py-8 text-transparent bg-gradient-to-br from-theme-primary/80 to-theme-secondary/80 bg-clip-text">
                   <FontAwesomeIcon
                     icon={faQuoteLeft}
                     pull="left"
-                    className="text-xl sm:text-2xl lg:text-3xl text-slate-400 pr-2 -mt-2"
+                    className="text-xl sm:text-2xl lg:text-3xl text-theme-primary/80 pr-2 -mt-2"
                   />
                   <p className="text-lg sm:text-xl lg:text-2xl text-center">
                     This is The Eye Test Podcast.
@@ -80,7 +80,7 @@ function Home({ data }) {
                   <FontAwesomeIcon
                     icon={faQuoteRight}
                     pull="right"
-                    className="text-xl sm:text-2xl lg:text-3xl text-slate-400 pl-2 mb-2 self-end"
+                    className="text-xl sm:text-2xl lg:text-3xl text-theme-secondary/80 pl-2 mb-2 self-end"
                   />
                 </div>
               </div>
