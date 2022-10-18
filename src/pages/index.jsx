@@ -56,7 +56,7 @@ function Home({ data }) {
       <div className="flex flex-col gap-y-20 md:gap-y-24 lg:px-2 mb-16 md:mb-24">
         <div className="flex flex-col md:gap-x-4 gap-y-16 justify-items-stretch">
           {/* Landing Feature */}
-          <div className="rounded p-2 lg:p-4 border-slate-400">
+          <div className="rounded  border-slate-400">
             <div className="flex flex-col gap-y-4">
               {/* Hero */}
               <div className="w-full flex flex-col md:flex-row md:items-center gap-x-8">
@@ -98,7 +98,7 @@ function Home({ data }) {
                   consequat ornare.
                 </p>
               </div> */}
-              <div className="w-full mx-auto flex flex-col self-center gap-y-4 lg:gap-y-8 mt-8 md:mt-16 px-2 md:px-10 lg:px-2">
+              <div className="w-full mx-auto flex flex-col self-center gap-y-4 lg:gap-y-8 mt-8 md:mt-16">
                 <div className="flex gap-x-8 justify-center">
                   <span className="block w-4/12 border-b"></span>
                   <FontAwesomeIcon
