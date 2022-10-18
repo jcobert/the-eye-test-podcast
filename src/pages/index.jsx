@@ -9,6 +9,7 @@ import {
   faQuoteLeft,
   faQuoteRight,
   faAngleRight,
+  faHeadphonesSimple,
 } from "@fortawesome/pro-solid-svg-icons";
 import { faTwitter } from "@fortawesome/free-brands-svg-icons";
 import { Timeline } from "react-twitter-widgets";
@@ -56,18 +57,18 @@ function Home({ data }) {
         <div className="flex flex-col md:gap-x-4 gap-y-16 justify-items-stretch">
           {/* Landing Feature */}
           <div className="rounded p-2 lg:p-4 border-slate-400">
-            <div className="flex flex-col lg:flex-row gap-y-4">
+            <div className="flex flex-col gap-y-4">
               {/* Hero */}
-              <div className="w-full flex flex-col md:flex-row md:items-center lg:flex-col">
+              <div className="w-full flex flex-col md:flex-row md:items-center gap-x-8">
                 {/* Graphic */}
-                <div className="w-full md:w-7/12 lg:w-full justify-end">
+                <div className="w-full flex justify-center md:justify-end md:w-6/12">
                   <FontAwesomeIcon
                     icon={faMicrophoneLines}
-                    className="text-[5rem] lg:text-[6rem] text-slate-500/90 mx-auto w-full animate-icon-enter"
+                    className="text-[5rem] lg:text-[6rem] text-slate-500/90 animate-icon-enter"
                   />
                 </div>
                 {/* Text */}
-                <div className="flex justify-center md:justify-start lg:justify-center w-full md:w-11/12 lg:w-10/12 mx-auto py-8 text-transparent bg-gradient-to-br from-theme-primary/80 to-theme-secondary/80 bg-clip-text">
+                <div className="flex justify-center md:justify-start w-full mx-auto py-8 text-transparent bg-gradient-to-br from-theme-primary/80 to-theme-secondary/80 bg-clip-text">
                   <FontAwesomeIcon
                     icon={faQuoteLeft}
                     pull="left"
@@ -97,6 +98,29 @@ function Home({ data }) {
                   consequat ornare.
                 </p>
               </div> */}
+              <div className="w-full mx-auto flex flex-col self-center gap-y-4 lg:gap-y-8 mt-8 md:mt-16 px-2 md:px-10 lg:px-2">
+                <div className="flex gap-x-8 justify-center">
+                  <span className="block w-4/12 border-b"></span>
+                  <FontAwesomeIcon
+                    icon={faHeadphonesSimple}
+                    className="text-4xl text-slate-500"
+                  />
+                  <span className="block w-4/12 border-b"></span>
+                </div>
+                <div className="border rounded p-4">
+                  <h3 className="text-center text-slate-700 text-lg mb-6">
+                    Listen to our feature on Talkin Mets!
+                  </h3>
+                  <iframe
+                    allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write"
+                    frameborder="0"
+                    height="175"
+                    className="w-full mx-auto max-w-lg overflow-hidden bg-transparent"
+                    sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation"
+                    src="https://embed.podcasts.apple.com/us/podcast/part-2-talkin-mets-postmortem-panel/id271866252?i=1000582814244"
+                  ></iframe>
+                </div>
+              </div>
             </div>
           </div>
         </div>
