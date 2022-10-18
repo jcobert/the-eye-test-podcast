@@ -9,7 +9,7 @@ module.exports = {
     extend: {
       colors: {
         "theme-primary": "#3892e2",
-        "theme-secondary": "#344e95",
+        "theme-secondary": "#314ad6",
         "theme-tertiary": "#ff9f46",
       },
       fontFamily: {
@@ -30,15 +30,20 @@ module.exports = {
           '100%': { opacity: 100, transform: 'translateY(0)' }
         },
         fade: {
-          '0%': { opacity: 0, transform: 'scale(95%)' },
+          '0%': { opacity: 10, transform: 'scale(95%)' },
           '25%': { opacity: 0 },
           '75%': { opacity: 70 },
           '100%': { opacity: 100, transform: 'scale(100%)' }
+        },
+        zoom: {
+          '0%': { opacity: 0, transform: 'scale(.5) rotate(-25deg)' },
+          '100%': { opacity: 1, transform: 'scale(1)' }
         }
       },
       animation: {
         'player-display': 'enter 500ms ease',
-        'iframe-display': 'fade 350ms ease-out'
+        'iframe-display': 'fade 350ms ease-out',
+        'icon-enter': 'zoom 750ms ease'
       }
     },
   },
