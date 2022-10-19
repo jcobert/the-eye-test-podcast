@@ -8,8 +8,12 @@ import { ChevronRightIcon, ChevronLeftIcon } from "@heroicons/react/solid";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faQuoteLeft, faQuoteRight } from "@fortawesome/pro-solid-svg-icons";
 import { faPipe } from "@fortawesome/pro-regular-svg-icons";
+import { Dialog, Transition } from "@headlessui/react";
+import ContributorCard from "../components/ContributorCard";
 
 function BlogPost({ data }) {
+  const [open, setOpen] = React.useState(false);
+
   const post = data.contentfulBlogPost;
   const previous = data.previous;
   const next = data.next;
@@ -115,19 +119,60 @@ function BlogPost({ data }) {
         </h1>
       </div>
       {/* Author */}
-      <div className="text-center text-slate-700 text-sm md:text-base flex gap-x-1 justify-center items-center mb-6 sm:mb-10 lg:mb-12">
+      <div
+        className="text-center text-slate-700 w-fit mx-auto text-sm md:text-base flex gap-x-1 justify-center items-center mb-6 sm:mb-10 lg:mb-12 group"
+        onClick={() => setOpen(true)}
+      >
         {/* Avatar */}
-        <div className="w-12 lg:w-16 mx-2">
+        <div className="w-12 lg:w-16 mx-2 cursor-pointer">
           <GatsbyImage
             image={avatar}
             alt="author photo"
-            className="rounded-full shadow border border-theme-primary"
+            className="rounded-full shadow"
+            imgClassName="rounded-full border-2 border-slate-300"
           />
         </div>
-        <p className="flex-shrink-0">By {post.author.name}</p>
+        <p className="flex-shrink-0 group-hover:text-theme-primary transition cursor-pointer">
+          By {post.author.name}
+        </p>
         <FontAwesomeIcon icon={faPipe} className="w-2 text-slate-600" />
-        <p className="text-slate-500 flex-shrink-0">{post.author.title}</p>
+        <p className="text-slate-500 flex-shrink-0 group-hover:text-slate-400 transition cursor-pointer">
+          {post.author.title}
+        </p>
       </div>
+      <Transition.Root show={open} as={React.Fragment}>
+        <Dialog as="div" className="relative z-40" onClose={setOpen}>
+          <Transition.Child
+            as={React.Fragment}
+            enter="ease-out duration-300"
+            enterFrom="opacity-0"
+            enterTo="opacity-100"
+            leave="ease-in duration-200"
+            leaveFrom="opacity-100"
+            leaveTo="opacity-0"
+          >
+            <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
+          </Transition.Child>
+
+          <div className="fixed inset-0 z-10 overflow-y-auto">
+            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+              <Transition.Child
+                as={React.Fragment}
+                enter="ease-out duration-300"
+                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                enterTo="opacity-100 translate-y-0 sm:scale-100"
+                leave="ease-in duration-200"
+                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
+                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+              >
+                <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-slate-50/95 text-left shadow-xl transition-all sm:my-8 w-full sm:max-w-2xl">
+                  <ContributorCard contributor={post.author} />
+                </Dialog.Panel>
+              </Transition.Child>
+            </div>
+          </div>
+        </Dialog>
+      </Transition.Root>
       {/* Image */}
       <div className="lg:px-24 xl:px-40 rounded-lg">
         <GatsbyImage
@@ -199,15 +244,22 @@ export const pageQuery = graphql`
       slug
       title
       author {
-        name
+        twitter
+        instagram
         title
+        shortBio {
+          raw
+        }
+        name
+        email
+        company
         image {
           gatsbyImageData(
             layout: CONSTRAINED
             cornerRadius: 9999
-            width: 200
+            width: 600
             cropFocus: CENTER
-            height: 200
+            height: 600
             resizingBehavior: FILL
             placeholder: TRACED_SVG
           )
