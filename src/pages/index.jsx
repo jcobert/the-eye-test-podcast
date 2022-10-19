@@ -97,7 +97,7 @@ function Home({ data }) {
                 </div>
                 <div className="border rounded p-4">
                   <h3 className="text-center text-slate-700 text-lg mb-6">
-                    Listen to our feature on Talkin Mets!
+                    Listen to Brian's feature on Talkin Mets!
                   </h3>
                   <iframe
                     allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write"
