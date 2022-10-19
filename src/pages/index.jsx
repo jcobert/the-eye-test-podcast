@@ -56,7 +56,7 @@ function Home({ data }) {
       <div className="flex flex-col gap-y-20 md:gap-y-24 lg:px-2 mb-16 md:mb-24">
         <div className="flex flex-col md:gap-x-4 gap-y-16 justify-items-stretch">
           {/* Landing Feature */}
-          <div className="rounded  border-slate-400">
+          <div className="rounded border-slate-400">
             <div className="flex flex-col gap-y-4">
               {/* Hero */}
               <div className="w-full flex flex-col md:flex-row md:items-center gap-x-8">
@@ -85,19 +85,7 @@ function Home({ data }) {
                   />
                 </div>
               </div>
-              {/* Placeholder Blurb */}
-              {/* <div className="w-full flex flex-col self-center gap-y-4 lg:gap-y-8 mt-2 md:mt-10 lg:mt-0 px-2 md:px-10 lg:px-2">
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Nullam nec ante id ligula rutrum blandit. Nunc blandit
-                  vehicula congue. Cras luctus, neque nec sodales euismod.
-                </p>
-                <p>
-                  Aliquam a libero enim. Aliquam magna odio, gravida eget
-                  blandit a, convallis non mauris. Fusce ultricies nisi suscipit
-                  consequat ornare.
-                </p>
-              </div> */}
+              {/* Featured Content */}
               <div className="w-full mx-auto flex flex-col self-center gap-y-4 lg:gap-y-8 mt-8 md:mt-16">
                 <div className="flex gap-x-8 justify-center">
                   <span className="block w-4/12 border-b"></span>
@@ -114,8 +102,8 @@ function Home({ data }) {
                   <iframe
                     allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write"
                     frameborder="0"
-                    height="185"
-                    className="w-full mx-auto max-w-lg overflow-hidden bg-transparent"
+                    height="190"
+                    className="w-full mx-auto max-w-lg overflow-hidden bg-transparent animate-slow-fade-in"
                     sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation"
                     src="https://embed.podcasts.apple.com/us/podcast/part-2-talkin-mets-postmortem-panel/id271866252?i=1000582814244"
                   ></iframe>
@@ -191,11 +179,11 @@ function Home({ data }) {
           <span className="block w-4/12 border-b"></span>
           <FontAwesomeIcon
             icon={faTwitter}
-            className="text-6xl text-slate-500"
+            className="text-4xl text-slate-500"
           />
           <span className="block w-4/12 border-b"></span>
         </div>
-        <div className="w-full max-w-xl mx-auto">
+        <div className="w-full max-w-xl mx-auto -mt-8">
           <Timeline
             dataSource={{
               sourceType: "profile",
