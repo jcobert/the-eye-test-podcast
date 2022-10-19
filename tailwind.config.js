@@ -43,7 +43,8 @@ module.exports = {
       animation: {
         'player-display': 'enter 500ms ease',
         'iframe-display': 'fade 350ms ease-out',
-        'icon-enter': 'zoom 750ms ease'
+        'icon-enter': 'zoom 750ms ease',
+        'slow-fade-in': 'fade 750ms ease-out'
       }
     },
   },

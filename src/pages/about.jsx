@@ -6,8 +6,9 @@ import {
   faApple,
   faYoutube,
 } from "@fortawesome/free-brands-svg-icons";
-// import {} from "@fortawesome/pro-solid-svg-icons";
+import { faTwitter, faInstagram } from "@fortawesome/free-brands-svg-icons";
 import { StaticImage } from "gatsby-plugin-image";
+import { Link } from "gatsby";
 
 function About() {
   const links = {
@@ -68,9 +69,36 @@ function About() {
                 placeholder="tracedSVG"
                 imgClassName="rounded-full border-2 border-slate-300"
               />
-              <div className="flex flex-col mb-1">
+              <div className="flex flex-col mb-3">
                 <h5 className="text-lg text-slate-800">Brian Donovan</h5>
                 <p className="text-slate-500 -mt-2">Founder and Host</p>
+                {/* Social Links */}
+                <div className="flex gap-x-6 md:gap-x-4 justify-start">
+                  {/* Twitter */}
+                  <div className="flex justify-center items-center gap-x-2">
+                    <Link
+                      className="flex items-center md:flex-col lg:flex-row text-slate-700 hover:text-theme-primary transition"
+                      to="https://twitter.com/DonoPodcast"
+                    >
+                      <FontAwesomeIcon
+                        className="text-slate-600 text-xl md:text-xl hover:text-slate-500 transition"
+                        icon={faTwitter}
+                      />
+                    </Link>
+                  </div>
+                  {/* Instagram */}
+                  <div className="flex justify-center items-center gap-x-2">
+                    <Link
+                      className="flex items-center md:flex-col lg:flex-row text-slate-700 hover:text-theme-primary transition"
+                      to="https://www.instagram.com/b_dono24"
+                    >
+                      <FontAwesomeIcon
+                        className="text-slate-600 text-xl md:text-xl hover:text-slate-500 transition"
+                        icon={faInstagram}
+                      />
+                    </Link>
+                  </div>
+                </div>
               </div>
               <p>
                 Bro ipsum dolor sit amet clean McTwist trail swag schwag jib
@@ -83,7 +111,7 @@ function About() {
               </p>
             </div>
             <div>
-            <StaticImage
+              <StaticImage
                 className="w-16 rounded-full shadow float-left mr-6"
                 src="../images/josh-cobert.jpg"
                 alt="Josh Cobert bio photo"
@@ -92,11 +120,38 @@ function About() {
                 placeholder="tracedSVG"
                 imgClassName="rounded-full border-2 border-slate-300"
               />
-              <div className="flex flex-col mb-1">
+              <div className="flex flex-col mb-3">
                 <h5 className="text-lg text-slate-800">Josh Cobert</h5>
                 <p className="text-slate-500 -mt-2">
                   Producer, Technology Lead
                 </p>
+                {/* Social Links */}
+                <div className="flex gap-x-6 md:gap-x-4 justify-start">
+                  {/* Twitter */}
+                  <div className="flex justify-center items-center gap-x-2">
+                    <Link
+                      className="flex items-center md:flex-col lg:flex-row text-slate-700 hover:text-theme-primary transition"
+                      to="https://twitter.com/joshcobert"
+                    >
+                      <FontAwesomeIcon
+                        className="text-slate-600 text-xl md:text-xl hover:text-slate-500 transition"
+                        icon={faTwitter}
+                      />
+                    </Link>
+                  </div>
+                  {/* Instagram */}
+                  <div className="flex justify-center items-center gap-x-2">
+                    <Link
+                      className="flex items-center md:flex-col lg:flex-row text-slate-700 hover:text-theme-primary transition"
+                      to="https://www.instagram.com/jcobez"
+                    >
+                      <FontAwesomeIcon
+                        className="text-slate-600 text-xl md:text-xl hover:text-slate-500 transition"
+                        icon={faInstagram}
+                      />
+                    </Link>
+                  </div>
+                </div>
               </div>
               <p>
                 Josh pushes the buttons and pulls the levers behind the scenes.
