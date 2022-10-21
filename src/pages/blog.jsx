@@ -6,10 +6,7 @@ import FilterListbox from "../components/FilterListbox.jsx";
 import SearchBar from "../components/SearchBar.jsx";
 import { Disclosure, Transition } from "@headlessui/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faSliders,
-  faAngleUp,
-} from "@fortawesome/pro-regular-svg-icons";
+import { faSliders, faAngleUp } from "@fortawesome/pro-regular-svg-icons";
 import NoResults from "../components/NoResults.jsx";
 
 function Blog({ data }) {
@@ -25,7 +22,7 @@ function Blog({ data }) {
   let blogPostCards = [];
   let noResults = false;
 
-  if (posts.length === 1) {
+  if (posts.length <= 1) {
     blogPostCards = [<NoResults />];
     noResults = true;
   } else {
@@ -60,7 +57,7 @@ function Blog({ data }) {
             }`}
           >
             <SearchBar
-              items={posts}
+              items={posts.slice(1)}
               filteredState={filtered}
               setFilteredState={setFiltered}
               selectionState={selection}

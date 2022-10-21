@@ -17,6 +17,7 @@ function FilterListbox(props) {
       Football: ["football", "nfl", "jets"],
       Golf: ["golf", "pga", "masters", "us open"],
       Basketball: ["basketball", "nba", "knicks", "nets"],
+      UFC: ["ufc", "mma", "peruvian necktie", "octagon", "dana white"],
     },
   };
 
