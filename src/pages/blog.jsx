@@ -9,7 +9,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faSliders,
   faAngleUp,
-  faAngleDown,
 } from "@fortawesome/pro-regular-svg-icons";
 import NoResults from "../components/NoResults.jsx";
 
@@ -38,6 +37,7 @@ function Blog({ data }) {
   }
 
   authors.sort();
+  authors.splice(0, 1); // Removes author of dummy null blog entry
   authors.unshift(["Any"]);
 
   return (
@@ -82,7 +82,6 @@ function Blog({ data }) {
                       <p>Filter and Sort</p>
                     </div>
                     <FontAwesomeIcon
-                      // icon={open ? faAngleDown : faAngleUp}
                       icon={faAngleUp}
                       className={`text-xl px-2 ${
                         open ? "rotate-180" : ""
@@ -94,9 +93,6 @@ function Blog({ data }) {
                     enter="transition duration-200 ease-out"
                     enterFrom="transform scale-95 opacity-0"
                     enterTo="transform scale-100 opacity-100"
-                    // leave="transition duration-100 ease-out"
-                    // leaveFrom="transform scale-100 opacity-100"
-                    // leaveTo="transform scale-95 opacity-0"
                     className={
                       noResults ? "pointer-events-none" : "pointer-events-auto"
                     }
