@@ -6,7 +6,11 @@ import FilterListbox from "../components/FilterListbox.jsx";
 import SearchBar from "../components/SearchBar.jsx";
 import { Disclosure, Transition } from "@headlessui/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSliders, faAngleUp } from "@fortawesome/pro-regular-svg-icons";
+import {
+  faSliders,
+  faAngleUp,
+  faArrowsRotate,
+} from "@fortawesome/pro-regular-svg-icons";
 import NoResults from "../components/NoResults.jsx";
 
 function Blog({ data }) {
@@ -15,7 +19,7 @@ function Blog({ data }) {
   const [found, setFound] = React.useState("");
 
   const posts = data.allContentfulBlogPost.edges;
-  const tags = ["Betting", "Baseball", "Football", "Golf", "Basketball"];
+  const tags = ["Betting", "Baseball", "Football", "Golf", "Basketball", "UFC"];
   tags.sort();
   tags.unshift("Any");
   let authors = [];
@@ -36,6 +40,19 @@ function Blog({ data }) {
   authors.sort();
   authors.splice(0, 1); // Removes author of dummy null blog entry
   authors.unshift(["Any"]);
+
+  let resultsMessage = "";
+  if (selection.length === blogPostCards.length) {
+    resultsMessage = `Showing all posts`;
+  } else if (filtered && selection.length > 0) {
+    resultsMessage = `Found ${selection.length} of ${blogPostCards.length}`;
+  }
+
+  function handleResetClick() {
+    setFiltered(false);
+    setSelection(blogPostCards);
+    noResults = false;
+  }
 
   return (
     <div>
@@ -95,38 +112,61 @@ function Blog({ data }) {
                     }
                   >
                     <Disclosure.Panel static>
-                      <div className="p-2 mt-2 border-t flex flex-col md:flex-row items-end justify-evenly gap-x-2 gap-y-2">
-                        <FilterListbox
-                          options={tags}
-                          filteredState={filtered}
-                          setFilteredState={setFiltered}
-                          selectionState={selection}
-                          setSelectionState={setSelection}
-                          cards={blogPostCards}
-                          filter="category"
-                          source="blog"
-                          title="Category"
-                        />
-                        <FilterListbox
-                          options={authors}
-                          filteredState={filtered}
-                          setFilteredState={setFiltered}
-                          selectionState={selection}
-                          setSelectionState={setSelection}
-                          cards={blogPostCards}
-                          filter="author"
-                          source="blog"
-                          title="Author"
-                        />
-                      </div>
+                      {({ close }) => (
+                        <div className="p-2 mt-2 border-t flex flex-col md:flex-row items-end justify-evenly gap-x-2 gap-y-2">
+                          <FilterListbox
+                            options={tags}
+                            filteredState={filtered}
+                            setFilteredState={setFiltered}
+                            selectionState={selection}
+                            setSelectionState={setSelection}
+                            cards={blogPostCards}
+                            filter="category"
+                            source="blog"
+                            title="Category"
+                          />
+                          <FilterListbox
+                            options={authors}
+                            filteredState={filtered}
+                            setFilteredState={setFiltered}
+                            selectionState={selection}
+                            setSelectionState={setSelection}
+                            cards={blogPostCards}
+                            filter="author"
+                            source="blog"
+                            title="Author"
+                          />
+                          {/* Reset Button */}
+                          <div className="w-full md:w-3/12 mx-auto">
+                            <button
+                              className="w-full bg-slate-200 border border-gray-300 shadow-sm rounded-md p-2 hover:bg-slate-100 active:bg-slate-200"
+                              onClick={() => {
+                                handleResetClick();
+                                close();
+                              }}
+                            >
+                              <span className="flex gap-x-2 justify-center items-center">
+                                <FontAwesomeIcon icon={faArrowsRotate} />
+                                <p className="inline-block text-sm">Reset</p>
+                              </span>
+                            </button>
+                          </div>
+                        </div>
+                      )}
                     </Disclosure.Panel>
                   </Transition>
                 </>
               )}
             </Disclosure>
           </div>
+
+          {/* Results Message */}
+          <div className="text-center text-sm text-slate-500 mt-4">
+            <p>{resultsMessage}</p>
+          </div>
         </div>
       </div>
+      {/* Posts Selection */}
       <div className="w-full flex flex-col gap-y-16 mb-24">
         {selection.length < 1 ? (
           <div className="text-center text-slate-700">
