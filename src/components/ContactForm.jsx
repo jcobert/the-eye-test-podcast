@@ -69,7 +69,7 @@ function ContactForm() {
             <button
               type="submit"
               disabled={state.submitting}
-              className="w-full h-14 mx-auto border border-white rounded-md text-white text-xl bg-theme-primary"
+              className="w-full h-14 mx-auto border border-white rounded-md text-white text-xl bg-theme-primary hover:text-theme-primary hover:border-theme-primary hover:bg-gray-50 transition"
             >
               <div className="flex gap-x-4 justify-center items-center">
                 <p>Send</p>

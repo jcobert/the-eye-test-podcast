@@ -30,7 +30,7 @@ function Contact() {
             <a class="hover:text-slate-300 transition-all" href={links.twitter}>
               <FontAwesomeIcon
                 icon={faTwitter}
-                className="text-5xl text-theme-primary hover:text-slate-600 transition-all"
+                className="text-5xl text-theme-primary hover:text-slate-500 transition-all"
               />
             </a>
           </div>
@@ -39,7 +39,7 @@ function Contact() {
             <a href={links.email}>
               <FontAwesomeIcon
                 icon={faEnvelope}
-                className="text-5xl text-theme-primary hover:text-slate-600 transition-all"
+                className="text-5xl text-theme-primary hover:text-slate-500 transition-all"
               />
             </a>
           </div>
