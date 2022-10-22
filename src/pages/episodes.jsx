@@ -4,14 +4,17 @@ import { graphql } from "gatsby";
 import EpisodePreview from "../components/EpisodePreview.jsx";
 import FilterListbox from "../components/FilterListbox.jsx";
 import SearchBar from "../components/SearchBar.jsx";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowsRotate } from "@fortawesome/pro-regular-svg-icons";
 
 function Episodes({ data }) {
   const [filtered, setFiltered] = React.useState(false);
   const [selection, setSelection] = React.useState("Any");
   const [found, setFound] = React.useState("");
+  const [reset, setReset] = React.useState(false);
 
   const episodes = data.allSimplecastEpisode.edges;
-  const tags = ["Betting", "Baseball", "Football", "Golf", "Basketball"];
+  const tags = ["Betting", "Baseball", "Football", "Golf", "Basketball", "UFC"];
   tags.sort();
   tags.unshift("Any");
   let episodeCards = [];
@@ -25,6 +28,12 @@ function Episodes({ data }) {
     }
     episodeCards.push(<EpisodePreview key={index} node={node} new={isNew} />);
   });
+
+  function handleResetClick() {
+    setFiltered(false);
+    setSelection(episodeCards);
+    setReset(true);
+  }
 
   return (
     <div>
@@ -52,6 +61,8 @@ function Episodes({ data }) {
               source="podcast"
               title="Category"
               className=""
+              reset={reset}
+              resetState={setReset}
             />
             <SearchBar
               items={episodes}
@@ -65,6 +76,18 @@ function Episodes({ data }) {
               source="podcast"
               className=""
             />
+            {/* Reset Button */}
+            <div className="w-full md:w-3/12 mx-auto">
+              <button
+                className="w-full bg-slate-200 border border-gray-300 shadow-sm rounded-md p-2 hover:bg-slate-100 active:bg-slate-200"
+                onClick={handleResetClick}
+              >
+                <span className="flex gap-x-2 justify-center items-center">
+                  <FontAwesomeIcon icon={faArrowsRotate} />
+                  <p className="inline-block text-sm">Reset</p>
+                </span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
