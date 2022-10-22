@@ -26,8 +26,8 @@
   </a>
 
 - Netlify <a href="https://www.netlify.com">
-<img src="https://www.vectorlogo.zone/logos/netlify/netlify-icon.svg" width="20" />
-</a>
+  <img src="https://www.vectorlogo.zone/logos/netlify/netlify-icon.svg" width="20" />
+  </a>
 
 ## <img src="static/images/the-eye-test-logo.png" width="40" /> View it in Action!
 
