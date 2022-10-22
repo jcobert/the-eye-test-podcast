@@ -14,9 +14,10 @@ function FilterListbox(props) {
     category: {
       Betting: ["bets", "gambl", "picks", "over/under", "moneyline"],
       Baseball: ["baseball", "mlb", "mets", "yankees"],
-      Football: ["football", "nfl", "jets"],
+      Football: ["football", "nfl", "jets", "week "],
       Golf: ["golf", "pga", "masters", "us open"],
       Basketball: ["basketball", "nba", "knicks", "nets"],
+      UFC: ["ufc", "mma ", "peruvian necktie", "octagon", "dana white"],
     },
   };
 
@@ -94,11 +95,14 @@ function FilterListbox(props) {
     } else {
       setSelected(e);
     }
+    if (props.reset) {
+      props.resetState(false);
+    }
   });
 
   return (
     <div className="w-full">
-      <Listbox value={selected} onChange={handleChange}>
+      <Listbox value={props.reset ? "Any" : selected} onChange={handleChange}>
         {({ open }) => (
           <>
             <Listbox.Label className="block text-sm text-gray-700">
@@ -109,7 +113,7 @@ function FilterListbox(props) {
                 <span className="flex items-center">
                   <FilterIcon className="h-5 w-5" aria-hidden="true" />
                   <span className="ml-3 block truncate">
-                    {selected === "A" ? "Any" : selected}
+                    {props.reset ? "Any" : selected}
                   </span>
                 </span>
                 <span className="ml-3 absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">

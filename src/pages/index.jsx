@@ -96,8 +96,9 @@ function Home({ data }) {
                   <span className="block w-4/12 border-b"></span>
                 </div>
                 <div className="border rounded p-4">
-                  <h3 className="text-center text-slate-700 text-lg mb-6">
-                    Listen to Brian's feature on Talkin Mets!
+                  <h3 className="text-center text-slate-700 text-lg mb-6 flex flex-col lg:flex-row justify-center items-center">
+                    <span>Listen to Brian's feature on</span>
+                    <span className="italic text-slate-900 lg:ml-1">Talkin Mets with Mike Silva</span>
                   </h3>
                   <iframe
                     allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write"
