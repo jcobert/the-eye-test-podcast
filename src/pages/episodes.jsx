@@ -9,7 +9,7 @@ import { faArrowsRotate } from "@fortawesome/pro-regular-svg-icons";
 
 function Episodes({ data }) {
   const [filtered, setFiltered] = React.useState(false);
-  const [selection, setSelection] = React.useState("Any");
+  const [selection, setSelection] = React.useState("");
   const [found, setFound] = React.useState("");
   const [reset, setReset] = React.useState(false);
 

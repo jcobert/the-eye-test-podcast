@@ -15,7 +15,7 @@ import NoResults from "../components/NoResults.jsx";
 
 function Blog({ data }) {
   const [filtered, setFiltered] = React.useState(false);
-  const [selection, setSelection] = React.useState("Any");
+  const [selection, setSelection] = React.useState("");
   const [found, setFound] = React.useState("");
 
   const posts = data.allContentfulBlogPost.edges;
