@@ -29,6 +29,13 @@ function Episodes({ data }) {
     episodeCards.push(<EpisodePreview key={index} node={node} new={isNew} />);
   });
 
+  let resultsMessage = "";
+  if (selection.length === episodeCards.length) {
+    resultsMessage = `Showing all episodes`;
+  } else if (filtered && selection.length > 0) {
+    resultsMessage = `Found ${selection.length} of ${episodeCards.length}`;
+  }
+
   function handleResetClick() {
     setFiltered(false);
     setSelection(episodeCards);
@@ -79,7 +86,11 @@ function Episodes({ data }) {
             {/* Reset Button */}
             <div className="w-full md:w-3/12 mx-auto">
               <button
-                className="w-full bg-slate-200 border border-gray-300 shadow-sm rounded-md p-2 hover:bg-slate-100 active:bg-slate-200"
+                className={`w-full border shadow-sm rounded-md p-2 transition ${
+                  filtered
+                    ? "bg-theme-primary text-white border-gray-300 hover:bg-white hover:text-theme-primary active:bg-theme-primary active:text-white"
+                    : "bg-slate-200 text-slate-800 border-gray-300 hover:bg-slate-100 active:bg-slate-200"
+                }`}
                 onClick={handleResetClick}
               >
                 <span className="flex gap-x-2 justify-center items-center">
@@ -89,11 +100,15 @@ function Episodes({ data }) {
               </button>
             </div>
           </div>
+          {/* Results Message */}
+          <div className="text-center lg:text-right lg:pr-4 text-sm text-slate-500 mt-4">
+            <p>{resultsMessage}</p>
+          </div>
         </div>
       </div>
       <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-y-12 gap-x-8 mb-16">
         {selection.length < 1 ? (
-          <div className="text-center text-slate-700">
+          <div className="text-center text-slate-700 lg:col-span-2">
             <p>No episodes found...</p>
           </div>
         ) : (

@@ -139,7 +139,11 @@ function Blog({ data }) {
                           {/* Reset Button */}
                           <div className="w-full md:w-3/12 mx-auto">
                             <button
-                              className="w-full bg-slate-200 border border-gray-300 shadow-sm rounded-md p-2 hover:bg-slate-100 active:bg-slate-200"
+                              className={`w-full border shadow-sm rounded-md p-2 transition ${
+                                filtered
+                                  ? "bg-theme-primary text-white border-gray-300 hover:bg-white hover:text-theme-primary active:bg-theme-primary active:text-white"
+                                  : "bg-slate-200 text-slate-800 border-gray-300 hover:bg-slate-100 active:bg-slate-200"
+                              }`}
                               onClick={() => {
                                 handleResetClick();
                                 close();
@@ -159,7 +163,6 @@ function Blog({ data }) {
               )}
             </Disclosure>
           </div>
-
           {/* Results Message */}
           <div className="text-center text-sm text-slate-500 mt-4">
             <p>{resultsMessage}</p>

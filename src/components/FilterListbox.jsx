@@ -14,7 +14,7 @@ function FilterListbox(props) {
     category: {
       Betting: ["bets", "gambl", "picks", "over/under", "moneyline"],
       Baseball: ["baseball", "mlb", "mets", "yankees"],
-      Football: ["football", "nfl", "jets"],
+      Football: ["football", "nfl", "jets", "week "],
       Golf: ["golf", "pga", "masters", "us open"],
       Basketball: ["basketball", "nba", "knicks", "nets"],
       UFC: ["ufc", "mma ", "peruvian necktie", "octagon", "dana white"],
@@ -95,7 +95,9 @@ function FilterListbox(props) {
     } else {
       setSelected(e);
     }
-    props.resetState(false);
+    if (props.reset) {
+      props.resetState(false);
+    }
   });
 
   return (

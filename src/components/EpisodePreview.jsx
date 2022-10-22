@@ -10,6 +10,7 @@ import {
   faCirclePlay,
   faAngleDown,
   faAngleUp,
+  faHandFist,
 } from "@fortawesome/pro-regular-svg-icons";
 import { faCalendarStar, faCircleStar } from "@fortawesome/pro-solid-svg-icons";
 import ShowMoreText from "react-show-more-text";
@@ -36,7 +37,7 @@ function EpisodePreview(props) {
     {
       name: "football",
       icon: faFootball,
-      keywords: ["football", "nfl", "jets"],
+      keywords: ["football", "nfl", "jets", "week "],
     },
     {
       name: "golf",
@@ -47,6 +48,11 @@ function EpisodePreview(props) {
       name: "basketball",
       icon: faBasketballHoop,
       keywords: ["basketball", "nba", "knicks", "nets"],
+    },
+    {
+      name: "ufc",
+      icon: faHandFist,
+      keywords: ["ufc", "mma ", "peruvian necktie", "octagon", "dana white"],
     },
   ];
 
